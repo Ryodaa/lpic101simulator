@@ -22,7 +22,8 @@
     <div *ngIf="questions[laufVar].type === 'multi' || questions[laufVar].type === 'single'"><ltps-multiple-choice [question]="questions[laufVar]"></ltps-multiple-choice></div>
 </div>
 
-<div style="text-align:center;" *ngIf="currentRoute == '/learn'">
+<div *ngIf="currentRoute === '/learn'" style="text-align: center;">
+    <div class="ui divider"></div>
     <button class="ui labeled icon button large">
         <i class="info icon black"></i>
         Info Zeigen

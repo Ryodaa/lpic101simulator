@@ -1,6 +1,4 @@
-<div class="ui raised very padded segment" id="scrollable">
-
-  <h4>Alle Fragen</h4>
+<h4>Alle Fragen</h4>
 
   <div *ngFor="let question of questions">
 
@@ -8,15 +6,37 @@
     <div class="ui grid">
       <div class="two wide column">
         <div (click)="showInfo(question.id)" [ngClass]="clickedInfoBtn === question.id ? 
-            'ui small basic icon buttons centered positive' : 
-            'ui small basic icon buttons centered'" style="margin-right: 5px;">
+            'ui small basic icon buttons positive' : 
+            'ui small basic icon buttons'">
           <button class="ui button"><i class="info icon"></i></button>
         </div>
       </div>
       <div class="fourteen wide column">
-        <div style="margin-left: 5px;"> {{ question.id }}. {{ question.question }} </div>
+        <div> <b>{{ question.id }}.</b> {{ question.question }} </div>
+          <div stype="padding-top: 8px;" ></div> <!-- spacer -->
+          <div class="ui raised segment">
+
+            <!-- Zwei For Schleifen ineinander welche gucken wann die ob die richtige Antwort in question.solution ist und bei true es als Grünen text und bei false als roten text ausgeben 
+            Funktioniert nur bei Objekten welche nur eine Antwort haben.-->
+            <div *ngIf="question.type !== 'multi'">
+              <div class="answer" *ngFor="let answer of question.answers; index as i">
+                <div *ngFor="let solution of question.solution; index as k">
+                  <ng-component *ngIf="solution === answer then correctBlock else falseBlock">  </ng-component>
+                  <ng-template #correctBlock> <i class="right check icon small grey"></i> <i id="correct"> {{ answer }} </i> </ng-template>
+                  <ng-template #falseBlock> <i class="right times icon small grey"></i> <i id="incorrect"> {{ answer }} </i> </ng-template>
+                </div>
+              </div>
+          </div>
+
+          <div *ngIf="question.type === 'multi'">
+            <div *ngFor="let answer of question.answers"> 
+              
+            </div>
+          </div>
+
+
+        </div>
       </div>
     </div>
   </div>
 
-</div>

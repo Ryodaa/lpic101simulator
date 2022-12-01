@@ -19,6 +19,7 @@ export class QuestionListComponent implements OnInit {
   
   clickedInfoBtn!: number; // Ist gleich der aktuellen question.id
   questions!: Question[]; // Fragen Array aus dem Questions-service
+  filteredArr!: string;
 
   constructor(private qs: QuestionsService) {}
 
@@ -28,6 +29,29 @@ export class QuestionListComponent implements OnInit {
     if (this.clickedInfoBtn === undefined) {
       this.clickedInfoBtn = this.activeButton;
     }
+
+  this.filterAnswers();
+
+  }
+
+  filterAnswers(): void {
+    let answers!: string[];
+    let solutions!: string[];
+
+    for (let i = 0; i < this.questions.length; i++) {
+      if(this.questions[i].type === 'multi') {
+        answers = this.questions[i].answers;
+        solutions = this.questions[i].solution;
+
+        solutions.forEach(element => {
+          
+        });
+
+      }
+    }
+
+    console.log(answers);
+    console.log(solutions);
   }
   
   showInfo(id: number): void {

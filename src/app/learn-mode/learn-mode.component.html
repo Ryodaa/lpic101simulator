@@ -4,63 +4,71 @@
 
 
     <div class="five wide column">
-
-      <button [routerLink]="['/home']" class="ui labeled icon button large">
+      
+      <button id="backBtn" [routerLink]="['/home']" class="ui labeled icon button large">
         <i class="step backward icon black"></i>
         Zurück
       </button>
+      <div style="padding-top: 17px;"></div> <!-- spacer --> 
 
       <!-- Gib die id aus der listen Komponente an die Info Box weiter -->
       <ltps-info-box [childIdBox]="childId"></ltps-info-box>
         
+
     </div>
 
 
     <div class="nine wide column">
 
-      <div id="align">
-
-        <h2 class="ui header">
-          <img class="ui image" src="https://semantic-ui.com/images/icons/school.png">
-          <div class="content">
-            Lernmodus
-          </div>
-        </h2>
-      </div>
       
-        <div class="ui raised very padded text segment">
-
-            <!-- if-else um zu bestimmen ob die question-list oder question Komponente angezeigt werden soll.
+      <div id="align">
+        
+        <h2 class="ui header">
+            <img class="ui image" src="https://semantic-ui.com/images/icons/school.png">
+            <div class="content">
+              Lernen
+            </div>
+          </h2>
+        </div>
+        
+        <div style="padding-top: 15px;"></div> <!-- spacer -->
+        
+        <div class="ui raised padded segment" id="scrollable">
+          
+          <!-- if-else um zu bestimmen ob die question-list oder question Komponente angezeigt werden soll.
             Korreliert mit den zwei vertical Buttons unten -->
             <ng-container *ngIf="modeBool === true; then trueBlock else falseBlock"></ng-container>
-
+            
             <ng-template #trueBlock>
               <!-- Hier kommt die id aus der question-list an und geht in die funktion idRecieved -->
               <ltps-question-list (clickedInfoBtnEmit)="idRecieved($event)" [activeButton]="childId"></ltps-question-list>
             </ng-template>
-
+            
             <ng-template #falseBlock>
-              <div class="ui container segment">
-                <ltps-question [childIdQuestion]="childId"></ltps-question>
-              </div>
+              <ltps-question [childIdQuestion]="childId"></ltps-question>
             </ng-template>
-
+          
         </div>
+      </div>
         
-    </div>
-
-
+        
     <div class="two wide column" style="text-align: center;">
         
-        <h4>Einzelansicht:</h4>
+      <div style="padding-top: 52px;"></div> <!-- spacer -->
+
+      <div class="ui raised segment">
+
+        
+        <h5>Einzelansicht:</h5>
         <!-- Die Oben erwähnten Buttons die für den wechsel der Ansicht zuständig sind -->
         <div class="ui vertical buttons">
-            <button (click)="switchMode()" [ngClass]="modeBool === true ? 'ui button' : 'ui button positive disabled'">On</button>
-            <button (click)="switchMode()" [ngClass]="modeBool === true ? 'ui button negative disabled' : 'ui button'">Off</button>
+          <button (click)="switchMode()" [ngClass]="modeBool === true ? 'ui button' : 'ui button positive disabled'">On</button>
+          <button (click)="switchMode()" [ngClass]="modeBool === true ? 'ui button negative disabled' : 'ui button'">Off</button>
         </div>
-
+        
+      </div>
+      
     </div>
-
 
   </div>
 </div>

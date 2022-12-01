@@ -1,9 +1,22 @@
-#scrollable {
-    overflow: auto; 
-    max-height: 400px;
+.answer {
+   padding: 2px;
 }
- .centered {
-    position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
- }
+
+.answer:hover {
+   border-radius: 5px;
+   background-color: rgba(151, 151, 151, 0.178);
+}
+
+.centered {
+   position: relative;
+   top: 50%;
+   transform: translate(0, -50%);
+}
+
+#correct {
+   color: rgb(0, 126, 0);
+}
+
+#incorrect {
+   color: rgb(235, 0, 0);
+}

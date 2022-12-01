@@ -2,3 +2,12 @@
     position: relative;
     left: 20px;
 }
+
+#backBtn {
+    left: 21px;
+}
+
+#scrollable {
+    overflow: auto;
+    max-height: 450px;
+}
