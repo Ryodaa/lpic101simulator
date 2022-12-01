@@ -1,0 +1,46 @@
+
+<div id="wrapper" class="ui raised segment" style="margin-top: 9px;">
+  <div class="ui blue ribbon huge label">Info Box</div>
+  
+  <div class="ui divider"></div>
+  
+  <!-- Wenn noch kein Button gedrückt wurde, zeige Platzhalter -->
+  <div *ngIf="!childIdBox">
+    Noch keine Frage gewählt, bitte Info-Button zum anzeigen drücken.
+  </div>
+
+  <!-- Wenn ein Info Button gedrückt wird zeige passende Antwort und Info zu der Frage -->
+  <div *ngIf="childIdBox">
+    <h4>Frage {{childIdBox}}</h4>
+    <p>
+      <b>Antwort:</b>
+    </p>
+    <!-- Durchläuft alle Fragen und gibt die passenden Lösungen raus -->
+    <div *ngFor="let solution of questions[childIdBox - 1].solution">
+      <!-- Sortiert Antworten nach Typ single/multi oder typeIn -->
+      <ng-container
+        *ngIf="questions[childIdBox - 1].type === 'single' || questions[childIdBox - 1].type === 'typeIn' then singleBlock else multiBlock">
+      </ng-container>
+      <ng-template #singleBlock>
+        {{ solution }}
+      </ng-template>
+      <ng-template #multiBlock>
+        <li style="margin-left: 12px;">
+          {{ solution }}
+        </li>
+      </ng-template>
+    </div>
+    <div class="ui divider"></div>
+    <p>
+      <b>Info:</b>
+    </p>
+    <!-- Gibt die Info zu der Korrelierenden Frage aus (aus dem Info-Service) -->
+    <div>
+      {{ infoDetail[childIdBox - 1].info }}
+    </div>
+    <br>
+    <p>
+      <b>Weitere Infos: </b> <a [href]="infoDetail[childIdBox - 1].link"> <i class="icon linkify"></i>Manpage  </a>
+    </p>
+  </div>
+</div>

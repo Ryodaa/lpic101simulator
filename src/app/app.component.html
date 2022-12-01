@@ -1,0 +1,45 @@
+<div class="ui top inverted fixed menu">
+  <a [routerLink]="['home']" class="item">
+    <i class="home icon"></i>
+  </a>
+  <a [routerLink]="['exam']" class="item">
+    <i class="play circle icon"></i>
+    Prüfung
+  </a>
+  <a [routerLink]="['testmode']" class="item">
+    <i class="thumbtack icon" ></i>
+    Testlauf
+  </a>
+  <a [routerLink]="['learn']" class="item">
+    <i class="book icon"></i>
+    Lernen
+  </a>
+
+  <div class="items right menu">
+
+    <a (click)="togglePopper()" class="target-block border border-primary">
+      <div class="ui icon top pointing button black">
+        <i class="grey large link angle down icon"></i>
+      </div>
+    </a>
+
+    <div id="popper" *ngIf="popper === true">
+      <div id="popperWrapper">
+        <img class="ui tiny right floated image" src="https://pwco.com.sg/wp-content/uploads/2020/05/Generic-Profile-Placeholder-v3-1536x1536.png">
+        <p>Developed by: Sven Elberfeld <br>in 2022 <br><br> GitHub: <a href="https://github.com/Ryodaa/">github.com/Ryodaa</a></p>
+      </div>
+    </div>
+    
+    <div class="item">
+      <div class="middle aligned content">
+        <i class="grey help link icon"></i>
+      </div>
+    </div>
+    
+  </div>
+  </div>
+<div class="ui segment">
+  <p></p>
+</div>
+
+<router-outlet></router-outlet>

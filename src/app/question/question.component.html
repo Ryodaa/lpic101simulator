@@ -1,0 +1,31 @@
+<div style="padding-top: 10px;"></div> <!-- spacer -->
+<div id="questionWrapper" class="ui grid">
+    <div class="two wide column">
+        <div #previousArw (click)="previousQuestion()" class="btn ui icon button disabled">
+            <i class="angle left icon black"></i>
+        </div>
+    </div>
+    <div class="twelve wide column">
+        <h4 class="ui header">Question {{ questions[laufVar].id }}</h4>
+        <p> {{ questions[laufVar].question }} </p>
+    </div>
+    <div class="two wide column">
+        <div #nextArw (click)="nextQuestion()" class="btn ui icon button">
+            <i class="angle right icon black"></i>
+        </div>
+    </div>
+</div>
+<br>
+<!-- Wechselt den Fragetypen je nachdem was in questions.type der aktuellen Frage drin steht -->
+<div *ngIf="currentRoute !== '/learn'">
+    <div *ngIf="questions[laufVar].type === 'typeIn'"><ltps-input [question]="questions[laufVar]"></ltps-input></div>
+    <div *ngIf="questions[laufVar].type === 'multi' || questions[laufVar].type === 'single'"><ltps-multiple-choice [question]="questions[laufVar]"></ltps-multiple-choice></div>
+</div>
+
+<div style="text-align:center;" *ngIf="currentRoute == '/learn'">
+    <button class="ui labeled icon button large">
+        <i class="info icon black"></i>
+        Info Zeigen
+    </button>
+</div>
+<div style="padding-bottom: 10px;"></div> <!-- spacer -->

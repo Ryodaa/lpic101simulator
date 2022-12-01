@@ -1,0 +1,22 @@
+<div class="ui raised very padded segment" id="scrollable">
+
+  <h4>Alle Fragen</h4>
+
+  <div *ngFor="let question of questions">
+
+    <div class="ui divider"></div>
+    <div class="ui grid">
+      <div class="two wide column">
+        <div (click)="showInfo(question.id)" [ngClass]="clickedInfoBtn === question.id ? 
+            'ui small basic icon buttons centered positive' : 
+            'ui small basic icon buttons centered'" style="margin-right: 5px;">
+          <button class="ui button"><i class="info icon"></i></button>
+        </div>
+      </div>
+      <div class="fourteen wide column">
+        <div style="margin-left: 5px;"> {{ question.id }}. {{ question.question }} </div>
+      </div>
+    </div>
+  </div>
+
+</div>
