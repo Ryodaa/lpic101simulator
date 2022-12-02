@@ -11,8 +11,8 @@
       </button>
       <div style="padding-top: 17px;"></div> <!-- spacer --> 
 
-      <!-- Gib die id aus der listen Komponente an die Info Box weiter -->
-      <ltps-info-box [childIdBox]="childId"></ltps-info-box>
+      <!-- Gib die id und boolean aus der listen und einzelfragen Komponente an die Info Box weiter -->
+      <ltps-info-box [laufVarCpBox]="laufVarCp" [childIdBox]="childId"></ltps-info-box>
         
 
     </div>
@@ -45,7 +45,7 @@
             </ng-template>
             
             <ng-template #falseBlock>
-              <ltps-question [childIdQuestion]="childId"></ltps-question>
+              <ltps-question (laufVarCp)="laufVarRecieved($event)" [childIdQuestion]="childId"></ltps-question>
             </ng-template>
           
         </div>
@@ -58,7 +58,6 @@
 
       <div class="ui raised segment">
 
-        
         <h5>Einzelansicht:</h5>
         <!-- Die Oben erwähnten Buttons die für den wechsel der Ansicht zuständig sind -->
         <div class="ui vertical buttons">

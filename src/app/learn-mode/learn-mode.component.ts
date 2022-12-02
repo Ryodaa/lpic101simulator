@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { InfoService } from '../info.service';
 import { Question } from '../question';
 import { QuestionsService } from '../questions.service';
@@ -13,6 +13,7 @@ export class LearnModeComponent implements OnInit {
   questions!: Question[]; // Alle Fragen aus dem question-service
   modeBool: Boolean = true; // Bestimmt welche Ansicht aktuell gezeigt wird. Einzel oder alle Fragen.
   childId!: number; // Die id aus der question-list
+  @Input() laufVarCp!: number;
 
   constructor(private is: InfoService, private qs: QuestionsService) { }
 
@@ -34,6 +35,10 @@ export class LearnModeComponent implements OnInit {
 // Hier kommt die id aus questions-list an
   idRecieved(id: number): void {
     this.childId = id;
+  }
+
+  laufVarRecieved(laufVar: number): void {
+    this.laufVarCp = laufVar;
   }
 
 }

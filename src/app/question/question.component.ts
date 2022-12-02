@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from '../question';
 import { QuestionsService } from '../questions.service';
@@ -15,6 +15,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   currentRoute: string = this.route.url;
 
   @Input() childIdQuestion!: number; // Die id aus der question-list
+  @Output() laufVarCp = new EventEmitter<number>; // Die aktuelle laufVar als Kopie für andere Komponenten.
 
   @ViewChild('previousArw') previousArw!: ElementRef;
   @ViewChild('nextArw') nextArw!: ElementRef;
@@ -48,6 +49,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   nextQuestion() {
     if (this.laufVar < this.questions.length - 1) {
       this.laufVar++;
+      this.laufVarCp.emit(this.laufVar);
       if (this.laufVar > 0) {
         this.previousArw.nativeElement.className = 'btn ui icon button';
       }
@@ -60,6 +62,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   previousQuestion() {
     if (this.laufVar > 0) {
       this.laufVar--;
+      this.laufVarCp.emit(this.laufVar);
       if (this.laufVar === 0) {
         this.previousArw.nativeElement.className = "btn ui icon button disabled";
       }

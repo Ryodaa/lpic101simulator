@@ -1,4 +1,5 @@
 <div style="padding-top: 10px;"></div> <!-- spacer -->
+
 <div id="questionWrapper" class="ui grid">
     <div class="two wide column">
         <div #previousArw (click)="previousQuestion()" class="btn ui icon button disabled">
@@ -16,6 +17,7 @@
     </div>
 </div>
 <br>
+
 <!-- Wechselt den Fragetypen je nachdem was in questions.type der aktuellen Frage drin steht -->
 <div *ngIf="currentRoute !== '/learn'">
     <div *ngIf="questions[laufVar].type === 'typeIn'"><ltps-input [question]="questions[laufVar]"></ltps-input></div>
@@ -29,4 +31,5 @@
         Info Zeigen
     </button>
 </div>
+
 <div style="padding-bottom: 10px;"></div> <!-- spacer -->

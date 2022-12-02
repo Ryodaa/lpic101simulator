@@ -5,13 +5,13 @@
   <div style="padding-top: 15px;"></div> <!-- spacer -->
   
   <!-- Wenn noch kein Button gedrückt wurde, zeige Platzhalter -->
-  <div *ngIf="!childIdBox">
-    Noch keine Frage gewählt, bitte Info-Button zum anzeigen drücken.
-  </div>
+  <ng-component *ngIf="!childIdBox === true then placeholder else infoBox"></ng-component>
+
+  <ng-template #placeholder>Noch keine Frage gewählt, bitte Info-Button zum anzeigen drücken.</ng-template>
 
   <!-- Wenn ein Info Button gedrückt wird zeige passende Antwort und Info zu der Frage -->
-  <div *ngIf="childIdBox">
-    <h4>Frage {{childIdBox}}</h4>
+  <ng-template #infoBox>
+    <h4 style="margin-top: 0;">Frage {{childIdBox}}</h4>
     <p>
       <b>Antwort:</b>
     </p>
@@ -42,5 +42,5 @@
     <p>
       <b>Weitere Infos: </b> <a [href]="infoDetail[childIdBox - 1].link"> <i class="icon linkify"></i>Manpage  </a>
     </p>
-  </div>
+  </ng-template>
 </div>

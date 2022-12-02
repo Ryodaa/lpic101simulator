@@ -19,40 +19,37 @@ export class QuestionListComponent implements OnInit {
   
   clickedInfoBtn!: number; // Ist gleich der aktuellen question.id
   questions!: Question[]; // Fragen Array aus dem Questions-service
-  filteredArr!: string;
-
+  markedArr: {id: number, answers: string[]}[] = []; // Array in dem die Richtigen Fragen mit '*' am Ende markiert wurden.
+  
   constructor(private qs: QuestionsService) {}
-
+  
   ngOnInit() {
     this.questions = this.qs.getAll();
-
+    
     if (this.clickedInfoBtn === undefined) {
       this.clickedInfoBtn = this.activeButton;
     }
 
-  this.filterAnswers();
-
+    this.filterAnswers();
   }
+  
 
-  filterAnswers(): void {
-    let answers!: string[];
-    let solutions!: string[];
-
+  filterAnswers() {  
     for (let i = 0; i < this.questions.length; i++) {
       if(this.questions[i].type === 'multi') {
-        answers = this.questions[i].answers;
-        solutions = this.questions[i].solution;
-
-        solutions.forEach(element => {
-          
+        let inbetweenArr: string[] = [];
+        this.questions[i].answers.forEach(element => {
+          if(this.questions[i].solution.includes(element)) {
+            inbetweenArr.push(element + '*');
+          } else {
+            inbetweenArr.push(element);
+          }
         });
-
+        this.markedArr.push({id: i, answers: inbetweenArr});
       }
     }
-
-    console.log(answers);
-    console.log(solutions);
   }
+
   
   showInfo(id: number): void {
     this.clickedInfoBtn = id;

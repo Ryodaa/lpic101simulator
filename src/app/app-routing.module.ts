@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExamComponent } from './exam/exam.component';
 import { HomeComponent } from './home/home.component';
+import { InfoBoxComponent } from './info-box/info-box.component';
 import { LearnModeComponent } from './learn-mode/learn-mode.component';
 import { TestModeComponent } from './test-mode/test-mode.component';
 

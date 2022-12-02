@@ -18,25 +18,31 @@
 
             <!-- Zwei For Schleifen ineinander welche gucken wann die ob die richtige Antwort in question.solution ist und bei true es als Grünen text und bei false als roten text ausgeben 
             Funktioniert nur bei Objekten welche nur eine Antwort haben.-->
-            <div *ngIf="question.type !== 'multi'">
-              <div class="answer" *ngFor="let answer of question.answers; index as i">
-                <div *ngFor="let solution of question.solution; index as k">
-                  <ng-component *ngIf="solution === answer then correctBlock else falseBlock">  </ng-component>
-                  <ng-template #correctBlock> <i class="right check icon small grey"></i> <i id="correct"> {{ answer }} </i> </ng-template>
-                  <ng-template #falseBlock> <i class="right times icon small grey"></i> <i id="incorrect"> {{ answer }} </i> </ng-template>
+          <div *ngIf="question.type !== 'multi'">
+            <div class="answer" *ngFor="let answer of question.answers; index as i">
+              <div *ngFor="let solution of question.solution; index as k">
+                <ng-component *ngIf="solution === answer then correctBlock else falseBlock">  </ng-component>
+                <ng-template #correctBlock> <i class="right check icon small grey"></i> <i id="correct"> {{ answer }} </i> </ng-template>
+                <ng-template #falseBlock> <i class="right times icon small grey"></i> <i id="incorrect"> {{ answer }} </i> </ng-template>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="question.type === 'multi'">
+              <div *ngFor="let m of markedArr">
+                <div *ngIf="m.id === question.id - 1">
+                  <div *ngFor="let answer of m.answers">
+                    <ng-component *ngIf="answer.endsWith('*') then sliceBlock else normalBlock"></ng-component>
+                      <ng-template #sliceBlock><i class="right check icon small grey"></i> <i id="correct"> {{ answer.slice(0, answer.length - 1) }} </i> </ng-template>
+                      <ng-template #normalBlock><i class="right times icon small grey"></i> <i id="incorrect"> {{ answer }} </i> </ng-template>
+                  </div>
                 </div>
               </div>
           </div>
 
-          <div *ngIf="question.type === 'multi'">
-            <div *ngFor="let answer of question.answers"> 
-              
-            </div>
-          </div>
 
-
-        </div>
       </div>
     </div>
   </div>
+</div>
 
