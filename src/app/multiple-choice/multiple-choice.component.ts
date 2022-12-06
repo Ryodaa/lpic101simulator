@@ -10,5 +10,4 @@ export class MultipleChoiceComponent {
 
   @Input() question!: Question;
 
-
 }
