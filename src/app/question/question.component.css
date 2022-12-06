@@ -5,5 +5,22 @@
 }
 
 #questionWrapper {
-    height: 10em;
+    height: auto;
 }
+
+.answer {
+    padding: 2px;
+ }
+ 
+ .answer:hover {
+    border-radius: 5px;
+    background-color: rgba(151, 151, 151, 0.178);
+ }
+ 
+ #correct {
+    color: rgb(0, 126, 0);
+ }
+ 
+ #incorrect {
+    color: rgb(235, 0, 0);
+ }

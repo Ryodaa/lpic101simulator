@@ -1,35 +1,77 @@
 <div style="padding-top: 10px;"></div> <!-- spacer -->
 
 <div id="questionWrapper" class="ui grid">
-    <div class="two wide column">
-        <div #previousArw (click)="previousQuestion()" class="btn ui icon button disabled">
-            <i class="angle left icon black"></i>
+  <div class="two wide column">
+    <div #previousArw (click)="previousQuestion()" class="btn ui icon button disabled">
+      <i class="angle left icon black"></i>
+    </div>
+  </div>
+  <div class="twelve wide column">
+    <h4 class="ui header">Question {{ questions[laufVar].id }}</h4>
+    <p> {{ questions[laufVar].question }} </p>
+
+    <div *ngIf="currentRoute === '/learn'">
+      <div class="ui raised segment">
+
+        <!-- Zwei For Schleifen ineinander welche gucken wann die ob die richtige Antwort in question.solution ist und bei true es als Grünen text und bei false als roten text ausgeben 
+            Funktioniert nur bei Objekten welche nur eine Antwort haben.-->
+        <div *ngIf="questions[laufVar].type !== 'multi'">
+          <div class="answer" *ngFor="let answer of questions[laufVar].answers; index as i">
+            <div *ngFor="let solution of questions[laufVar].solution; index as k">
+              <ng-component *ngIf="solution === answer then correctBlock else falseBlock"> </ng-component>
+              <ng-template #correctBlock> <i class="right check icon small grey"></i> <i id="correct"> {{ answer }} </i>
+              </ng-template>
+              <ng-template #falseBlock> <i class="right times icon small grey"></i> <i id="incorrect"> {{ answer }} </i>
+              </ng-template>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="twelve wide column">
-        <h4 class="ui header">Question {{ questions[laufVar].id }}</h4>
-        <p> {{ questions[laufVar].question }} </p>
-    </div>
-    <div class="two wide column">
-        <div #nextArw (click)="nextQuestion()" class="btn ui icon button">
-            <i class="angle right icon black"></i>
+
+        <div *ngIf="questions[laufVar].type === 'multi'">
+          <div *ngFor="let m of markedArrCp">
+            <div *ngIf="m.id === questions[laufVar].id - 1">
+              <div class="answer" *ngFor="let answer of m.answers">
+                <ng-component *ngIf="answer.endsWith('*') then sliceBlock else normalBlock"></ng-component>
+                <ng-template #sliceBlock><i class="right check icon small grey"></i> <i id="correct">
+                    {{ answer.slice(0, answer.length - 1) }} </i> </ng-template>
+                <ng-template #normalBlock><i class="right times icon small grey"></i> <i id="incorrect"> {{ answer }}
+                  </i> </ng-template>
+              </div>
+            </div>
+          </div>
         </div>
+
+      </div>
     </div>
+
+  </div>
+  <div class="two wide column">
+    <div #nextArw (click)="nextQuestion()" class="btn ui icon button">
+      <i class="angle right icon black"></i>
+    </div>
+  </div>
 </div>
 <br>
 
 <!-- Wechselt den Fragetypen je nachdem was in questions.type der aktuellen Frage drin steht -->
 <div *ngIf="currentRoute !== '/learn'">
-    <div *ngIf="questions[laufVar].type === 'typeIn'"><ltps-input [question]="questions[laufVar]"></ltps-input></div>
-    <div *ngIf="questions[laufVar].type === 'multi' || questions[laufVar].type === 'single'"><ltps-multiple-choice [question]="questions[laufVar]"></ltps-multiple-choice></div>
+  <div *ngIf="questions[laufVar].type === 'typeIn'">
+    <ltps-input (answerObj)="answerReciever($event)" [question]="questions[laufVar]"></ltps-input>
+  </div>
+  <div *ngIf="questions[laufVar].type === 'multi'">
+    <ltps-multiple-choice (answerObj)="answerReciever($event)" [question]="questions[laufVar]"></ltps-multiple-choice>
+  </div>
+  <div *ngIf="questions[laufVar].type === 'single'">
+    <ltps-single-choice [question]="questions[laufVar]"></ltps-single-choice>
+  </div>
 </div>
 
 <div *ngIf="currentRoute === '/learn'" style="text-align: center;">
-    <div class="ui divider"></div>
-    <button class="ui labeled icon button large">
-        <i class="info icon black"></i>
-        Info Zeigen
-    </button>
+  <div class="ui divider"></div>
+  <button (click)="showInfo(laufVar + 1)" class="ui labeled icon button large">
+    <i class="info icon black"></i>
+    Info Zeigen
+  </button>
 </div>
 
 <div style="padding-bottom: 10px;"></div> <!-- spacer -->

@@ -9,5 +9,9 @@
 
 #scrollable {
     overflow: auto;
-    max-height: 450px;
+    max-height: 75vh;
+}
+
+#cont {
+    background-color: rgb(243, 243, 243); height: 90vh; 
 }

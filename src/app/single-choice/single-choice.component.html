@@ -1,0 +1,7 @@
+<div id="choices" class="ui container segment">
+    <div *ngFor="let choices of question.answers; index as i" class="ui radio checkbox">
+        <input #answer type="radio" name="example">
+        <label #label> {{ choices }} </label>
+    </div>
+    <button (click)="test()">test</button>
+</div>

@@ -13,3 +13,7 @@ a {
     color: rgb(99, 99, 99);
     text-decoration: underline;
 }
+
+#cont {
+    background-color: rgb(243, 243, 243); height: 90vh; 
+}

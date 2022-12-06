@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, Output, ViewChild, EventEmitter } from '@angular/core';
 import { Question } from '../question';
 
 @Component({
@@ -10,7 +10,5 @@ export class MultipleChoiceComponent {
 
   @Input() question!: Question;
 
-  ngOnInit(): void {
-  }
 
 }

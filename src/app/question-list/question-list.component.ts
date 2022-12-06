@@ -10,7 +10,9 @@ import { Question } from '../question';
 export class QuestionListComponent implements OnInit {
 
   @Output() clickedInfoBtnEmit = new EventEmitter<any>(); // Liefert die id vom Info Button an die Eltern Komponente
-  
+
+  @Input() markedArrCp!: {id: number, answers: string[]}[];
+
   @Input() activeButton!: number;
   /* Nimmt die aktuelle ID von außen wieder auf um nach dem neu laden der Komponente 
   durch den wechseln zwischen liste und einzelansicht, den Button status wieder auf "positive" zu setzten. 
@@ -19,7 +21,7 @@ export class QuestionListComponent implements OnInit {
   
   clickedInfoBtn!: number; // Ist gleich der aktuellen question.id
   questions!: Question[]; // Fragen Array aus dem Questions-service
-  markedArr: {id: number, answers: string[]}[] = []; // Array in dem die Richtigen Fragen mit '*' am Ende markiert wurden.
+
   
   constructor(private qs: QuestionsService) {}
   
@@ -29,27 +31,7 @@ export class QuestionListComponent implements OnInit {
     if (this.clickedInfoBtn === undefined) {
       this.clickedInfoBtn = this.activeButton;
     }
-
-    this.filterAnswers();
   }
-  
-
-  filterAnswers() {  
-    for (let i = 0; i < this.questions.length; i++) {
-      if(this.questions[i].type === 'multi') {
-        let inbetweenArr: string[] = [];
-        this.questions[i].answers.forEach(element => {
-          if(this.questions[i].solution.includes(element)) {
-            inbetweenArr.push(element + '*');
-          } else {
-            inbetweenArr.push(element);
-          }
-        });
-        this.markedArr.push({id: i, answers: inbetweenArr});
-      }
-    }
-  }
-
   
   showInfo(id: number): void {
     this.clickedInfoBtn = id;

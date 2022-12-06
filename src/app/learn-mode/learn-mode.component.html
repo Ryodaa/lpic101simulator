@@ -1,5 +1,5 @@
-<div style="padding-top: 10px;"></div> <!-- spacer -->
-<div class="ui raised padded container segment" style="background-color: rgb(243, 243, 243);">
+
+<div id="cont" class="ui raised padded container segment" style="background-color: rgb(243, 243, 243);">
   <div id="wrapper" class="ui grid">
 
 
@@ -12,7 +12,7 @@
       <div style="padding-top: 17px;"></div> <!-- spacer --> 
 
       <!-- Gib die id und boolean aus der listen und einzelfragen Komponente an die Info Box weiter -->
-      <ltps-info-box [laufVarCpBox]="laufVarCp" [childIdBox]="childId"></ltps-info-box>
+      <ltps-info-box [childIdBox]="childId"></ltps-info-box>
         
 
     </div>
@@ -41,11 +41,11 @@
             
             <ng-template #trueBlock>
               <!-- Hier kommt die id aus der question-list an und geht in die funktion idRecieved -->
-              <ltps-question-list (clickedInfoBtnEmit)="idRecieved($event)" [activeButton]="childId"></ltps-question-list>
+              <ltps-question-list (clickedInfoBtnEmit)="idRecieved($event)" [markedArrCp]="markedArr" [activeButton]="childId"></ltps-question-list>
             </ng-template>
             
             <ng-template #falseBlock>
-              <ltps-question (laufVarCp)="laufVarRecieved($event)" [childIdQuestion]="childId"></ltps-question>
+              <ltps-question (clickedInfoBtnEmit)="idRecieved($event)" [markedArrCp]="markedArr" [childIdQuestion]="childId"></ltps-question>
             </ng-template>
           
         </div>
@@ -72,4 +72,3 @@
   </div>
 </div>
 <br>
-<div style="padding-bottom: 10px;"></div> <!-- spacer -->

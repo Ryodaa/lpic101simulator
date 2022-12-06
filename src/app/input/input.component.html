@@ -2,8 +2,8 @@
     <div style="padding-top: 10px;"></div> <!-- spacer -->
     <p>Bitte Antwort eintippen:</p>
     <div class="ui action input fluid">
-        <input type="text" placeholder="Antwort">
-        <button class="ui button">OK</button>
+        <input #answer type="text" placeholder="Antwort">
+        <button #btn (click)="lockIn()" class="ui button">OK</button>
       </div>
       <div style="padding-bottom: 10px;"></div> <!-- spacer -->
 </div>
