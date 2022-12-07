@@ -40,7 +40,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -71,6 +70,14 @@
   <button (click)="showInfo(laufVar + 1)" class="ui labeled icon button large">
     <i class="info icon black"></i>
     Info Zeigen
+  </button>
+</div>
+
+<div *ngIf="currentRoute !== '/learn' && userAnswersArr.length === questions.length - 1 && userAnswersArr[questions.length - 2].answerArr" style="text-align: center;">
+  <div class="ui divider"></div>
+  <button class="ui labeled icon button large">
+    <i class="check icon black"></i>
+      Test beenden
   </button>
 </div>
 
