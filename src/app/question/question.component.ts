@@ -60,8 +60,9 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   /* Erhöht laufVar um 1 welche dann auf den index der nächsten Frage spring.
    Checkt dann an welcher Frage wir uns befinden um je nachdem die Buttons zu disablen.
    Beispiel: Der vorwärts Button wird disabled wenn wir auf der letzten Frage sind.
-   Danach wird die vom User gewählte Antwort in den Array userAnswersArr ge-pusht oder
-   ge-popt wenn er eine Frage zurück geht. */
+   Danach wird die vom User gewählte Antwort in den Array userAnswersArr gepusht.
+   Im falle das keine Antwort gewählt wurde, wird ein leeres Objekt mit passender ID
+   gepusht so das immer jeder platz im array durch eine id dargestellt wird.*/
   nextQuestion(): void  {
     if (this.laufVar < this.questions.length - 1) {
       this.laufVar++;
@@ -93,11 +94,11 @@ export class QuestionComponent implements OnInit, AfterViewInit {
           console.log('erstelle leeres objekt');
           this.userAnswersArr.push(emptyObj); // Leeres Objekt wird gepusht
         }
+      // Wenn eintrag bereits vorhanden, setze die alten Werte auf die neuen. Überschreibt den alten Wert.
+      // Und genau deswegen hab ich die IDs in die Antworten gepackt.
       } else {
         console.log('wird aktualisiert');
-        console.log(this.currentAnswer.id + 1)
         this.userAnswersArr[this.currentAnswer.id - 1].answerArr = this.currentAnswer.answerArr;
-        console.log(this.userAnswersArr);
       }
     }
   }

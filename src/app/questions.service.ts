@@ -154,6 +154,146 @@ export class QuestionsService {
         type: 'multi',
         solution: ['The absolute path to the user\'s home directory.', 'The numeric user ID (UID) of the user.']
       },
+      {
+        id: 21,
+        question: 'What is true about the file /etc/localtime?',
+        answers: ['It is a plain text file containing a string such as Europe/Berlin', 'It is created and maintained by the NTP service based on the location of the system\'s IP address.', 'It is a symlink to /sys/device/clock/ltime and always contains the current local time.', 'After changing this file, newtzconfighas to be run to make the changes effective.', 'E. It is either a symlink to or a copy of a timezone information file such as /usr/share/zoneinfo/Europe/Berlin.'],
+        type: 'single',
+        solution: ['It is either a symlink to or a copy of a timezone information file such as /usr/share/zoneinfo/Europe/Berlin.']
+      },
+      {
+        id: 22,
+        question: 'Which of the following statements is true regarding systemd timer units?',
+        answers: ['Timer units can only be defined within a service unit\'s file.', 'The command executed by the timer is specified in the timer unit\'s [Cmd] section.', 'A dedicated system service, systemd-cron, handles the execution of timer units.', 'Timer units only exist in the system scope and are not available for users.', 'Each systemd timer unit controls a specific systemd service unit.'],
+        type: 'single',
+        solution: ['Each systemd timer unit controls a specific systemd service unit.']
+      },
+      {
+        id: 23,
+        question: 'Which of the following fields are available in the standard format of both the global /etc/crontab file as well as in user-specific crontab files? (Choose two.)',
+        answers: ['Year', 'Minute', 'Username', 'Effective group ID', 'Command'],
+        type: 'multi',
+        solution: ['Minute', 'Command']
+      },
+      {
+        id: 24,
+        question: 'Which of the following commands should be executed when starting a login shell in order to change the language of messages for an internationalized program to Portuguese (pt)?',
+        answers: ['export LANGUAGE=“pt"', 'export LC_MESSAGES=“pt"', 'export UI_MESSAGES=“pt"', 'export MESSAGE=“pt"', 'export ALL_MESSAGES=“pt"'],
+        type: 'single',
+        solution: ['export LC_MESSAGES=“pt"']
+      },
+      {
+        id: 25,
+        question: 'Which of the following files assigns a user to its primary group?',
+        answers: ['/etc/pgroup', '/etc/shadow', '/etc/passwd', '/etc/group', '/etc/gshadow'],
+        type: 'single',
+        solution: ['/etc/passwd']
+      },
+      {
+        id: 26,
+        question: 'Which of the following steps prevents a user from obtaining an interactive login session?',
+        answers: ['Setting the UID for the user to 0.', 'Running the command chsh -s /bin/false with the user name.', 'Removing the user from the group staff.', 'Adding the user to /etc/noaccess.', 'Creating a .nologin file in the user\'s home directory.'],
+        type: 'single',
+        solution: ['Running the command chsh -s /bin/false with the user name.']
+      },
+      {
+        id: 27,
+        question: 'Which command included in systemd supports selecting messages from the systemd journal by criteria such as time or unit name? (Specify only the command without any path or parameters.)',
+        answers: ['journalctl'],
+        type: 'typeIn',
+        solution: ['journalctl']
+      },
+      {
+        id: 28,
+        question: 'Which of the following statements about systemd-journald are true? (Choose three.)',
+        answers: ['It is incompatible with syslog and cannot be installed on a system using regular syslog.', 'It only processes messages of systemd and not messages of any other tools.', 'It can pass log messages to syslog for further processing.', 'It maintains metadata such as _UID or _PID for each message.', 'It supports syslog facilities such as kern, user, and auth.'],
+        type: 'multi',
+        solution: ['It can pass log messages to syslog for further processing.', 'It maintains metadata such as _UID or _PID for each message.', 'It supports syslog facilities such as kern, user, and auth.']
+      },
+      {
+        id: 29,
+        question: 'Which command must be run after adding a new email alias to the configuration in order to make this change effective? (Specify the command without any path but including all required parameters.)',
+        answers: ['newaliases'],
+        type: 'typeIn',
+        solution: ['newaliases']
+      },
+      {
+        id: 30,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      },
+      {
+        id: 20,
+        question: '',
+        answers: ['', '', '', '', ''],
+        type: '',
+        solution: ['', '']
+      }
     ];
 
    }
