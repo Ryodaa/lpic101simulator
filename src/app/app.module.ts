@@ -13,6 +13,7 @@ import { LearnModeComponent } from './learn-mode/learn-mode.component';
 import { QuestionListComponent } from './question-list/question-list.component';
 import { InfoBoxComponent } from './info-box/info-box.component';
 import { SingleChoiceComponent } from './single-choice/single-choice.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SingleChoiceComponent } from './single-choice/single-choice.component';
     LearnModeComponent,
     QuestionListComponent,
     InfoBoxComponent,
-    SingleChoiceComponent
+    SingleChoiceComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

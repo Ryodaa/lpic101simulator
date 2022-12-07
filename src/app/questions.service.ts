@@ -219,80 +219,80 @@ export class QuestionsService {
       },
       {
         id: 30,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which option in the chrony configuration file changes the initial interval of polls to a NTP server in order to speed up the initial synchronization?',
+        answers: ['iburst', 'quickstart', 'fast', 'fsync', 'flood'],
+        type: 'single',
+        solution: ['iburst']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 31,
+        question: 'Which of the following commands is used to rotate, compress, and mail system logs?',
+        answers: ['logrotate', 'striplog', 'syslogd --rotate', 'rotatelog', 'logger'],
+        type: 'single',
+        solution: ['logrotate']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 32,
+        question: 'Why is the correct configuration of a system\'s time zone important?',
+        answers: ['Because the timezone is included in checksum calculations and timezone changes invalidate existing checksums.', 'Because the time zone is saved as part of the modification times of files and cannot be changed after a file is created.', 'Because the environment variables LANG and LC_MESSAGES are, by default, set according to the time zone.', 'Because NTP chooses servers nearby based on the configured time zone.', 'Because the conversion of Unix timestamps to local time relies on the time zone configuration.'],
+        type: 'single',
+        solution: ['Because the conversion of Unix timestamps to local time relies on the time zone configuration.']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 33,
+        question: 'Which command, available with all sendmail-compatible MTAs, is used to list the contents of the MTA\'s mail queue? (Specify only the command without any path or parameters.)',
+        answers: ['mailq'],
+        type: 'typeIn',
+        solution: ['mailq']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 34,
+        question: 'What is the top-level directory which contains the configuration files for CUPS? (Specify the full path to the directory.)',
+        answers: ['/etc/cups'],
+        type: 'typeIn',
+        solution: ['/etc/cups']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 35,
+        question: 'Which of the following commands lists all queued print jobs?',
+        answers: ['lpd', 'lpr', 'lp', 'lsq', 'lpq'],
+        type: 'single',
+        solution: ['lpq']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 36,
+        question: 'Which of the following entries in /etc/syslog.conf writes all mail related events to the file /var/log/maillog and sends all critical events to the remote server logger.example.com?',
+        answers: ['mail.* /var/log/maillog \\n mail,crit @logger.example.org', 'mail.* /var/log/maillog \\n mail.crit syslog://logger.example.org', 'mail /var/log/maillog \\n mail.crit @logger.example.org', 'mail.* /var/log/maillog \\n mail.crit @logger.example.org', 'mail * /var/log/maillog \\n mail crit @logger.example.org'],
+        type: 'single',
+        solution: ['mail.* /var/log/maillog \\n mail.crit @logger.example.org']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 37,
+        question: 'Which option in the /etc/ntp.conf file specifies an external NTP source to be queried for time information? (Specify only the option without any values or parameters.)',
+        answers: ['server'],
+        type: 'typeIn',
+        solution: ['server']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 38,
+        question: 'Which of the following protocols is related to the term open relay?',
+        answers: ['SMTP', 'POP3', 'NTP', 'IMAP', 'LDAP'],
+        type: 'single',
+        solution: ['SMTP']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 39,
+        question: 'Which of the following commands displays all environment and shell variables?',
+        answers: ['getargs', 'lsenv', 'ls', 'env', 'lsshell'],
+        type: 'single',
+        solution: ['env']
       },
       {
-        id: 20,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        id: 40,
+        question: 'Which of the following comparison operators for test work on elements in the file system? (Choose two.)',
+        answers: ['-z', '-eq', '-d', '-f', '-lt'],
+        type: 'multi',
+        solution: ['-d', '-f']
       }
     ];
 
