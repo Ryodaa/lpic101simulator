@@ -62,7 +62,7 @@
     <ltps-multiple-choice (answerObj)="answerReciever($event)" [question]="questions[laufVar]"></ltps-multiple-choice>
   </div>
   <div *ngIf="questions[laufVar].type === 'single'">
-    <ltps-single-choice [question]="questions[laufVar]"></ltps-single-choice>
+    <ltps-single-choice (checkedObj)="answerReciever($event)" [question]="questions[laufVar]"></ltps-single-choice>
   </div>
 </div>
 

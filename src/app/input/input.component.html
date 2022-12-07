@@ -3,7 +3,7 @@
     <p>Bitte Antwort eintippen:</p>
     <div class="ui action input fluid">
         <input #answer type="text" placeholder="Antwort">
-        <button #btn (click)="lockIn()" class="ui button">OK</button>
+        <button #btn (click)="lockIn(question.id)" class="ui button">OK</button>
       </div>
       <div style="padding-bottom: 10px;"></div> <!-- spacer -->
 </div>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, Output, ViewChild, EventEmitter, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
+import { Component, ElementRef, Input, Output, EventEmitter, ViewChildren, QueryList } from '@angular/core';
 import { Question } from '../question';
 
 @Component({
@@ -6,27 +6,22 @@ import { Question } from '../question';
   templateUrl: './single-choice.component.html',
   styleUrls: ['./single-choice.component.css']
 })
-export class SingleChoiceComponent implements AfterViewInit {
+export class SingleChoiceComponent {
 
   @Input() question!: Question;
 
-  @Output() answerObj = new EventEmitter<any>();
-
-  checkedObj!: { id: number, answer: string };
+  @Output() checkedObj = new EventEmitter<any>();
 
   @ViewChildren('answer') answerChildren!: QueryList<ElementRef>;
 
-  ngAfterViewInit() {
-    
-  }
-
+  // Erstellt ein Objekt mit der id der Frage und der gewählten Antwort.
   getChecked(id: number): void {
     this.answerChildren.forEach(answChild => {
-      //console.log(answChild.nativeElement.nextElementSibling.innerHTML)
       if(answChild.nativeElement.checked === true) {
         let answer: string = answChild.nativeElement.nextElementSibling.innerHTML;
-        this.checkedObj = {id, answer};
-        console.log(this.checkedObj);
+        let answerArr: string[] = [];
+        answerArr.push(answer);
+        this.checkedObj.emit({id, answerArr});
       }
     })
   }

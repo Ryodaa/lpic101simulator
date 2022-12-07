@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Question } from '../question';
 
 @Component({
@@ -6,22 +6,19 @@ import { Question } from '../question';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css']
 })
-export class InputComponent implements AfterViewInit {
+export class InputComponent {
 
   @Input() question!: Question;
   @Output() answerObj = new EventEmitter<any>();
 
   @ViewChild('answer') answerChild!: ElementRef;
   @ViewChild('btn') okBtn!: ElementRef;
-  
-  ngAfterViewInit(): void  {
 
-  }
-  
-  lockIn(): void {
-    let answStr = this.answerChild.nativeElement.value as string;
-    let id = 2;
-    this.answerObj.emit({id, answStr});
+  lockIn(id: number): void {
+    let answer: string = this.answerChild.nativeElement.value;
+    let answerArr: string[] = [];
+    answerArr.push(answer)
+    this.answerObj.emit({id, answerArr});
     this.okBtn.nativeElement.className = "ui button disabled positive";
   }
   
