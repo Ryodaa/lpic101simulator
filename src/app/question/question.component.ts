@@ -104,7 +104,8 @@ export class QuestionComponent implements OnInit, AfterViewInit {
           this.userAnswersArr.push(emptyObj);              // Dann pushe ein leeres Objekt an dessen Stelle.
         }
       } else {                                             // Wenn aktuelle Antwort bereits im Antwort Array existiert.
-        console.log('wird aktualisiert');                  // -- REMOVE BEFORE FINISH --
+        console.log('wird aktualisiert');
+        console.log(this.currentAnswer)                  // -- REMOVE BEFORE FINISH --
         if(this.currentAnswer) {                           // Wenn eine User-Antwort existiert.
           this.userAnswersArr[this.laufVar].answerArr      
             = this.currentAnswer.answerArr;                // Dann überschreibe die alte Antwort mit der neuen User-Antwort.
@@ -142,9 +143,8 @@ export class QuestionComponent implements OnInit, AfterViewInit {
       this.dsblNxtBtn(this.laufVar);
     }
     console.log(this.userAnswersArr) // -- REMOVE BEFORE FINISH --
-    
-    
-  }
+
+    }
   previousQuestion(): void  {
     if (this.laufVar > 0) {
       this.laufVar--;

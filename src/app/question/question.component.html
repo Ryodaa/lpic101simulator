@@ -72,13 +72,13 @@
 <!-- Wechselt den Fragetypen je nachdem was in questions.type der aktuellen Frage drin steht -->
 <div *ngIf="currentRoute !== '/learn'">
   <div *ngIf="questions[laufVar].type === 'typeIn' && finishFlag === false">
-    <ltps-input (answerObj)="answerReciever($event)" [answer]="userAnswersArr[laufVar]" [question]="questions[laufVar]"></ltps-input>
+    <ltps-input (answerObj)="answerReciever($event)" [laufVar]="laufVar" [answers]="userAnswersArr" [question]="questions[laufVar]"></ltps-input>
   </div>
   <div *ngIf="questions[laufVar].type === 'multi' && finishFlag === false">
-    <ltps-multiple-choice (answerObj)="answerReciever($event)" [answer]="userAnswersArr[laufVar]" [question]="questions[laufVar]"></ltps-multiple-choice>
+    <ltps-multiple-choice (answerObj)="answerReciever($event)" [laufVar]="laufVar" [answers]="userAnswersArr" [question]="questions[laufVar]"></ltps-multiple-choice>
   </div>
   <div *ngIf="questions[laufVar].type === 'single' && finishFlag === false">
-    <ltps-single-choice (checkedObj)="answerReciever($event)" [answer]="userAnswersArr[laufVar]" [question]="questions[laufVar]"></ltps-single-choice>
+    <ltps-single-choice (checkedObj)="answerReciever($event)" [laufVar]="laufVar" [answers]="userAnswersArr" [question]="questions[laufVar]"></ltps-single-choice>
   </div>
 </div>
 

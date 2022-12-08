@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, Output, EventEmitter, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Input, Output, EventEmitter, ViewChildren, QueryList, OnInit } from '@angular/core';
 import { Answers } from '../answers';
 import { Question } from '../question';
 
@@ -7,34 +7,55 @@ import { Question } from '../question';
   templateUrl: './single-choice.component.html',
   styleUrls: ['./single-choice.component.css']
 })
-export class SingleChoiceComponent implements AfterViewInit {
+
+export class SingleChoiceComponent implements OnInit {
 
   @Input() question!: Question; // Die aktuelle Frage.
 
-  @Input() answer!: Answers; // Die aktuelle Antwort vom User-Input oder Empty-Object.
+  @Input() answers!: Answers[]; // Die aktuelle Antwort vom User-Input oder Empty-Object.
+
+  @Input() laufVar!: number;
 
   @Output() checkedObj = new EventEmitter<any>();
 
   @ViewChildren('answer') answerChildren!: QueryList<ElementRef>;
 
   ngOnInit() {
-    console.log(this.answer)
-  }
 
-  // Aus irgend einem Grund kommt der Init nur beim vorwärts gehen.
 
-  ngAfterViewInit(): void {
-    console.log(this.answer);
-    if(this.answer) {
-      if(this.answer.answerArr.length > 0) {
+    setTimeout(() => {
+
+      console.log(this.answers[this.laufVar]);
+      
+      if(this.answers[this.laufVar] !== undefined) {
         this.answerChildren.forEach(answChild => {
-          if(this.answer.answerArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) { 
+          if(this.answers[this.laufVar].answerArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) {
             answChild.nativeElement.checked = true;
           }
         })
       }
-    }
+
+    });
+
+
   }
+
+
+
+  // Aus irgend einem Grund kommt der Init nur beim vorwärts gehen.
+
+  // ngAfterViewInit(): void {
+  //   console.log(this.answer);
+  //   if(this.answer) {
+  //     if(this.answer.answerArr.length > 0) {
+  //       this.answerChildren.forEach(answChild => {
+  //         if(this.answer.answerArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) { 
+  //           answChild.nativeElement.checked = true;
+  //         }
+  //       })
+  //     }
+  //   }
+  // }
 
   // Erstellt ein Objekt mit der id der Frage und der gewählten Antwort und emitted diese.
   getChecked(id: number): void {

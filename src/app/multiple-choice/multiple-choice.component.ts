@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChildren, QueryList, EventEmitter, Output, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Input, ViewChildren, QueryList, EventEmitter, Output, OnInit } from '@angular/core';
 import { Answers } from '../answers';
 import { Question } from '../question';
 
@@ -7,11 +7,13 @@ import { Question } from '../question';
   templateUrl: './multiple-choice.component.html',
   styleUrls: ['./multiple-choice.component.css']
 })
-export class MultipleChoiceComponent implements AfterViewInit {
+export class MultipleChoiceComponent implements OnInit {
 
   @Input() question!: Question;
 
-  @Input() answer!: Answers;
+  @Input() answers!: Answers[];
+
+  @Input() laufVar!: number;
 
   @ViewChildren('answer') answerChildren!: QueryList<ElementRef>;
 
@@ -19,17 +21,25 @@ export class MultipleChoiceComponent implements AfterViewInit {
 
   answersArr: string[] = [];
 
-  ngAfterViewInit() {
 
-    if(this.answer) {
-      if(this.answer.answerArr.length > 0) {
+  ngOnInit() {
+
+
+    setTimeout(() => {
+
+      console.log(this.answers[this.laufVar]);
+      
+      if(this.answers[this.laufVar] !== undefined) {
         this.answerChildren.forEach(answChild => {
-          if(this.answer.answerArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) { 
+          if(this.answers[this.laufVar].answerArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) {
             answChild.nativeElement.checked = true;
           }
         })
       }
-    }
+
+    });
+
+
   }
 
   getChecked(id: number) {
@@ -39,7 +49,6 @@ export class MultipleChoiceComponent implements AfterViewInit {
         if(!this.answersArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) {
           this.answersArr.push(answChild.nativeElement.nextElementSibling.innerHTML);
         }
-        //this.answerObj.emit({id, answer});
       } else {
         if(this.answersArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) {
           this.answersArr.splice(this.answersArr.indexOf(answChild.nativeElement.nextElementSibling.innerHTML));
