@@ -1,14 +1,34 @@
-<div id="wrapper" style="text-align: center;">
-    <div id="cont" class="ui raised padded container segment" style="background-color: rgb(243, 243, 243);">
-      <h2 class="ui header">
-        <img class="ui image large" src="http://cdn.onlinewebfonts.com/svg/img_533409.png">
-        <div class="content">
-          Results
-        </div>
-      </h2>
-
-      <div class="ui raised padded segment">
-        <div></div>
+<div id="scrollable">
+  
+  <div id="wrapper">
+    
+    <h2 class="ui header">
+      <div class="content">
+        <i class="icon check"></i>
+      Ergebnis
+    </div>
+  </h2>
+  
+  <div *ngFor="let answer of userAnswers; index as i">
+    
+    <div class="ui divider"></div>
+    <div> <b> {{ questions[i].id }}.</b> {{ questions[i].question }}.</div>
+    <div stype="padding-top: 8px;"></div> <!-- spacer -->
+    <div class="ui raised segment">
+      <div id="raisedSeg">
+        <b>Deine Lösung:</b> <br>
+        {{ answer.answerArr }}
+        
+        <div class="ui divider"></div>
+        
+        <b>Lösung:</b> <br>
+        {{ questions[i].solution }}
       </div>
     </div>
+    <div stype="padding-top: 8px;"></div> <!-- spacer -->
+    
+    
+  </div>
+</div>
+
 </div>

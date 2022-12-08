@@ -1,0 +1,16 @@
+#scrollable {
+    overflow: auto;
+    max-height: 60vh;
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+#wrapper {
+    width: 90%;
+}
+
+#raisedSeg {
+    max-width: 90%;
+    text-align: -webkit-center;
+
+}

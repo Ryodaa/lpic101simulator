@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class TestModeComponent {
 
   testStart: boolean = false;
-  state: string = 'back';
+  state: string = 'Zurück';
 
   @ViewChild('startBtn') startBtn!: ElementRef;
   @ViewChild('settingsBtn') settingsBtn!: ElementRef;
@@ -19,7 +19,7 @@ export class TestModeComponent {
   startTest() {
     if (this.testStart === false) {
       this.testStart = true;
-      this.state = 'cancel';
+      this.state = 'Abbrechen';
       this.startBtn.nativeElement.className = 'ui large labeled icon button disabled';
       this.settingsBtn.nativeElement.className = 'ui small labeled icon button disabled';
     }
@@ -28,7 +28,7 @@ export class TestModeComponent {
   cancelTest() {
     if (this.testStart === true) {
       this.testStart = false;
-      this.state = 'back';
+      this.state = 'Zurück';
       this.startBtn.nativeElement.className = 'ui large labeled icon button'
       this.settingsBtn.nativeElement.className = 'ui small labeled icon button';
     } else {

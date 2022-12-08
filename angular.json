@@ -30,8 +30,7 @@
             ],
             "scripts": [
               "node_modules/semantic-ui-css/semantic.js",
-              "node_modules/semantic-ui-css/package.js",
-              "node_modules/jquery/dist/jquery.js"
+              "node_modules/semantic-ui-css/package.js"
             ]
           },
           "configurations": {
@@ -97,8 +96,7 @@
             ],
             "scripts": [
               "node_modules/semantic-ui-css/semantic.js",
-              "node_modules/semantic-ui-css/package.js",
-              "node_modules/jquery/dist/jquery.js"
+              "node_modules/semantic-ui-css/package.js"
             ]
           }
         }

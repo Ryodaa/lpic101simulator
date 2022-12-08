@@ -1,4 +1,3 @@
-#1. answerArray an Ergebniss über finish button weitergeben.
 #2. results screen fertig machen.
 #3. AnswerArray mit richtigen Antworten abgleichen.
 #4. Limitationen nach Aufgabbenstellung einfügen.

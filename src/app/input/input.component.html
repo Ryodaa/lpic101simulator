@@ -2,8 +2,8 @@
     <div style="padding-top: 10px;"></div> <!-- spacer -->
     <p>Bitte Antwort eintippen:</p>
     <div class="ui action input fluid">
-        <input #answer type="text" placeholder="Antwort">
-        <button #btn (click)="lockIn(question.id)" class="ui button">OK</button>
+        <input [(ngModel)]="inputValue" type="text" placeholder="Antwort">
+        <button (click)="lockIn(question.id)" #btn class="ui button">OK</button>
       </div>
       <div style="padding-bottom: 10px;"></div> <!-- spacer -->
 </div>
