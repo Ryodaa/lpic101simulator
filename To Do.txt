@@ -2,3 +2,6 @@
 #3. AnswerArray mit richtigen Antworten abgleichen.
 #4. Limitationen nach Aufgabbenstellung einfügen.
 #5. Settings screen.
+
+Wenn zwei gleiche Komponenten hintereinander laden funktioniert der
+Oninit und afterviewinit nicht mehr da die Komponente nicht neu geladen wird. 
