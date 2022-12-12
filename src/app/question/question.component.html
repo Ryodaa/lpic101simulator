@@ -2,7 +2,7 @@
 
 
 <div *ngIf="finishFlag === true">
-  <ltps-results [userAnswers]="answersArr"></ltps-results>
+  <ltps-results [markedArrCp]="markedArrCp"></ltps-results>
 </div>
 
 <div *ngIf="finishFlag === false" id="wrapper">
@@ -90,7 +90,9 @@
   </button>
 </div>
 
-<div *ngIf="currentRoute !== '/learn' && answersArr.length === questions.length && answersArr[questions.length - 1].answerArr && finishFlag === false" style="text-align: center;">
+<!-- && answersArr.length === questions.length -->
+
+<div *ngIf="currentRoute !== '/learn' && answersArr[laufVar].answerArr && finishFlag === false" style="text-align: center;">
   <div class="ui divider"></div>
   <button (click)="showResult()" class="ui labeled icon button large">
     <i class="check icon black"></i>

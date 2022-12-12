@@ -9,20 +9,50 @@
     </div>
   </h2>
   
-  <div *ngFor="let answer of userAnswers; index as i">
+  <div *ngFor="let answer of answers; index as i">
     
     <div class="ui divider"></div>
     <div> <b> {{ questions[i].id }}.</b> {{ questions[i].question }}.</div>
     <div stype="padding-top: 8px;"></div> <!-- spacer -->
     <div class="ui raised segment">
       <div id="raisedSeg">
+        
         <b>Deine Lösung:</b> <br>
-        {{ answer.answerArr }}
+        <!-- <div *ngIf="questions[i].type !== 'multi'">
+
+          <ng-component *ngIf="checkedAnswers[i].correct === true then correct else incorrect" ></ng-component>
+          <ng-template #correct><i class="right check icon small grey"></i><i id="correct">{{ answer.answerArr }}</i></ng-template>
+          <ng-template #incorrect><i class="right times icon small grey"></i><i id="incorrect">{{ answer.answerArr }}</i></ng-template>
+          
+        </div> -->
+
+
+        <div *ngIf="questions[i].type !== 'multi'">
+          <div class="answer" *ngFor="let answer of questions[i].answers; index as i">
+            <div *ngFor="let solution of questions[i].solution; index as k">
+              <ng-component *ngIf="solution === answer then correctBlock else falseBlock">  </ng-component>
+              <ng-template #correctBlock> <i class="right check icon small grey"></i> <i id="correct"> {{ answer }} </i> </ng-template>
+              <ng-template #falseBlock> <i class="right times icon small grey"></i> <i id="incorrect"> {{ answer }} </i> </ng-template>
+            </div>
+          </div>
+        </div>
         
-        <div class="ui divider"></div>
+          <div class="ui divider"></div>
         
+
         <b>Lösung:</b> <br>
-        {{ questions[i].solution }}
+        <div *ngIf="questions[i].type === 'multi'">
+          <div *ngFor="let m of markedArrCp">
+            <div *ngIf="m.id === questions[i].id">
+              <div class="answer" *ngFor="let answer of m.answers">
+                <ng-component *ngIf="answer.endsWith('*') then sliceBlock else normalBlock"></ng-component>
+                  <ng-template #sliceBlock><i class="right check icon small grey"></i> <i id="correct"> {{ answer.slice(0, answer.length - 1) }} </i> </ng-template>
+                  <ng-template #normalBlock><i class="right times icon small grey"></i> <i id="incorrect"> {{ answer }} </i> </ng-template>
+              </div>
+            </div>
+          </div>
+      </div>
+        <!-- <i class="right check icon small grey"></i><i id="correct">{{ questions[i].solution }}</i> -->
       </div>
     </div>
     <div stype="padding-top: 8px;"></div> <!-- spacer -->
