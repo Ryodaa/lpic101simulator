@@ -2,7 +2,7 @@
     <div *ngFor="let choices of question.answers; index as i">
         <div class="ui radio checkbox">
             <!-- Radio Gruppe braucht den selben Namen damit nur single choice funktioniert. -->
-            <input (click)="getChecked(question.id)" #answer type="radio" name="radioButton">
+            <input (change)="pushToArr()" #answer type="radio" name="radioButton">
             <label> {{ choices }} </label>
         </div>
     </div>

@@ -2,7 +2,7 @@
 
 
 <div *ngIf="finishFlag === true">
-  <ltps-results [userAnswers]="userAnswersArr"></ltps-results>
+  <ltps-results [userAnswers]="answersArr"></ltps-results>
 </div>
 
 <div *ngIf="finishFlag === false" id="wrapper">
@@ -72,13 +72,13 @@
 <!-- Wechselt den Fragetypen je nachdem was in questions.type der aktuellen Frage drin steht -->
 <div *ngIf="currentRoute !== '/learn'">
   <div *ngIf="questions[laufVar].type === 'typeIn' && finishFlag === false">
-    <ltps-input (answerObj)="answerReciever($event)" [laufVar]="laufVar" [answers]="userAnswersArr" [question]="questions[laufVar]"></ltps-input>
+    <ltps-input [laufVar]="laufVar" [question]="questions[laufVar]"></ltps-input>
   </div>
   <div *ngIf="questions[laufVar].type === 'multi' && finishFlag === false">
-    <ltps-multiple-choice (answerObj)="answerReciever($event)" [laufVar]="laufVar" [answers]="userAnswersArr" [question]="questions[laufVar]"></ltps-multiple-choice>
+    <ltps-multiple-choice [laufVar]="laufVar" [question]="questions[laufVar]"></ltps-multiple-choice>
   </div>
   <div *ngIf="questions[laufVar].type === 'single' && finishFlag === false">
-    <ltps-single-choice (checkedObj)="answerReciever($event)" [laufVar]="laufVar" [answers]="userAnswersArr" [question]="questions[laufVar]"></ltps-single-choice>
+    <ltps-single-choice [laufVar]="laufVar" [question]="questions[laufVar]"></ltps-single-choice>
   </div>
 </div>
 
@@ -90,7 +90,7 @@
   </button>
 </div>
 
-<div *ngIf="currentRoute !== '/learn' && userAnswersArr.length === questions.length && userAnswersArr[questions.length - 1].answerArr && finishFlag === false" style="text-align: center;">
+<div *ngIf="currentRoute !== '/learn' && answersArr.length === questions.length && answersArr[questions.length - 1].answerArr && finishFlag === false" style="text-align: center;">
   <div class="ui divider"></div>
   <button (click)="showResult()" class="ui labeled icon button large">
     <i class="check icon black"></i>

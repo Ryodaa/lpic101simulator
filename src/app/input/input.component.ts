@@ -1,51 +1,29 @@
-import { Component, ElementRef, Input, ViewChild, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
-import { Answers } from '../answers';
+import { Component, Input, OnInit } from '@angular/core';
 import { Question } from '../question';
+import { AnswersService } from '../answers.service';
+import { Answers } from '../answers';
 
 @Component({
   selector: 'ltps-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css']
 })
-export class InputComponent implements OnInit, OnChanges {
+export class InputComponent implements OnInit {
 
-  @Input() question!: Question; // Alle Fragen
+  // Variablen Deklarationen
 
-  @Input() answers!: Answers[]; // Aktuelle User-Antwort
+  @Input() question!: Question;           // Alle Fragen
 
-  @Input() laufVar!: number;
+  @Input() laufVar!: number;              // Der aktuelle Index zur Frage
 
-  @Output() answerObj = new EventEmitter<any>(); // Die aktuelle Antwort als Objekt
+  answersArr!: Answers[];                 // Alle user Antworten.
 
-  @ViewChild('btn') okBtn!: ElementRef;
 
-  inputValue!: string;
-
-  ngOnChanges() {
-    console.log('changes!')
-    this.ngOnInit();
-  }
-
+  constructor(private as: AnswersService) {}
+  
+  
   ngOnInit() {
-
-    console.log(this.answers[this.laufVar]);
-
-    if(this.answers[this.laufVar] !== undefined) {
-      if(this.answers[this.laufVar].answerArr.length > 0) {
-        this.inputValue = this.answers[this.laufVar].answerArr[0];
-      }
-    }
-  }
-
-
-  // Habe keine Lust auf Observables, deswegen nutze ich einen Button zum emitten.
-  // Wird vielleicht noch geändert wenn ich Lust habe...
-  lockIn(id: number): void {
-    let answer: string = this.inputValue;
-    let answerArr: string[] = [];
-    answerArr.push(answer)
-    this.answerObj.emit({id, answerArr});
-    this.okBtn.nativeElement.className = "ui button positive";
+    this.answersArr = this.as.getAll();
   }
   
 }

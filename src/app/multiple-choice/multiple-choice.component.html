@@ -1,7 +1,7 @@
 <div id="choices" class="ui container segment">
     <div *ngFor="let choices of question.answers; index as i">
         <div class="ui checkbox">
-            <input (click)="getChecked(question.id)" type="checkbox" #answer>
+            <input (change)="pushToArr()" type="checkbox" #answer>
             <label> {{ choices }} </label>
         </div>
     </div>

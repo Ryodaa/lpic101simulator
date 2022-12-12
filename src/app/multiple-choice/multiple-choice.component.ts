@@ -1,5 +1,6 @@
-import { Component, ElementRef, Input, ViewChildren, QueryList, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, ViewChildren, QueryList, OnInit } from '@angular/core';
 import { Answers } from '../answers';
+import { AnswersService } from '../answers.service';
 import { Question } from '../question';
 
 @Component({
@@ -9,55 +10,39 @@ import { Question } from '../question';
 })
 export class MultipleChoiceComponent implements OnInit {
 
-  @Input() question!: Question;
+  @Input() question!: Question; // Die aktuelle Frage.
 
-  @Input() answers!: Answers[];
+  @Input() laufVar!: number;    // Der aktuelle Index zur Frage.
 
-  @Input() laufVar!: number;
+  answersArr!: Answers[];       // Alle user Antworten.
 
   @ViewChildren('answer') answerChildren!: QueryList<ElementRef>;
 
-  @Output() answerObj = new EventEmitter<any>();
-
-  answersArr: string[] = [];
-
+  constructor(private as: AnswersService) {}
 
   ngOnInit() {
-
-
-    setTimeout(() => {
-
-      console.log(this.answers[this.laufVar]);
-      
-      if(this.answers[this.laufVar] !== undefined) {
-        this.answerChildren.forEach(answChild => {
-          if(this.answers[this.laufVar].answerArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) {
-            answChild.nativeElement.checked = true;
-          }
-        })
-      }
-
-    });
-
-
+    this.answersArr = this.as.getAll();
   }
 
-  getChecked(id: number) {
+  pushToArr() {
+    for (let i = 0; i < this.answerChildren.length; i++) {
+      
+      // Diese Variablen dienen der Übersichtlichkeit des Codes.
+      // Ohne diese ist der Code eine Qual zu verstehen.
+      let answArr = this.answersArr[this.laufVar].answerArr;                            // Das aktuelle Antwort-array.
+      let chkBox = this.answerChildren.get(i);                                          // Die aktuelle checkbox.
+      let answer = chkBox?.nativeElement.nextElementSibling.innerHTML                   // Die Antwort zu der checkbox.
+      let index: number = answArr.indexOf(answer);                                      // Der index der aktuellen Antwort innerhalb des Antwort-array.
 
-    this.answerChildren.forEach(answChild => {
-      if(answChild.nativeElement.checked === true) {
-        if(!this.answersArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) {
-          this.answersArr.push(answChild.nativeElement.nextElementSibling.innerHTML);
-        }
-      } else {
-        if(this.answersArr.includes(answChild.nativeElement.nextElementSibling.innerHTML)) {
-          this.answersArr.splice(this.answersArr.indexOf(answChild.nativeElement.nextElementSibling.innerHTML));
-        }
+      // Die eigentliche Funktion.
+      if(chkBox?.nativeElement.checked === true && !answArr.includes(answer)) {         // Wenn aktuelle checkbox gecheckt wurde und noch nicht im Answer-array vorhanden.
+        answArr.push(answer);                                                           // Pushe die Antwort ins Antworten-array
+      } else if(chkBox?.nativeElement.checked === false && answArr.includes(answer)) {  // Wenn aktuelle checkbox nicht gecheckt wurde aber schon im Answer-array vorhanden ist.
+        answArr.splice(index, index);                                                   // Lösche diese Antwort wieder aus dem Antwort-array herraus.
+        break;                                                                          // Danach break damit es nicht zu fehlern durch die nun geänderten index Reihenfolge kommt.
       }
-    })
-    let answerArr: string[] = this.answersArr;
-    // Emit darf nicht sofort passieren da sonst mit jedem check ein neues Objekt gesendet wird.
-    this.answerObj.emit({ id, answerArr })
+      
+    }
   }
 
 }
