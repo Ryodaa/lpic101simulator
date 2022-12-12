@@ -11,16 +11,17 @@ import { Answers } from '../answers';
 export class InputComponent implements OnInit {
 
   // Variablen Deklarationen
-
-  @Input() question!: Question;           // Alle Fragen
-
-  @Input() laufVar!: number;              // Der aktuelle Index zur Frage
-
-  answersArr!: Answers[];                 // Alle user Antworten.
-
-
-  constructor(private as: AnswersService) {}
   
+  answersArr!: Answers[];          // Alle user Antworten.
+
+  @Input() 
+    question!: Question;           // Alle Fragen
+
+  @Input() 
+    laufVar!: number;              // Der aktuelle Index zur Frage
+
+
+  constructor(private as: AnswersService) { }
   
   ngOnInit() {
     this.answersArr = this.as.getAll();

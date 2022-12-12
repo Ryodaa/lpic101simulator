@@ -23,18 +23,24 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   disabled = 'btn ui icon button disabled'  // Klassen für disabled buttons.
   enabled = 'btn ui icon button'            // Klassen für enabled buttons.
 
-  @Input() childIdQuestion!: number;                        // Die id aus der question-list
+  @Input() 
+    childIdQuestion!: number;                        // Die id aus der question-list
 
-  @Input() markedArrCp!: {id: number, answers: string[]}[]; // Kopie des marked Array für multi Fragen. Wird nur weitergereicht.
+  @Input() 
+    markedArrCp!: {id: number, answers: string[]}[]; // Kopie des marked Array für multi Fragen. Wird nur weitergereicht.
   
-  @Input() currentAnswer!: Answers;                         // Die letzte Antwort die via emit an diese Komponente übergeben wurde.
+  @Input() 
+    currentAnswer!: Answers;                         // Die letzte Antwort die via emit an diese Komponente übergeben wurde.
 
-  @Output() clickedInfoBtnEmit = new EventEmitter<any>();   // Liefert die id vom Info Button an die Eltern Komponente
+  @Output() 
+    clickedInfoBtnEmit = new EventEmitter<any>();    // Liefert die id vom Info Button an die Eltern Komponente
 
 
   // DOM zugriffe auf die Pfeil-buttons zum verändern der Klassen (zum disablen).
-  @ViewChild('previousArw') previousArw!: ElementRef;
-  @ViewChild('nextArw') nextArw!: ElementRef;
+  @ViewChild('previousArw') 
+    previousArw!: ElementRef;
+  @ViewChild('nextArw') 
+    nextArw!: ElementRef;
   
   constructor(private qs: QuestionsService, private route: Router, private as: AnswersService) { }
   
@@ -58,7 +64,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   erlaubt es somit auf die DOM Elemente zuzugreifen was nicht im ngOnInit selber möglich ist 
   !!! Views sind eventuell nicht der beste Weg um auf den DOM zuzugreifen, muss recherchieren !!! */
   ngAfterViewInit(): void  {
-    if(this.laufVar === 0) {  // Disabled den zurück Pfeil wenn laufVar auf 0 ist und es somit keine Frage mehr vorher gibt.
+    if(this.laufVar === 0) {                                    // Disabled den zurück Pfeil wenn laufVar auf 0 ist und es somit keine Frage mehr vorher gibt.
       this.previousArw.nativeElement.className = this.disabled;
     } else {
       this.previousArw.nativeElement.className = this.enabled;
@@ -67,18 +73,18 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 
   // Funktionen zum disablen der Pfeil-Buttons
   dsblNxtBtn(laufVar: number): void {
-    if (this.laufVar > 0) { // Wenn laufVar größer als 0 ist wird der Button enabled.
+    if (this.laufVar > 0) {                                     // Wenn laufVar größer als 0 ist wird der Button enabled.
       this.previousArw.nativeElement.className = this.enabled;
     }
-    if (this.laufVar >= this.questions.length) { // Wenn laufVar größer oder gleich der anzahl aller Fragen ist, so wird der Button disabled. 
+    if (this.laufVar >= this.questions.length) {                // Wenn laufVar größer oder gleich der anzahl aller Fragen ist, so wird der Button disabled. 
       this.nextArw.nativeElement.className = this.disabled;
     }
   }
   dsblPreBtn(laufVar: number): void {
-    if (this.laufVar === 0) { // Wenn laufVar === 0 ist, so wird der Button disabled da es keine Frage vor index 0 gibt.
+    if (this.laufVar === 0) {                                   // Wenn laufVar === 0 ist, so wird der Button disabled da es keine Frage vor index 0 gibt.
       this.previousArw.nativeElement.className = this.disabled;
     }
-    if (this.laufVar < this.questions.length - 1) { // Solange laufVar kleiner ist als die anzahl aller Fragen, bleibt der Button enabled.
+    if (this.laufVar < this.questions.length - 1) {             // Solange laufVar kleiner ist als die anzahl aller Fragen, bleibt der Button enabled.
       this.nextArw.nativeElement.className = this.enabled;
     }
   }

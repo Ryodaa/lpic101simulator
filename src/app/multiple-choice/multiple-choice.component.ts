@@ -10,21 +10,40 @@ import { Question } from '../question';
 })
 export class MultipleChoiceComponent implements OnInit {
 
-  @Input() question!: Question; // Die aktuelle Frage.
+  // Variablen Deklarationen
+  
+  answersArr!: Answers[];                   // Alle user Antworten.
 
-  @Input() laufVar!: number;    // Der aktuelle Index zur Frage.
+  @Input() 
+    question!: Question;                    // Die aktuelle Frage.
 
-  answersArr!: Answers[];       // Alle user Antworten.
+  @Input() 
+    laufVar!: number;                       // Der aktuelle Index zur Frage.
 
-  @ViewChildren('answer') answerChildren!: QueryList<ElementRef>;
-
-  constructor(private as: AnswersService) {}
+  @ViewChildren('answer') 
+    answerChildren!: QueryList<ElementRef>; // DOM zugriff auf alle checkboxen
+  
+  constructor(private as: AnswersService) { }
 
   ngOnInit() {
     this.answersArr = this.as.getAll();
+
+    setTimeout(() => {
+
+      this.answerChildren.forEach(element => {
+        if(this.answersArr[this.laufVar].answerArr.includes(element.nativeElement.nextElementSibling.innerHTML)) {
+          element.nativeElement.checked = true;
+      } else {
+          element.nativeElement.checked = false;
+      }
+    });
+
+  });   
+
   }
 
   pushToArr() {
+
     for (let i = 0; i < this.answerChildren.length; i++) {
       
       // Diese Variablen dienen der Übersichtlichkeit des Codes.
