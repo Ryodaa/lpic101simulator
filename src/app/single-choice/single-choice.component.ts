@@ -37,7 +37,7 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
     setTimeout(() => {
 
       this.answerChildren.forEach(element => {
-        if(this.answersArr[this.laufVar].answerArr.includes(element.nativeElement.nextElementSibling.innerHTML)) {
+        if(this.answersArr[this.laufVar].answerArr.includes(element.nativeElement.nextElementSibling.innerText)) {
           element.nativeElement.checked = true;
       } else {
           element.nativeElement.checked = false;
@@ -51,7 +51,7 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
   pushToArr() {
     this.answerChildren.forEach(element => {
 
-      let answer: string = element.nativeElement.nextElementSibling.innerHTML;  // Die aktuelle Antwort zur checkbox.
+      let answer: string = element.nativeElement.nextElementSibling.innerText;  // Die aktuelle Antwort zur checkbox.
       let answerArr = this.answersArr[this.laufVar].answerArr;                  // Das aktuelle Antwort-array.
 
       if(element.nativeElement.checked === true && answerArr.length < 1) {      // Wenn checkbox ist checked und Antwort-array länge ist weniger als 1.    

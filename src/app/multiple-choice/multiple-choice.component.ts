@@ -31,7 +31,7 @@ export class MultipleChoiceComponent implements OnInit {
     setTimeout(() => {
 
       this.answerChildren.forEach(element => {
-        if(this.answersArr[this.laufVar].answerArr.includes(element.nativeElement.nextElementSibling.innerHTML)) {
+        if(this.answersArr[this.laufVar].answerArr.includes(element.nativeElement.nextElementSibling.innerText)) {
           element.nativeElement.checked = true;
       } else {
           element.nativeElement.checked = false;
@@ -50,7 +50,7 @@ export class MultipleChoiceComponent implements OnInit {
       // Ohne diese ist der Code eine Qual zu verstehen.
       let answArr = this.answersArr[this.laufVar].answerArr;                            // Das aktuelle Antwort-array.
       let chkBox = this.answerChildren.get(i);                                          // Die aktuelle checkbox.
-      let answer = chkBox?.nativeElement.nextElementSibling.innerHTML                   // Die Antwort zu der checkbox.
+      let answer = chkBox?.nativeElement.nextElementSibling.innerText                   // Die Antwort zu der checkbox.
       let index: number = answArr.indexOf(answer);                                      // Der index der aktuellen Antwort innerhalb des Antwort-array.
 
       // Die eigentliche Funktion.

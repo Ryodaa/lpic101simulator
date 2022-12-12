@@ -2,7 +2,7 @@
 
 
 <div *ngIf="finishFlag === true">
-  <ltps-results [markedArrCp]="markedArrCp"></ltps-results>
+  <ltps-results></ltps-results>
 </div>
 
 <div *ngIf="finishFlag === false" id="wrapper">
@@ -66,8 +66,8 @@
     </div>
     
   </div>
+  <br>
 </div>
-<br>
 
 <!-- Wechselt den Fragetypen je nachdem was in questions.type der aktuellen Frage drin steht -->
 <div *ngIf="currentRoute !== '/learn'">
