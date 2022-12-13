@@ -78,6 +78,9 @@
   <div *ngIf="questions[laufVar].type === 'single' && finishFlag === false">
     <ltps-single-choice [laufVar]="laufVar" [question]="questions[laufVar]"></ltps-single-choice>
   </div>
+  <div *ngIf="wrongCount >= 7 && currentRoute === '/testmode'">
+    <ltps-popup></ltps-popup>
+  </div>
 </div>
 
 <div *ngIf="currentRoute === '/learn' && finishFlag === false" style="text-align: center;">

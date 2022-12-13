@@ -90,7 +90,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
     }
   }
 
-  /* Live count der Fflschen Antworten für die Warn-Popups.
+  /* Live count der Falschen Antworten für die Warn-Popups.
   laufVar - 1 weil die laufVar erhöht wird bevor diese Funktion ausgeführt wird,
   wir uns aber trotzdem noch auf die vorherige Frage beziehen. */
   currIncorr(): void {

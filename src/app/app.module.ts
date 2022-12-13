@@ -14,6 +14,7 @@ import { InfoBoxComponent } from './info-box/info-box.component';
 import { SingleChoiceComponent } from './single-choice/single-choice.component';
 import { ResultsComponent } from './results/results.component';
 import { FormsModule } from '@angular/forms';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     QuestionListComponent,
     InfoBoxComponent,
     SingleChoiceComponent,
-    ResultsComponent
+    ResultsComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

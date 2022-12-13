@@ -17,28 +17,6 @@
 
     <div> <!-- ngIf = inCorrCount < 7 war hier drin -->
 
-      <!-- <div *ngIf="incorrCount >= 7 && route.url === '/testmode'">
-        <div class="ui raised segment">
-  
-          <div class="ui red top attached label">Info</div>
-          <p>{{ incorrCount }} / 7 möglichen Fehlern gemacht.</p>
-          <p>Bitte nochmal Üben</p>
-  
-          <div class="ui divider"></div>
-  
-          <button (click)="reloadComp()" class="ui labeled icon button">
-            <i class="redo icon black"></i>
-            Erneut versuchen
-          </button>
-  
-          <button [routerLink]="['/learn']" class="ui labeled icon button">
-            <i class="book icon black"></i>
-            Lernmodus
-          </button>
-  
-        </div>
-      </div> -->
-
       <div *ngFor="let answer of answers; index as i">
 
         <div class="ui divider"></div>

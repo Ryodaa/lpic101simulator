@@ -1,0 +1,20 @@
+
+<div *ngIf="route.url === '/testmode'">
+    <div class="ui raised segment">
+
+        <div class="ui red top attached label">Info</div>
+
+        <div class="ui divider"></div>
+
+        <button class="ui labeled icon button">
+            <i class="redo icon black"></i>
+            Erneut versuchen
+        </button>
+
+        <button [routerLink]="['/learn']" class="ui labeled icon button">
+            <i class="book icon black"></i>
+            Lernmodus
+        </button>
+
+    </div>
+</div>
