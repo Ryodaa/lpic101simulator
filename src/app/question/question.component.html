@@ -2,11 +2,10 @@
 
 
 <div *ngIf="finishFlag === true">
-  <ltps-results></ltps-results>
+  <ltps-results (chkAnswersCp)="resultReciever($event)"></ltps-results>
 </div>
 
 <div *ngIf="finishFlag === false" id="wrapper">
-
 
   <div class="ui grid">
 
@@ -16,11 +15,10 @@
       </div>
     </div>
 
-
     <div class="twelve wide column">
 
       <h4 class="ui header">Frage {{ questions[laufVar].id }}</h4>
-      <p> {{ questions[laufVar].question }} </p>
+      <div> {{ questions[laufVar].question }} </div>
 
       <div *ngIf="currentRoute === '/learn'">
         <div class="ui raised segment">

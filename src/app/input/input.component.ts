@@ -23,7 +23,7 @@ export class InputComponent implements OnInit {
 
   constructor(private as: AnswersService) { }
   
-  ngOnInit() {
+  ngOnInit(): void {
     this.answersArr = this.as.getAll();
   }
   

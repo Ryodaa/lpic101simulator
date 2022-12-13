@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
   templateUrl: './exam.component.html',
   styleUrls: ['./exam.component.css']
 })
-export class ExamComponent {
+export class ExamComponent implements OnInit {
 
-  examStart: boolean = false;
+  examStart: Boolean = false;
   state: string = 'Zurück';
 
   @ViewChild('startBtn') startBtn!: ElementRef;
@@ -16,7 +16,11 @@ export class ExamComponent {
 
   constructor(private router: Router) {}
 
-  startExam() {
+  ngOnInit(): void {
+
+  }
+
+  startExam(): void {
     if (this.examStart === false) {
       this.examStart = true;
       this.state = 'Abbrechen';
@@ -25,7 +29,7 @@ export class ExamComponent {
     }
   }
 
-  cancelExam() {
+  cancelExam(): void {
     if (this.examStart === true) {
       this.examStart = false;
       this.state = 'Zurück';

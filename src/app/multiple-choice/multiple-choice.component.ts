@@ -13,6 +13,7 @@ export class MultipleChoiceComponent implements OnInit {
   // Variablen Deklarationen
   
   answersArr!: Answers[];                   // Alle user Antworten.
+  limitFlag!: Boolean;
 
   @Input() 
     question!: Question;                    // Die aktuelle Frage.
@@ -25,30 +26,32 @@ export class MultipleChoiceComponent implements OnInit {
   
   constructor(private as: AnswersService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.answersArr = this.as.getAll();
 
-    setTimeout(() => {
-
+    /* setTimeout verzögert die ausführung des Codes um einen cycle und erlaubt damit, 
+    dass auf den View zugegriffen werden kann ohne das ich ngAfterViewInit nutzen muss.*/
+    setTimeout(() => { 
       this.answerChildren.forEach(element => {
         if(this.answersArr[this.laufVar].answerArr.includes(element.nativeElement.nextElementSibling.innerText)) {
           element.nativeElement.checked = true;
-      } else {
+        } else {
           element.nativeElement.checked = false;
-      }
-    });
+        }
+      });
 
-  });   
+    });   
 
   }
 
-  pushToArr() {
+  pushToArr(): void {
 
+    let answArr = this.answersArr[this.laufVar].answerArr;                              // Das aktuelle Antwort-array.
+    
     for (let i = 0; i < this.answerChildren.length; i++) {
       
       // Diese Variablen dienen der Übersichtlichkeit des Codes.
       // Ohne diese ist der Code eine Qual zu verstehen.
-      let answArr = this.answersArr[this.laufVar].answerArr;                            // Das aktuelle Antwort-array.
       let chkBox = this.answerChildren.get(i);                                          // Die aktuelle checkbox.
       let answer = chkBox?.nativeElement.nextElementSibling.innerText                   // Die Antwort zu der checkbox.
       let index: number = answArr.indexOf(answer);                                      // Der index der aktuellen Antwort innerhalb des Antwort-array.
@@ -62,6 +65,7 @@ export class MultipleChoiceComponent implements OnInit {
       }
       
     }
+
   }
 
 }

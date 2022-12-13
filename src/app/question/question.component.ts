@@ -14,14 +14,16 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 
   // Variablen Deklarationen
 
-  finishFlag: boolean = false;              // Bestimmt ob der Result-screen sichtbar ist oder nicht.
-  questions!: Question[];                   // Alle fragen aus dem Questions.service.
-  laufVar!: number;                         // Variable die für den Index der aktuellen Frage zuständig ist.
-  currentRoute: string = this.route.url;    // aktuelle Route als string. 
-  clickedInfoBtn!: number;                  // Ist gleich der aktuellen question.id.
-  answersArr!: Answers[];                   // Alle user Antworten.
-  disabled = 'btn ui icon button disabled'  // Klassen für disabled buttons.
-  enabled = 'btn ui icon button'            // Klassen für enabled buttons.
+  finishFlag: boolean = false;                                                  // Bestimmt ob der Result-screen sichtbar ist oder nicht.
+  questions!: Question[];                                                       // Alle fragen aus dem Questions.service.
+  laufVar!: number;                                                             // Variable die für den Index der aktuellen Frage zuständig ist.
+  currentRoute: string = this.route.url;                                        // aktuelle Route als string. 
+  clickedInfoBtn!: number;                                                      // Ist gleich der aktuellen question.id.
+  answersArr!: Answers[];                                                       // Alle user Antworten.
+  checkedAnswers!: { id: number, userAnswers: string[], correct: Boolean }[];   // die verarbeiteten Antworten aus der Result Komponente
+  disabled = 'btn ui icon button disabled'                                      // Klassen für disabled buttons.
+  enabled = 'btn ui icon button'                                                // Klassen für enabled buttons.
+  wrongCount: number = 0;
 
   @Input() 
     childIdQuestion!: number;                        // Die id aus der question-list
@@ -35,7 +37,6 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   @Output() 
     clickedInfoBtnEmit = new EventEmitter<any>();    // Liefert die id vom Info Button an die Eltern Komponente
 
-
   // DOM zugriffe auf die Pfeil-buttons zum verändern der Klassen (zum disablen).
   @ViewChild('previousArw') 
     previousArw!: ElementRef;
@@ -44,9 +45,9 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   
   constructor(private qs: QuestionsService, private route: Router, private as: AnswersService) { }
   
-  ngOnInit(): void  {
+  ngOnInit(): void {
 
-    this.questions = this.qs.getAll(); // Holt alle Fragen aus dem Questions.service
+    this.questions = this.qs.getAll();  // Holt alle Fragen aus dem Questions.service
     this.answersArr = this.as.getAll(); // Holt alle Antworten aus dem Answers.service
 
     /* Wenn kein Button vorher gedrückt wurde ist childIdQuestion ohne Wert (undefined).
@@ -63,7 +64,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   /* Ähnlich wie ngOnInit nur führt nach dem initialisieren der Views aus und 
   erlaubt es somit auf die DOM Elemente zuzugreifen was nicht im ngOnInit selber möglich ist 
   !!! Views sind eventuell nicht der beste Weg um auf den DOM zuzugreifen, muss recherchieren !!! */
-  ngAfterViewInit(): void  {
+  ngAfterViewInit(): void {
     if(this.laufVar === 0) {                                    // Disabled den zurück Pfeil wenn laufVar auf 0 ist und es somit keine Frage mehr vorher gibt.
       this.previousArw.nativeElement.className = this.disabled;
     } else {
@@ -89,9 +90,40 @@ export class QuestionComponent implements OnInit, AfterViewInit {
     }
   }
 
+  /* Live count der Fflschen Antworten für die Warn-Popups.
+  laufVar - 1 weil die laufVar erhöht wird bevor diese Funktion ausgeführt wird,
+  wir uns aber trotzdem noch auf die vorherige Frage beziehen. */
+  currIncorr(): void {
+
+    // Aktuelle Fehler:
+    // 1. Wenn user zurück geht und wieder next drückt, dann wird wieder ausgeführt
+    // und nicht Korregiert.
+    // 2. Wenn keine Antwort gegeben wird, so wird es als falsch gewertet.
+    // 3. Wenn zurück gegangen wird und falsche Antwort zur richtigen wird
+    // dann soll wrongCount-- passieren.
+
+    let multiWrong = 0
+
+    if(this.questions[this.laufVar - 1].type !== 'multi') {
+      if(this.questions[this.laufVar - 1].solution[0] !== this.answersArr[this.laufVar - 1].answerArr[0]) {
+        this.wrongCount++;
+      }
+    } else {
+      this.answersArr[this.laufVar - 1].answerArr.forEach(answer => {
+        if(!this.questions[this.laufVar - 1].solution.includes(answer)) {
+          multiWrong++;
+        }
+      })
+      if(multiWrong > 0) {
+        this.wrongCount++;
+      }
+    }  
+  }
+
   nextQuestion(): void  {
     this.laufVar++;
     this.dsblNxtBtn(this.laufVar);
+    this.currIncorr();
   }
 
   previousQuestion(): void  {
@@ -106,9 +138,12 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   }
 
   // Setzt finishFlag auf true damit der Result-Screen angezeigt wird.
-  showResult() {
+  showResult(): void {
     this.finishFlag = true;
   }
 
-}
+  resultReciever(emit: any): void {
+    this.checkedAnswers = emit;
+  }
 
+}

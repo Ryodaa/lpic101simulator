@@ -24,7 +24,7 @@ export class LearnModeComponent implements OnInit {
 
 // Wechselt zwischen Einzelansicht und der Liste aller Fragen.
 // false = Listenansicht, true = Einzelansicht
-  switchMode() {
+  switchMode(): void {
     if(this.modeBool === true) {
       this.modeBool = false;
 

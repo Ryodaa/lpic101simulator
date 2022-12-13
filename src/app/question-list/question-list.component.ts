@@ -9,11 +9,14 @@ import { Question } from '../question';
 })
 export class QuestionListComponent implements OnInit {
 
-  @Output() clickedInfoBtnEmit = new EventEmitter<any>(); // Liefert die id vom Info Button an die Eltern Komponente
+  @Output() 
+    clickedInfoBtnEmit = new EventEmitter<any>(); // Liefert die id vom Info Button an die Eltern Komponente
 
-  @Input() markedArrCp!: {id: number, answers: string[]}[];
+  @Input() 
+    markedArrCp!: {id: number, answers: string[]}[];
 
-  @Input() activeButton!: number;
+  @Input() 
+    activeButton!: number;
   /* Nimmt die aktuelle ID von außen wieder auf um nach dem neu laden der Komponente 
   durch den wechseln zwischen liste und einzelansicht, den Button status wieder auf "positive" zu setzten. 
   Dies ist notwendig da durch das neu laden der ngFor wieder von vorne beginnt und dadurch
@@ -22,10 +25,9 @@ export class QuestionListComponent implements OnInit {
   clickedInfoBtn!: number; // Ist gleich der aktuellen question.id
   questions!: Question[]; // Fragen Array aus dem Questions-service
 
-  
   constructor(private qs: QuestionsService) {}
   
-  ngOnInit() {
+  ngOnInit(): void {
     this.questions = this.qs.getAll();
     
     if (this.clickedInfoBtn === undefined) {

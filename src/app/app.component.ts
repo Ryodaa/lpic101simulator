@@ -6,11 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lernTestPruefSimulator';
 
-  popper = false;
+  title = 'lernTestPruefSimulator'; // Titel der Anwendung.
 
-  togglePopper() {
+  popper = false; // Default popup wert. Nur bei True wird er angezeigt.
+
+  // Popup anzeigen lassen, oder wieder ausblenden.
+  togglePopper(): void {
     if (this.popper === false) {
       this.popper = true;
     } else {

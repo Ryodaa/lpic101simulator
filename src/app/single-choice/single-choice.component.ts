@@ -26,16 +26,15 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
 
   constructor(private as: AnswersService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.answersArr = this.as.getAll();
-    console.log(this.answersArr)
-
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
 
+    /* setTimeout verzögert die ausführung des Codes um einen cycle und erlaubt damit, 
+    dass auf den View zugegriffen werden kann ohne das ich ngAfterViewInit nutzen muss.*/
     setTimeout(() => {
-
       this.answerChildren.forEach(element => {
         if(this.answersArr[this.laufVar].answerArr.includes(element.nativeElement.nextElementSibling.innerText)) {
           element.nativeElement.checked = true;
@@ -43,12 +42,11 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
           element.nativeElement.checked = false;
       }
     });
-
   });   
 
 }
 
-  pushToArr() {
+  pushToArr(): void {
     this.answerChildren.forEach(element => {
 
       let answer: string = element.nativeElement.nextElementSibling.innerText;  // Die aktuelle Antwort zur checkbox.

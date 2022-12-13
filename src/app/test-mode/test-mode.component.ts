@@ -16,7 +16,7 @@ export class TestModeComponent {
 
   constructor(private router: Router) {}
 
-  startTest() {
+  startTest(): void {
     if (this.testStart === false) {
       this.testStart = true;
       this.state = 'Abbrechen';
@@ -25,7 +25,7 @@ export class TestModeComponent {
     }
   }
 
-  cancelTest() {
+  cancelTest(): void {
     if (this.testStart === true) {
       this.testStart = false;
       this.state = 'Zurück';

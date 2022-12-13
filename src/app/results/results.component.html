@@ -1,78 +1,123 @@
 <div id="scrollable">
-  
+
   <div id="wrapper">
-      
+
     <h2 class="ui header">
       <div class="content">
         <i class="icon check"></i>
         Ergebnis
       </div>
     </h2>
-    
-    <div *ngFor="let answer of answers; index as i">
-      
-      <div class="ui divider"></div>
-      <div> <b> {{ questions[i].id }}. </b> {{ questions[i].question }}.</div>
-      <div stype="padding-top: 8px;"></div> <!-- spacer -->
-      <div class="ui raised segment">
-        <div id="raisedSeg">
-          
-          <b>Deine Lösung:</b><br>
-          <div *ngIf="questions[i].type !== 'multi'">
 
-            <ng-component *ngIf="checkedAnswers[i].correct === true then correct else incorrect"></ng-component>
-            <ng-template #correct><i class="right check icon small grey"></i><i id="correct">{{ answer.answerArr }}</i></ng-template>
-            <ng-template #incorrect><i class="right times icon small grey"></i><i id="incorrect">{{ answer.answerArr }}</i></ng-template>
-            
-          </div>
+    <div> Richtige Antworten: {{ corrCount }} / {{ questions.length }} </div>
 
-          <div *ngIf="questions[i].type === 'multi'">
+    <div style="padding-top: 8px;"></div> <!-- spacer -->
+
+    <div style="padding-top: 8px;"></div> <!-- spacer -->
+
+    <div> <!-- ngIf = inCorrCount < 7 war hier drin -->
+
+      <!-- <div *ngIf="incorrCount >= 7 && route.url === '/testmode'">
+        <div class="ui raised segment">
+  
+          <div class="ui red top attached label">Info</div>
+          <p>{{ incorrCount }} / 7 möglichen Fehlern gemacht.</p>
+          <p>Bitte nochmal Üben</p>
+  
+          <div class="ui divider"></div>
+  
+          <button (click)="reloadComp()" class="ui labeled icon button">
+            <i class="redo icon black"></i>
+            Erneut versuchen
+          </button>
+  
+          <button [routerLink]="['/learn']" class="ui labeled icon button">
+            <i class="book icon black"></i>
+            Lernmodus
+          </button>
+  
+        </div>
+      </div> -->
+
+      <div *ngFor="let answer of answers; index as i">
+
+        <div class="ui divider"></div>
+        <div> <b> {{ questions[i].id }}. </b> {{ questions[i].question }}.</div>
+        <div style="padding-top: 8px;"></div> <!-- spacer -->
+        <div class="ui raised segment">
+          <div id="raisedSeg">
+
+            <b>Deine Lösung:</b><br>
+
+            <!-- Wenn im array an index 0 nichts steht, dann 'Keine Antwort' -->
+            <div *ngIf="!checkedAnswers[i].userAnswers[0]">
+              <i class="right times icon small grey"></i><i id="incorrect">Keine Antwort</i>
+            </div>
+
+            <!-- Ansonsten füge die gegebenen Antworten ein -->
+            <div *ngIf="checkedAnswers[i].userAnswers[0]">
+
+              <div *ngIf="questions[i].type !== 'multi'">
+
+                <ng-component *ngIf="checkedAnswers[i].correct === true then correct else incorrect"></ng-component>
+                <ng-template #correct><i class="right check icon small grey"></i><i
+                    id="correct">{{ answer.answerArr }}</i></ng-template>
+                <ng-template #incorrect><i class="right times icon small grey"></i><i
+                    id="incorrect">{{ answer.answerArr }}</i></ng-template>
+              </div>
+
+
+              <div *ngIf="questions[i].type === 'multi'">
+
+                <ng-component *ngIf="checkedAnswers[i].correct === true then correct else incorrect"></ng-component>
+                <ng-template #correct>
+                  <div *ngFor="let answer of answers[i].answerArr">
+                    <i class="right check icon small grey"></i><i id="correct">{{ answer }}</i>
+                  </div>
+                </ng-template>
+                <ng-template #incorrect>
+                  <div *ngIf="checkedAnswers[i].correct === false">
+                    <div *ngFor="let answer of checkedAnswers[i].userAnswers">
+                      <div *ngIf="!answer.endsWith('*')">
+                        <i class="right check icon small grey"></i><i id="correct">{{ answer }}</i>
+                      </div>
+                      <div *ngIf="answer.endsWith('*')">
+                        <i class="right check icon small grey"></i><i
+                          id="incorrect">{{ answer.slice(0, answer.length - 1) }}</i>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+
+              </div>
+
+            </div>
 
             <ng-component *ngIf="checkedAnswers[i].correct === true then correct else incorrect"></ng-component>
             <ng-template #correct>
-              <div *ngFor="let answer of answers[i].answerArr">
-                <i class="right check icon small grey"></i><i id="correct">{{ answer }}</i>
+              <div class="ui green left corner label">
+                <i class="check icon"></i>
               </div>
             </ng-template>
             <ng-template #incorrect>
-              <div *ngIf="checkedAnswers[i].correct === false">
-                <div *ngFor="let answer of checkedAnswers[i].userAnswers">
-                  <div *ngIf="!answer.endsWith('*')">
-                    <i class="right check icon small grey"></i><i id="correct">{{ answer }}</i>
-                  </div>
-                  <div *ngIf="answer.endsWith('*')">
-                    <i class="right check icon small grey"></i><i id="incorrect">{{ answer.slice(0, answer.length - 1) }}</i>
-                  </div>
-                </div>
+              <div class="ui red left corner label">
+                <i class="times icon"></i>
               </div>
             </ng-template>
 
-          </div>
 
-          <ng-component *ngIf="checkedAnswers[i].correct === true then correct else incorrect"></ng-component>
-          <ng-template #correct>
-            <div class="ui green left corner label">
-              <i class="check icon"></i>
+            <div class="ui divider"></div>
+
+            <b>Lösung:</b><br>
+
+            <div *ngFor="let solution of questions[i].solution">
+              <i class="right check icon small grey"></i><i id="correct">{{ solution }}</i>
             </div>
-          </ng-template>
-          <ng-template #incorrect>
-            <div class="ui red left corner label">
-              <i class="times icon"></i>
-            </div>
-          </ng-template>
-          
-
-          <div class="ui divider"></div>
-          
-          <b>Lösung:</b><br>
-
-          <div *ngFor="let solution of questions[i].solution">
-            <i class="right check icon small grey"></i><i id="correct">{{ solution }}</i>
           </div>
         </div>
+        <div style="padding-top: 8px;"></div> <!-- spacer -->
+
       </div>
-      <div stype="padding-top: 8px;"></div> <!-- spacer -->
-        
     </div>
   </div>
 

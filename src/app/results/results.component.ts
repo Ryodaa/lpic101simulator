@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { QuestionsService } from '../questions.service';
 import { Question } from '../question';
 import { AnswersService } from '../answers.service';
 import { Answers } from '../answers';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ltps-results',
@@ -11,36 +12,61 @@ import { Answers } from '../answers';
 })
 export class ResultsComponent implements OnInit {
 
-  
   questions!: Question[]; // Fragen Array aus dem Questions-service
-  
   answers!: Answers[];
-
   checkedAnswers: { id: number, userAnswers: string[], correct: Boolean }[] = [];
+  corrCount: number = 0;
+  incorrCount: number = 0;
   
-  constructor(private qs: QuestionsService, private as: AnswersService) {}
+  @Output() 
+    chkAnswersCp = new EventEmitter<any[]>();
   
-  ngOnInit() {
+  constructor(private qs: QuestionsService, private as: AnswersService, public route: Router) {}
+  
+  ngOnInit(): void {
     this.questions = this.qs.getAll();
     this.answers = this.as.getAll();
-    console.log(this.questions);
-    console.log('questions');
-    console.log(this.answers);
-    console.log('answers')
 
     this.fillEmptyArr();
     this.compareAnswers();
+    this.countCorr();
   }
 
-  fillEmptyArr() {
+  countCorr(): void {
+    
+    this.checkedAnswers.forEach(element => {
+      if(element.correct === true) {
+        this.corrCount++;
+      } else {
+        this.incorrCount++;
+      }
+    });
+  }
+
+  fillEmptyArr(): void {
 
     for (let i = 0; i < this.questions.length; i++) {
-      this.checkedAnswers.push( { id: i + 1, userAnswers: [''], correct: false } )
+      this.checkedAnswers.push( { id: i + 1, userAnswers: [], correct: false } )
     }
-
   }
 
-  compareAnswers() {
+  reloadComp(): void {
+    /* Forciert einen sauberen reload der Komponenten damit der Nutzer neu Anfangen kann. 
+    Der Trick ist, der Router navigiert zu einer anderen Komponente, überspring aber den
+    wechsel und geht dann direkt zurück zur ausgangs Komponente.
+    Somit ist ein hard reload der Komponente gelungen ohne die komplette Anwendung neu zu laden. */
+    if(this.route.url === '/exam') {
+      this.route.navigateByUrl('/testmode', { skipLocationChange: true }).then(() => {
+        this.route.navigate(['/exam']);
+      });
+    } else if (this.route.url === '/testmode') {
+      this.route.navigateByUrl('/exam', { skipLocationChange: true }).then(() => {
+        this.route.navigate(['/testmode']);
+      });
+    }
+  }
+
+  compareAnswers(): void {
     
     for (let i = 0; i < this.questions.length; i++) {
       
@@ -58,7 +84,6 @@ export class ResultsComponent implements OnInit {
             userAnswer.push(answer + '*');
           }
 
-          console.log(userAnswer);
 
           let counter: number = 0;
           userAnswer.forEach(element => {
@@ -73,6 +98,9 @@ export class ResultsComponent implements OnInit {
           });
         }
       });
+
+      this.chkAnswersCp.emit(this.checkedAnswers);
+
     }
 
   }
