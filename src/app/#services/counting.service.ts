@@ -8,6 +8,8 @@ export class CountingService {
 
   liveWrongCount: number = 0;
   runVar: number = 0;
+  lifes: number = 7;
+  popBool: Boolean = false;
 
   constructor(
     private as: AnswersService
@@ -19,9 +21,15 @@ export class CountingService {
   resetAll(): void {
     this.liveWrongCount = 0;
     this.runVar = 0;
+    this.lifes = 7;
+    this.popBool = false;
     this.as.answers.forEach(element => {
       element.answerArr = [];
     });
+  }
+
+  switchBool(): void {
+    this.popBool = false;
   }
 
 }

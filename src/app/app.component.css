@@ -12,6 +12,7 @@
 }
 
 #popper:after {
+  content: " ";
   position: absolute;
   right: 16px;
   top: -8px;

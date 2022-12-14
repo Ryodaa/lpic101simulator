@@ -13,23 +13,39 @@
 
       <!-- Gib die id und boolean aus der listen und einzelfragen Komponente an die Info Box weiter -->
       <ltps-info-box [childIdBox]="childId"></ltps-info-box>
+
+
+      <div style="padding-top: 52px;"></div> <!-- spacer -->
+
+      
         
 
     </div>
 
 
-    <div class="nine wide column">
+    <div class="eleven wide column">
 
       
       <div id="align">
         
         <h2 class="ui header">
-            <img class="ui image" src="assets/img/school.png">
-            <div class="content">
-              Lernen
+          <img class="ui image" src="assets/img/school.png">
+          <div class="content">
+            Lernen
+            
+          </div>
+          <div id="switch" class="ui">
+    
+            <!-- Die Oben erwähnten Buttons die für den wechsel der Ansicht zuständig sind -->
+            <div class="ui icon buttons">
+              <button class="onOff" (click)="switchMode()" [ngClass]="modeBool === true ? 'ui button' : 'ui button toggle active'" data-content="Add users to your feed"><i class="icon ellipsis horizontal"></i></button>
+              <button class="onOff" (click)="switchMode()" [ngClass]="modeBool === true ? 'ui button toggle active' : 'ui button'" data-content="Add users to your feed"><i class="icon list"></i></button>
             </div>
-          </h2>
-        </div>
+            
+          </div>
+        </h2>
+        
+      </div>
         
         <div style="padding-top: 15px;"></div> <!-- spacer -->
         
@@ -50,25 +66,7 @@
           
         </div>
       </div>
-        
-        
-    <div class="two wide column" style="text-align: center;">
-        
-      <div style="padding-top: 52px;"></div> <!-- spacer -->
-
-      <div class="ui raised segment">
-
-        <h5>Einzelansicht:</h5>
-        <!-- Die Oben erwähnten Buttons die für den wechsel der Ansicht zuständig sind -->
-        <div class="ui vertical buttons">
-          <button (click)="switchMode()" [ngClass]="modeBool === true ? 'ui button' : 'ui button positive disabled'">On</button>
-          <button (click)="switchMode()" [ngClass]="modeBool === true ? 'ui button negative disabled' : 'ui button'">Off</button>
-        </div>
-        
-      </div>
       
-    </div>
-
   </div>
 </div>
 <br>

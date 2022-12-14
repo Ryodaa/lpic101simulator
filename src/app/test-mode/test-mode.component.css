@@ -1,3 +1,8 @@
 #cont {
     background-color: rgb(243, 243, 243); height: 90vh; 
 }
+
+#mistake {
+    background-color: red;
+    color: white;
+}

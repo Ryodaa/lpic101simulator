@@ -17,7 +17,7 @@ export class TestModeComponent {
 
   constructor(
     private router: Router,
-    private cs: CountingService
+    public cs: CountingService
     ) {}
 
   startTest(): void {

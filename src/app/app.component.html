@@ -24,6 +24,9 @@
       <div>
         {{ this.cs.liveWrongCount }}: liveWrongCount
       </div>
+      <div>
+        {{ this.cs.lifes }}: lifes
+      </div>
     </div>
 
     <a (click)="togglePopper()" class="target-block border border-primary">
@@ -52,7 +55,7 @@
 
 <router-outlet></router-outlet>
 
-<div *ngIf="cs.liveWrongCount > 0 && popupFlag === false && this.route.url === '/testmode' 
+<div *ngIf="this.cs.lifes === 0 && popupFlag === false && this.route.url === '/testmode' 
   || cs.liveWrongCount >= qs.questions.length * 0.2 && this.popupFlag === false && this.route.url === '/exam'">
   <div id="background">
     <div id="popup">

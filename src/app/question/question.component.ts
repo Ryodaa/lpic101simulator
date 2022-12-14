@@ -125,6 +125,8 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   nextQuestion(): void  {
     if(this.cs.runVar < 120) {
       this.cs.runVar++;
+      this.cs.lifes--;
+      this.cs.popBool = true;
     }
     this.dsblNxtBtn();
     this.currIncorr();

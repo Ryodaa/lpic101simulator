@@ -1,4 +1,4 @@
-<div *ngIf="route.url === '/testmode' && flag === false">
+<div *ngIf="this.route.url === '/testmode' && flag === false">
   <div class="ui raised segment">
 
 
@@ -32,12 +32,12 @@
   </div>
 </div>
 
-<div *ngIf="route.url === '/exam' && flag === false">
+<div *ngIf="this.route.url === '/exam' && flag === false">
   <div class="ui raised segment">
 
 
     <div class="ui red top attached label">Warnung
-      <a [routerLink]="['/testmode']">
+      <a (click)="cs.resetAll()" [routerLink]="['/exam']">
         <i class="ui icon delete icon" style="float: right;"></i>
       </a>
     </div>
@@ -45,8 +45,8 @@
     <div class="insideWrapper">
 
       <div>
-        Du machst zu viele Fehler. <br>
-        Geh lieber nochmal in den Lernmodus.
+        Fehlerquote liegt über <i style="color: red;">20%</i> <br>
+        Bitte übe noch ein wenig.
       </div>
 
       <div class="ui divider"></div>
@@ -71,3 +71,4 @@
     </div>
   </div>
 </div>
+
