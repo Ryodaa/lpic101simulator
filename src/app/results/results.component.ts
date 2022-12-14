@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { QuestionsService } from '../questions.service';
-import { Question } from '../question';
-import { AnswersService } from '../answers.service';
-import { Answers } from '../answers';
+import { QuestionsService } from '../#services/questions.service'; 
+import { Question } from '../#interfaces/question'; 
+import { AnswersService } from '../#services/answers.service';
+import { Answers } from '../#interfaces/answers'; 
 import { Router } from '@angular/router';
 
 @Component({

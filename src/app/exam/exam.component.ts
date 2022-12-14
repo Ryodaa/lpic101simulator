@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CountingService } from '../#services/counting.service';
 
 @Component({
   selector: 'ltps-exam',
@@ -14,7 +15,10 @@ export class ExamComponent implements OnInit {
   @ViewChild('startBtn') startBtn!: ElementRef;
   @ViewChild('settingsBtn') settingsBtn!: ElementRef;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private cs: CountingService
+    ) {}
 
   ngOnInit(): void {
 
@@ -35,8 +39,10 @@ export class ExamComponent implements OnInit {
       this.state = 'Zurück';
       this.startBtn.nativeElement.className = 'ui large labeled icon button'
       this.settingsBtn.nativeElement.className = 'ui small labeled icon button';
+      this.cs.resetAll();
     } else {
       this.router.navigate(['/home']);
+      this.cs.resetAll();
     }
   }
 

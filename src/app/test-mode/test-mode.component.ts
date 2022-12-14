@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { CountingService } from '../#services/counting.service';
 
 @Component({
   selector: 'ltps-test-mode',
@@ -14,7 +15,10 @@ export class TestModeComponent {
   @ViewChild('startBtn') startBtn!: ElementRef;
   @ViewChild('settingsBtn') settingsBtn!: ElementRef;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private cs: CountingService
+    ) {}
 
   startTest(): void {
     if (this.testStart === false) {
@@ -31,8 +35,10 @@ export class TestModeComponent {
       this.state = 'Zurück';
       this.startBtn.nativeElement.className = 'ui large labeled icon button'
       this.settingsBtn.nativeElement.className = 'ui small labeled icon button';
+      this.cs.resetAll();
     } else {
       this.router.navigate(['/home']);
+      this.cs.resetAll();
     }
   }
 

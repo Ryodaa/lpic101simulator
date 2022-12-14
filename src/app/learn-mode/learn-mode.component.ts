@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { InfoService } from '../info.service';
-import { Question } from '../question';
-import { QuestionsService } from '../questions.service';
+import { InfoService } from '../#services/info.service';
+import { Question } from '../#interfaces/question'; 
+import { QuestionsService } from '../#services/questions.service'; 
 
 @Component({
   selector: 'ltps-learn-mode',

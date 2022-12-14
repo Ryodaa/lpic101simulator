@@ -1,7 +1,8 @@
 import { Component, ElementRef, Input, ViewChildren, QueryList, OnInit, OnChanges } from '@angular/core';
-import { Answers } from '../answers';
-import { AnswersService } from '../answers.service';
-import { Question } from '../question';
+import { Answers } from '../#interfaces/answers'; 
+import { AnswersService } from '../#services/answers.service'; 
+import { CountingService } from '../#services/counting.service'; 
+import { Question } from '../#interfaces/question'; 
 
 @Component({
   selector: 'ltps-single-choice',
@@ -18,15 +19,16 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
   @Input() 
     question!: Question;                      // Die aktuelle Frage.
 
-  @Input() 
-    laufVar!: number;                         // Der aktuelle Index zur Frage.
-
   @ViewChildren('answer') 
     answerChildren!: QueryList<ElementRef>;   // DOM zugriff auf alle checkboxen
 
-  constructor(private as: AnswersService) { }
+  constructor(
+    private as: AnswersService, 
+    private cs: CountingService
+    ) { }
 
   ngOnInit(): void {
+
     this.answersArr = this.as.getAll();
   }
 
@@ -36,7 +38,7 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
     dass auf den View zugegriffen werden kann ohne das ich ngAfterViewInit nutzen muss.*/
     setTimeout(() => {
       this.answerChildren.forEach(element => {
-        if(this.answersArr[this.laufVar].answerArr.includes(element.nativeElement.nextElementSibling.innerText)) {
+        if(this.answersArr[this.cs.runVar].answerArr.includes(element.nativeElement.nextElementSibling.innerText)) {
           element.nativeElement.checked = true;
       } else {
           element.nativeElement.checked = false;
@@ -50,7 +52,7 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
     this.answerChildren.forEach(element => {
 
       let answer: string = element.nativeElement.nextElementSibling.innerText;  // Die aktuelle Antwort zur checkbox.
-      let answerArr = this.answersArr[this.laufVar].answerArr;                  // Das aktuelle Antwort-array.
+      let answerArr = this.answersArr[this.cs.runVar].answerArr;                  // Das aktuelle Antwort-array.
 
       if(element.nativeElement.checked === true && answerArr.length < 1) {      // Wenn checkbox ist checked und Antwort-array länge ist weniger als 1.    
         answerArr.push(answer);                                                 // Dann pushe die Antwort zum Antwort-array.

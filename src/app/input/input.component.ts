@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Question } from '../question';
-import { AnswersService } from '../answers.service';
-import { Answers } from '../answers';
+import { Question } from '../#interfaces/question'; 
+import { AnswersService } from '../#services/answers.service';
+import { Answers } from '../#interfaces/answers'; 
+import { CountingService } from '../#services/counting.service'; 
 
 @Component({
   selector: 'ltps-input',
@@ -17,14 +18,15 @@ export class InputComponent implements OnInit {
   @Input() 
     question!: Question;           // Alle Fragen
 
-  @Input() 
-    laufVar!: number;              // Der aktuelle Index zur Frage
-
-
-  constructor(private as: AnswersService) { }
+  constructor(
+    private as: AnswersService,
+    public cs: CountingService
+    ) { }
   
   ngOnInit(): void {
+    
     this.answersArr = this.as.getAll();
+
   }
   
 }

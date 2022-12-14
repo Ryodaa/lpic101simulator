@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Info } from '../info';
-import { InfoService } from '../info.service';
-import { Question } from '../question';
-import { QuestionsService } from '../questions.service';
+import { Info } from '../#interfaces/info';
+import { InfoService } from '../#services/info.service';
+import { Question } from '../#interfaces/question'; 
+import { QuestionsService } from '../#services/questions.service'; 
 
 
 @Component({

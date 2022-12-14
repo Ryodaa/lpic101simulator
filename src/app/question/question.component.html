@@ -1,6 +1,5 @@
 <div style="padding-top: 10px;"></div> <!-- spacer -->
 
-
 <div *ngIf="finishFlag === true">
   <ltps-results (chkAnswersCp)="resultReciever($event)"></ltps-results>
 </div>
@@ -17,17 +16,17 @@
 
     <div class="twelve wide column">
 
-      <h4 class="ui header">Frage {{ questions[laufVar].id }}</h4>
-      <div> {{ questions[laufVar].question }} </div>
+      <h4 class="ui header">Frage {{ questions[this.cs.runVar].id }}</h4>
+      <div> {{ questions[this.cs.runVar].question }} </div>
 
       <div *ngIf="currentRoute === '/learn'">
         <div class="ui raised segment">
 
           <!-- Zwei For Schleifen ineinander welche gucken wann die ob die richtige Antwort in question.solution ist und bei true es als Grünen text und bei false als roten text ausgeben 
             Funktioniert nur bei Objekten welche nur eine Antwort haben.-->
-          <div *ngIf="questions[laufVar].type !== 'multi'">
-            <div class="answer" *ngFor="let answer of questions[laufVar].answers; index as i">
-              <div *ngFor="let solution of questions[laufVar].solution; index as k">
+          <div *ngIf="questions[this.cs.runVar].type !== 'multi'">
+            <div class="answer" *ngFor="let answer of questions[this.cs.runVar].answers; index as i">
+              <div *ngFor="let solution of questions[this.cs.runVar].solution; index as k">
                 <ng-component *ngIf="solution === answer then correctBlock else falseBlock"> </ng-component>
                 <ng-template #correctBlock> <i class="right check icon small grey"></i> <i id="correct"> {{ answer }}
                   </i>
@@ -39,9 +38,9 @@
             </div>
           </div>
 
-          <div *ngIf="questions[laufVar].type === 'multi'">
+          <div *ngIf="questions[this.cs.runVar].type === 'multi'">
             <div *ngFor="let m of markedArrCp">
-              <div *ngIf="m.id === questions[laufVar].id - 1">
+              <div *ngIf="m.id === questions[this.cs.runVar].id - 1">
               <div class="answer" *ngFor="let answer of m.answers">
                   <ng-component *ngIf="answer.endsWith('*') then sliceBlock else normalBlock"></ng-component>
                   <ng-template #sliceBlock><i class="right check icon small grey"></i> <i id="correct">
@@ -56,44 +55,53 @@
       </div>
     </div>
 
-    
-    <div class="two wide column">
-      <div #nextArw (click)="nextQuestion()" class="btn ui icon button">
-        <i class="angle right icon black"></i>
+    <!-- Wenn runVar 120 erreicht ändert sich der Button um eine andere Funktion
+    nutzen zu können. showFinBtn() zeigt dann den "Test Beenden" Button sobald alle 120
+    Fragen beantwortet bzw. geskippt wurden. -->
+    <ng-component *ngIf="this.cs.runVar < 119 && this.cs.runVar >= 0 then below else above"></ng-component>
+    <ng-template #below>
+      <div class="two wide column">
+        <div #nextArw (click)="nextQuestion()" class="btn ui icon button">
+          <i class="angle right icon black"></i>
+        </div>
       </div>
-    </div>
-    
+    </ng-template>
+    <ng-template #above>
+      <div class="two wide column">
+        <div #nextArw (click)="showFinBtn()" class="btn ui icon button">
+          <i class="angle right icon black"></i>
+        </div>
+      </div>
+    </ng-template>
+
   </div>
   <br>
 </div>
 
 <!-- Wechselt den Fragetypen je nachdem was in questions.type der aktuellen Frage drin steht -->
 <div *ngIf="currentRoute !== '/learn'">
-  <div *ngIf="questions[laufVar].type === 'typeIn' && finishFlag === false">
-    <ltps-input [laufVar]="laufVar" [question]="questions[laufVar]"></ltps-input>
+  <div *ngIf="questions[this.cs.runVar].type === 'typeIn' && finishFlag === false">
+    <ltps-input [question]="questions[this.cs.runVar]"></ltps-input>
   </div>
-  <div *ngIf="questions[laufVar].type === 'multi' && finishFlag === false">
-    <ltps-multiple-choice [laufVar]="laufVar" [question]="questions[laufVar]"></ltps-multiple-choice>
+  <div *ngIf="questions[this.cs.runVar].type === 'multi' && finishFlag === false">
+    <ltps-multiple-choice [question]="questions[this.cs.runVar]"></ltps-multiple-choice>
   </div>
-  <div *ngIf="questions[laufVar].type === 'single' && finishFlag === false">
-    <ltps-single-choice [laufVar]="laufVar" [question]="questions[laufVar]"></ltps-single-choice>
+  <div *ngIf="questions[this.cs.runVar].type === 'single' && finishFlag === false">
+    <ltps-single-choice [question]="questions[this.cs.runVar]"></ltps-single-choice>
   </div>
-  <div *ngIf="wrongCount >= 7 && currentRoute === '/testmode'">
-    <ltps-popup></ltps-popup>
-  </div>
+  <div> {{ answersArr.length  }} </div>
 </div>
 
 <div *ngIf="currentRoute === '/learn' && finishFlag === false" style="text-align: center;">
   <div class="ui divider"></div>
-  <button (click)="showInfo(laufVar + 1)" class="ui labeled icon button large">
+  <button (click)="showInfo(this.cs.runVar + 1)" class="ui labeled icon button large">
     <i class="info icon black"></i>
     Info Zeigen
   </button>
 </div>
 
-<!-- && answersArr.length === questions.length -->
 
-<div *ngIf="currentRoute !== '/learn' && answersArr[laufVar].answerArr && finishFlag === false" style="text-align: center;">
+<div *ngIf="currentRoute !== '/learn' && finishBtn === true" style="text-align: center;">
   <div class="ui divider"></div>
   <button (click)="showResult()" class="ui labeled icon button large">
     <i class="check icon black"></i>

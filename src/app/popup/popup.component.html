@@ -1,20 +1,73 @@
+<div *ngIf="route.url === '/testmode' && flag === false">
+  <div class="ui raised segment">
 
-<div *ngIf="route.url === '/testmode'">
-    <div class="ui raised segment">
 
-        <div class="ui red top attached label">Info</div>
+    <div class="ui red top attached label">
+      Warnung
+      <a>
+        <i (click)="closePopup()" class="ui icon delete icon" style="float: right;"></i>
+      </a>
+    </div>
 
-        <div class="ui divider"></div>
+    <div class="insideWrapper">
 
-        <button class="ui labeled icon button">
-            <i class="redo icon black"></i>
-            Erneut versuchen
-        </button>
+      <div>
+        Du machst zu viele Fehler. <br>
+        Geh lieber nochmal in den Lernmodus.
+      </div>
 
-        <button [routerLink]="['/learn']" class="ui labeled icon button">
-            <i class="book icon black"></i>
-            Lernmodus
-        </button>
+      <div class="ui divider"></div>
+
+      <button (click)="cs.resetAll()" [routerLink]="['/learn']" class="ui labeled icon button">
+        <i class="book icon black"></i>
+        Lernmodus
+      </button>
+
+      <button (click)="cs.resetAll()" class="ui labeled icon button">
+        <i class="redo icon black"></i>
+        Erneut versuchen
+      </button>
 
     </div>
+  </div>
+</div>
+
+<div *ngIf="route.url === '/exam' && flag === false">
+  <div class="ui raised segment">
+
+
+    <div class="ui red top attached label">Warnung
+      <a [routerLink]="['/testmode']">
+        <i class="ui icon delete icon" style="float: right;"></i>
+      </a>
+    </div>
+
+    <div class="insideWrapper">
+
+      <div>
+        Du machst zu viele Fehler. <br>
+        Geh lieber nochmal in den Lernmodus.
+      </div>
+
+      <div class="ui divider"></div>
+
+      <button (click)="cs.resetAll()" [routerLink]="['/testmode']" class="ui labeled icon button">
+        <i class="thumbtack icon black"></i>
+        Übungsmodus
+      </button>
+
+      <button (click)="cs.resetAll()" [routerLink]="['/learn']" class="ui labeled icon button">
+        <i class="book icon black"></i>
+        Lernmodus
+      </button>
+
+      <div style="padding-bottom: 8px;"></div> <!-- spacer -->
+
+      <button (click)="cs.resetAll()" class="ui labeled icon button">
+        <i class="redo icon black"></i>
+        Erneut versuchen
+      </button>
+
+    </div>
+  </div>
 </div>

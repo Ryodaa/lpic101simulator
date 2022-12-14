@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { CountingService } from '../#services/counting.service'; 
 
 @Component({
   selector: 'ltps-popup',
@@ -8,6 +9,19 @@ import { Router } from '@angular/router';
 })
 export class PopupComponent {
 
-  constructor(public route: Router) {}
+  flag: Boolean = false;
+
+  @Output() 
+    flagEmit = new EventEmitter<Boolean>();
+
+  constructor(
+    public route: Router,
+    public cs: CountingService
+    ) {}
+
+  closePopup() {
+    this.flag = true;
+    this.flagEmit.emit(this.flag);
+  }
 
 }

@@ -1,6 +1,6 @@
 <div id="wrapper" style="text-align: center;">
     <div id="cont" class="ui raised very padded text container segment" style="background-color: rgb(243, 243, 243);">
-        <img class="ui image large centered" src="https://i.imgur.com/8ZAM7Hd.png">
+        <img class="ui image large centered" src="assets/img/logo.png">
         <h1>Lern Test Prüf Simulator</h1>
         <h4>Für die Linux LPIC-101 Prüfung</h4>
         <br>
@@ -10,15 +10,15 @@
         <p>Viel Erfolg beim Lernen!</p>
         <br>
         <div>
-          <button [routerLink]="['/exam']" class="ui labeled icon button">
+          <button (click)="this.cs.resetAll()" [routerLink]="['/exam']" class="ui labeled icon button">
             <i class="play circle icon black"></i>
             Prüfung
           </button>
-          <button [routerLink]="['/testmode']" class="ui labeled icon button">
+          <button (click)="this.cs.resetAll()" [routerLink]="['/testmode']" class="ui labeled icon button">
             <i class="thumbtack icon black"></i>
             Testlauf
           </button>
-          <button [routerLink]="['/learn']" class="ui labeled icon button">
+          <button (click)="this.cs.resetAll()" [routerLink]="['/learn']" class="ui labeled icon button">
             <i class="book icon black"></i>
             Lernen
           </button>

@@ -1,7 +1,8 @@
 import { Component, ElementRef, Input, ViewChildren, QueryList, OnInit } from '@angular/core';
-import { Answers } from '../answers';
-import { AnswersService } from '../answers.service';
-import { Question } from '../question';
+import { Answers } from '../#interfaces/answers'; 
+import { AnswersService } from '../#services/answers.service'; 
+import { CountingService } from '../#services/counting.service'; 
+import { Question } from '../#interfaces/question'; 
 
 @Component({
   selector: 'ltps-multiple-choice',
@@ -18,22 +19,23 @@ export class MultipleChoiceComponent implements OnInit {
   @Input() 
     question!: Question;                    // Die aktuelle Frage.
 
-  @Input() 
-    laufVar!: number;                       // Der aktuelle Index zur Frage.
-
   @ViewChildren('answer') 
     answerChildren!: QueryList<ElementRef>; // DOM zugriff auf alle checkboxen
   
-  constructor(private as: AnswersService) { }
+  constructor(
+    private as: AnswersService, 
+    public cs: CountingService
+    ) { }
 
   ngOnInit(): void {
+
     this.answersArr = this.as.getAll();
 
     /* setTimeout verzögert die ausführung des Codes um einen cycle und erlaubt damit, 
     dass auf den View zugegriffen werden kann ohne das ich ngAfterViewInit nutzen muss.*/
     setTimeout(() => { 
       this.answerChildren.forEach(element => {
-        if(this.answersArr[this.laufVar].answerArr.includes(element.nativeElement.nextElementSibling.innerText)) {
+        if(this.answersArr[this.cs.runVar].answerArr.includes(element.nativeElement.nextElementSibling.innerText)) {
           element.nativeElement.checked = true;
         } else {
           element.nativeElement.checked = false;
@@ -46,7 +48,7 @@ export class MultipleChoiceComponent implements OnInit {
 
   pushToArr(): void {
 
-    let answArr = this.answersArr[this.laufVar].answerArr;                              // Das aktuelle Antwort-array.
+    let answArr = this.answersArr[this.cs.runVar].answerArr;                              // Das aktuelle Antwort-array.
     
     for (let i = 0; i < this.answerChildren.length; i++) {
       

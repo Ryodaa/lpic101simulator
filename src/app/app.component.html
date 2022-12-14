@@ -1,21 +1,30 @@
 <div class="ui top inverted fixed menu">
-  <a [routerLink]="['home']" class="item">
+  <a (click)="this.cs.resetAll()" [routerLink]="['home']" class="item">
     <i class="home icon"></i>
   </a>
-  <a [routerLink]="['exam']" class="item">
+  <a (click)="this.cs.resetAll()" [routerLink]="['exam']" class="item">
     <i class="play circle icon"></i>
     Prüfung
   </a>
-  <a [routerLink]="['testmode']" class="item">
-    <i class="thumbtack icon" ></i>
+  <a (click)="this.cs.resetAll()" [routerLink]="['testmode']" class="item">
+    <i class="thumbtack icon"></i>
     Übung
   </a>
-  <a [routerLink]="['learn']" class="item">
+  <a (click)="this.cs.resetAll()" [routerLink]="['learn']" class="item">
     <i class="book icon"></i>
     Lernen
   </a>
 
   <div class="items right menu">
+
+    <div style="color: white;">
+      <div>
+        {{ this.cs.runVar }}: runVar
+      </div>
+      <div>
+        {{ this.cs.liveWrongCount }}: liveWrongCount
+      </div>
+    </div>
 
     <a (click)="togglePopper()" class="target-block border border-primary">
       <div class="ui icon top pointing button black">
@@ -25,21 +34,29 @@
 
     <div id="popper" *ngIf="popper === true">
       <div id="popperWrapper">
-        <img class="ui tiny right floated image" src="https://pwco.com.sg/wp-content/uploads/2020/05/Generic-Profile-Placeholder-v3-1536x1536.png">
-        <p>Developed by: Sven Elberfeld <br>in 2022 <br><br> GitHub: <a href="https://github.com/Ryodaa/">github.com/Ryodaa</a></p>
+        <img class="ui tiny right floated circular bordered image" src="assets/img/avatar.jpg">
+        <p>Developed by: Sven Elberfeld <br>in 2022 <br><br> GitHub: <a
+            href="https://github.com/Ryodaa/">github.com/Ryodaa</a></p>
       </div>
     </div>
-    
+
     <div class="item">
       <div class="middle aligned content">
         <i class="grey help link icon"></i>
       </div>
     </div>
-    
+
   </div>
-  </div>
-<div class="ui segment">
-  <p></p>
 </div>
+<br><br><br>
 
 <router-outlet></router-outlet>
+
+<div *ngIf="cs.liveWrongCount > 0 && popupFlag === false && this.route.url === '/testmode' 
+  || cs.liveWrongCount >= qs.questions.length * 0.2 && this.popupFlag === false && this.route.url === '/exam'">
+  <div id="background">
+    <div id="popup">
+      <ltps-popup (flagEmit)="flagReciever($event)"></ltps-popup>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
-import { QuestionsService } from '../questions.service';
-import { Question } from '../question';
+import { QuestionsService } from '../#services/questions.service';
+import { Question } from '../#interfaces/question'; 
 
 @Component({
   selector: 'ltps-question-list',
