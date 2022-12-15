@@ -30,8 +30,4 @@ export class AppComponent {
     }
   }
 
-  flagReciever(flag: Boolean) {
-    this.popupFlag = flag;
-  }
-
 }

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnswersService } from '../#services/answers.service';
 import { CountingService } from '../#services/counting.service'; 
 
 @Component({
@@ -9,19 +10,27 @@ import { CountingService } from '../#services/counting.service';
 })
 export class PopupComponent {
 
-  flag: Boolean = false;
-
-  @Output() 
-    flagEmit = new EventEmitter<Boolean>();
-
   constructor(
     public route: Router,
-    public cs: CountingService
+    public cs: CountingService,
+    private as: AnswersService
     ) {}
 
   closePopup() {
-    this.flag = true;
-    this.flagEmit.emit(this.flag);
+    this.cs.popBool = false;
+    if(this.cs.runVar > 1) {
+      this.cs.runVar = this.cs.runVar - 2;
+    } else if (this.cs.runVar === 1) {
+      this.cs.runVar = this.cs.runVar - 1;
+    }
+    this.as.answers[this.cs.runVar].answerArr = [];
+    this.as.answers[this.cs.runVar + 1].answerArr = [];
+  }
+
+  closeCancel() {
+    this.cs.cancelBool = false;
+    this.cs.resetAll();
+    this.route.navigateByUrl('/home');
   }
 
 }

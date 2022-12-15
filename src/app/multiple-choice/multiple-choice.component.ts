@@ -48,7 +48,7 @@ export class MultipleChoiceComponent implements OnInit {
 
   pushToArr(): void {
 
-    let answArr = this.answersArr[this.cs.runVar].answerArr;                              // Das aktuelle Antwort-array.
+    let answArr = this.answersArr[this.cs.runVar].answerArr;                            // Das aktuelle Antwort-array.
     
     for (let i = 0; i < this.answerChildren.length; i++) {
       

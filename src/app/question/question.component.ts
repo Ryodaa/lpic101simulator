@@ -80,7 +80,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 
   // Funktionen zum disablen der Pfeil-Buttons
   dsblNxtBtn(): void {
-    if (this.cs.runVar > 0 && this.cs.runVar < 119) {                                     // Wenn runVar größer als 0 ist wird der Button enabled.
+    if(this.cs.runVar > 0 && this.cs.runVar < 119) {                                     // Wenn runVar größer als 0 ist wird der Button enabled.
       this.previousArw.nativeElement.className = this.enabled;
     }
     if (this.finishBtn === true) {                // Wenn runVar größer oder gleich der anzahl aller Fragen ist, so wird der Button disabled. 
@@ -88,7 +88,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
     }
   }
   dsblPreBtn(): void {
-    if (this.cs.runVar === 0) {                                   // Wenn runVar === 0 ist, so wird der Button disabled da es keine Frage vor index 0 gibt.
+    if(this.cs.runVar === 0) {                                   // Wenn runVar === 0 ist, so wird der Button disabled da es keine Frage vor index 0 gibt.
       this.previousArw.nativeElement.className = this.disabled;
     }
     if (this.cs.runVar < this.questions.length - 1) {             // Solange runVar kleiner ist als die anzahl aller Fragen, bleibt der Button enabled.
@@ -106,6 +106,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
     if(this.questions[this.cs.runVar - 1].type !== 'multi') {
       if(this.questions[this.cs.runVar - 1].solution[0] !== this.answersArr[this.cs.runVar - 1].answerArr[0]) {
         this.cs.liveWrongCount++;
+        this.cs.wrongBool = true;
       }
     } else {
       this.answersArr[this.cs.runVar - 1].answerArr.forEach(answer => {
@@ -115,9 +116,11 @@ export class QuestionComponent implements OnInit, AfterViewInit {
       })
       if(multiWrong > 0) {
         this.cs.liveWrongCount++;
+        this.cs.wrongBool = true;
       }
-      if(this.answersArr[this.cs.runVar].answerArr.length < this.questions[this.cs.runVar].solution.length && multiWrong === 0) {
+      if(this.answersArr[this.cs.runVar - 1].answerArr.length < this.questions[this.cs.runVar - 1].solution.length && multiWrong === 0) {
         this.cs.liveWrongCount++;
+        this.cs.wrongBool = true;
       }
     }  
   }
@@ -125,17 +128,24 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   nextQuestion(): void  {
     if(this.cs.runVar < 120) {
       this.cs.runVar++;
-      this.cs.lifes--;
-      this.cs.popBool = true;
+      if(this.answersArr[this.cs.runVar - 1].answerArr[0]) {
+        this.currIncorr();
+      }
+      if(this.cs.lifes > 0 && this.cs.wrongBool === true) {
+        this.cs.lifes--;
+        this.cs.popBool = true;
+        this.cs.wrongBool = false;
+      } 
+      if(this.cs.lifes === 0) {
+        this.cs.cancelBool = true;
+      }
     }
     this.dsblNxtBtn();
-    this.currIncorr();
   }
 
   previousQuestion(): void  {
     this.cs.runVar--;
     this.dsblPreBtn();
-    this.cs.liveWrongCount--;
   }
 
   // Übergibt die ID der aktuellen Frage an die Info box so das diese auch die passende Info anzeigt.

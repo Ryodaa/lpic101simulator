@@ -25,11 +25,6 @@
           <h3 *ngIf="testStart === false">Bitte Start drücken zum beginnen!</h3>
           <ltps-question *ngIf="testStart === true"></ltps-question>
         </div>
-        <div *ngIf="cs.popBool === true">
-          <div id="mistake">
-            Fehler! Antworte nur wenn du dir <i style="color: green;">200%</i> sicher bist! 
-          </div>
-        </div>
         <div class="ui progress success">
             <div class="bar">
               <div class="progress"></div>

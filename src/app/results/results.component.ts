@@ -4,6 +4,7 @@ import { Question } from '../#interfaces/question';
 import { AnswersService } from '../#services/answers.service';
 import { Answers } from '../#interfaces/answers'; 
 import { Router } from '@angular/router';
+import { CountingService } from '../#services/counting.service';
 
 @Component({
   selector: 'ltps-results',
@@ -21,7 +22,12 @@ export class ResultsComponent implements OnInit {
   @Output() 
     chkAnswersCp = new EventEmitter<any[]>();
   
-  constructor(private qs: QuestionsService, private as: AnswersService, public route: Router) {}
+  constructor(
+    public route: Router,
+    private qs: QuestionsService, 
+    public as: AnswersService,
+    public cs: CountingService
+    ) {}
   
   ngOnInit(): void {
     this.questions = this.qs.getAll();
@@ -30,6 +36,8 @@ export class ResultsComponent implements OnInit {
     this.fillEmptyArr();
     this.compareAnswers();
     this.countCorr();
+    this.countSkip();
+    this.coutWrong();
   }
 
   countCorr(): void {
@@ -48,6 +56,22 @@ export class ResultsComponent implements OnInit {
     for (let i = 0; i < this.questions.length; i++) {
       this.checkedAnswers.push( { id: i + 1, userAnswers: [], correct: false } )
     }
+  }
+
+  countSkip(): void {
+    this.as.answers.forEach(element => {
+      if(!element.answerArr[0]) {
+        this.cs.skipped++;
+      }
+    });
+  }
+
+  coutWrong(): void {
+    this.checkedAnswers.forEach(element => {
+      if(element.correct === false) {
+        this.cs.wrong++;
+      }
+    });
   }
 
   reloadComp(): void {

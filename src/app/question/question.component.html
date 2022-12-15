@@ -54,7 +54,7 @@
         </div>
       </div>
     </div>
-
+    
     <!-- Wenn runVar 120 erreicht ändert sich der Button um eine andere Funktion
     nutzen zu können. showFinBtn() zeigt dann den "Test Beenden" Button sobald alle 120
     Fragen beantwortet bzw. geskippt wurden. -->
@@ -89,7 +89,6 @@
   <div *ngIf="questions[this.cs.runVar].type === 'single' && finishFlag === false">
     <ltps-single-choice [question]="questions[this.cs.runVar]"></ltps-single-choice>
   </div>
-  <div> {{ answersArr.length  }} </div>
 </div>
 
 <div *ngIf="currentRoute === '/learn' && finishFlag === false" style="text-align: center;">

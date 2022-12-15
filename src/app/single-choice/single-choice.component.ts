@@ -24,7 +24,7 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
 
   constructor(
     private as: AnswersService, 
-    private cs: CountingService
+    public cs: CountingService
     ) { }
 
   ngOnInit(): void {
@@ -52,7 +52,7 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
     this.answerChildren.forEach(element => {
 
       let answer: string = element.nativeElement.nextElementSibling.innerText;  // Die aktuelle Antwort zur checkbox.
-      let answerArr = this.answersArr[this.cs.runVar].answerArr;                  // Das aktuelle Antwort-array.
+      let answerArr = this.answersArr[this.cs.runVar].answerArr;                // Das aktuelle Antwort-array.
 
       if(element.nativeElement.checked === true && answerArr.length < 1) {      // Wenn checkbox ist checked und Antwort-array länge ist weniger als 1.    
         answerArr.push(answer);                                                 // Dann pushe die Antwort zum Antwort-array.
@@ -62,7 +62,21 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
         answerArr.pop();                                                        // Wenn schon eine Antwort vorhanden ist entferne diese.
         answerArr.push(answer);                                                 // Und pushe dann die neue Antwort zum Antwort-array.
       }
+
     });
+    this.cs.uncheckFlag = true;
+  }
+
+  unCheck() {
+
+    this.answerChildren.forEach(element => {
+      
+      if(element.nativeElement.checked === true && this.cs.uncheckFlag === true) {
+        element.nativeElement.checked = false;
+      }
+      
+    });
+    this.cs.uncheckFlag = false;
   }
 
 }

@@ -55,11 +55,12 @@
 
 <router-outlet></router-outlet>
 
-<div *ngIf="this.cs.lifes === 0 && popupFlag === false && this.route.url === '/testmode' 
-  || cs.liveWrongCount >= qs.questions.length * 0.2 && this.popupFlag === false && this.route.url === '/exam'">
+<div *ngIf="this.cs.lifes === 0 && this.route.url === '/testmode' 
+  || cs.liveWrongCount >= qs.questions.length * 0.2 && this.route.url === '/exam'
+  || cs.popBool === true && this.route.url === '/testmode' && cs.lifes !== 0">
   <div id="background">
     <div id="popup">
-      <ltps-popup (flagEmit)="flagReciever($event)"></ltps-popup>
+      <ltps-popup></ltps-popup>
     </div>
   </div>
 </div>
