@@ -317,353 +317,372 @@ export class QuestionsService {
       },
       {
         id: 44,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following configuration files should be modified to globally set shell variables for all users?',
+        answers: ['/etc/profile', '/etc/bashrc', '~/.bash_profile', '/etc/.bashrc', '/etc/shellenv'],
+        type: 'single',
+        solution: ['/etc/profile']
       },
       {
         id: 45,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What output does the command seq 10 produce?',
+        answers: ['A continuous stream of numbers increasing in increments of 10 until the command is stopped.', 'It creates no output because a second parameter is missing.', 'The number 0 through 9 with one number per line.', 'The number 10 to standard output.', 'The numbers 1 through 10 with one number per line.'],
+        type: 'single',
+        solution: ['The numbers 1 through 10 with one number per line.']
       },
       {
         id: 46,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What command list the aliases defined in the current Bash shell? (Specify only the command without any path or parameters.)',
+        answers: ['alias'],
+        type: 'typeIn',
+        solution: ['alias']
       },
       {
         id: 47,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands can be used to limit the amount of memory a user may use?',
+        answers: ['umask', 'usermod', 'passwd', 'ulimit', 'chage'],
+        type: 'single',
+        solution: ['ulimit']
       },
       {
         id: 48,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is a purpose of an SSH host key?',
+        answers: ['It must be sent by any SSH client in addition to a user key in order to identify the client\'s host.', 'It is root key by which all user SSH keys must be signed.', 'It provides the server\'s identity information to connecting SSH clients.', 'It authenticates any user that logs into a remote machine from the key\'s host.', 'It is used by system services like cron, syslog or a backup job to automatically connect to remote hosts.'],
+        type: 'single',
+        solution: ['It provides the server\'s identity information to connecting SSH clients.']
       },
       {
         id: 49,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is the purpose of TCP wrapper?',
+        answers: ['Manage and adjust bandwidth used by TCP services.', 'Bind a network service to a TCP port.', 'Encapsulate TCP messages in IP packets.', 'Add SSL support to plain text TCP services.', 'Limit access to a network service.'],
+        type: 'single',
+        solution: ['Limit access to a network service.']
       },
       {
         id: 50,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Given the following excerpt of the sudo configuration: Jane ANY=NOPASSWD: /bin/kill, /bin/id, PASSWD: /sbin/fdisk. - Which of the following statements are true? (Choose three.)',
+        answers: ['Jane can run /bin/id only after specifying her password.', 'Jane can run /sbin/fdisk after specifying root\'s password.', 'Jane can run /sbin/fdisk after specifying her password.', 'Jane can run /bin/kill without specifying a password.', 'Jane can run /bin/id without specifying her password.'],
+        type: 'multi',
+        solution: ['Jane can run /sbin/fdisk after specifying her password.', 'Jane can run /bin/kill without specifying a password.', 'Jane can run /bin/id without specifying her password.']
       },
       {
         id: 51,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which configuration file contains the default options for SSH clients?',
+        answers: ['/etc/ssh/sshd_config', '/etc/ssh/ssh', '/etc/ssh/ssh_config', '/etc/ssh/client', '/etc/ssh/ssh_client'],
+        type: 'single',
+        solution: ['/etc/ssh/ssh_config']
       },
       {
         id: 52,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Depending on a system\'s configuration, which of the following files can be used to enable and disable network services running on this host?',
+        answers: ['/etc/profile', '/etc/xinetd.conf', '/etc/ports', '/etc/services', '/etc/host.conf'],
+        type: 'single',
+        solution: ['/etc/xinetd.conf']
       },
       {
         id: 53,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands can identify the PID or a process which opened a TCP port?',
+        answers: ['ptrace', 'strace', 'debug', 'lsof', 'nessus'],
+        type: 'single',
+        solution: ['lsof']
       },
       {
         id: 54,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'When using X11 forwarding in SSH, what environment variable is automatically set in the remote shell in order to help applications to connect to the correct X11 server? (Specify only the environment variable without any additional commands or values.)',
+        answers: ['DISPLAY'],
+        type: 'typeIn',
+        solution: ['DISPLAY']
       },
       {
         id: 55,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'The presence of what file will temporarily prevent all users except root from logging into a system? (Specify the full name of the file, including path.)',
+        answers: ['/etc/nologin'],
+        type: 'typeIn',
+        solution: ['/etc/nologin']
       },
       {
         id: 56,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands preloads and manages existing SSH keys that are used for automatic authentication while logging in to other machines using SSH?',
+        answers: ['sshd', 'ssh-keyring', 'ssh-keygen', 'ssh-pki', 'ssh-agent'],
+        type: 'single',
+        solution: ['ssh-agent']
       },
       {
         id: 57,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'On a machine running several X servers, how do programs identify the different instances of the X11 server?',
+        answers: ['By a fixed UUID that is defined in the X11 configuration file.', 'By a display name like :1 .', 'By the name of the user that runs the X server like x11: bob.', 'By a device name like /dev/X11/xservers/1.', 'By a unique IPv6 address from the fe80::/64subnet.'],
+        type: 'single',
+        solution: ['By a display name like :1 .']
       },
       {
         id: 58,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is the purpose of a screen reader?',
+        answers: ['It manages virtual keyboards on touch screen displays.', 'It reads the parameters of the attached monitors and creates an appropriate X11 configuration.', 'It displays lines and markers to help people use speed reading techniques.', 'It manages and displays files that contain e-books.', 'It reads displayed text to accommodate the needs of blind or visually impaired people.'],
+        type: 'single',
+        solution: ['It reads displayed text to accommodate the needs of blind or visually impaired people.']
       },
       {
         id: 59,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'The X11 configuration file xorg.conf is grouped into sections. How is the content of the section SectionName represented?',
+        answers: ['It is placed in curly brackets as in Section SectionName {…}.', 'It is placed between the tags <Section name=“SectionName"> and </Section>.', 'It is placed between a line containing Section “SectionName" and a line containing EndSection.', 'It is placed after the row [SectionName].', 'It is placed after an initial unindented Section “SectionName" and must be indented by exactly one tab character.'],
+        type: 'single',
+        solution: ['It is placed between a line containing Section “SectionName" and a line containing EndSection.']
       },
       {
         id: 60,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following features are provided by SPICE? (Choose two.)',
+        answers: ['Connecting local USB devices to remote applications.', 'Accessing graphical applications on a remote host.', 'Replacing Xorg as local X11 server.', 'Downloading and locally installing applications from a remote machine.', 'Uploading and running a binary program on a remote machine.'],
+        type: 'multi',
+        solution: ['Connecting local USB devices to remote applications.', 'Accessing graphical applications on a remote host.']
       },
       {
         id: 61,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Where is the systemd journal stored?',
+        answers: ['/var/jlog/and /var/jlogd/', '/proc/log/and /proc/klog/', '/run/log/journal/ or /var/log/journal/', '/var/log/syslog.binor /var/log/syslog.jrn', '/etc/systemd/journal/or /usr/lib/systemd/journal/'],
+        type: 'single',
+        solution: ['/run/log/journal/ or /var/log/journal/']
       },
       {
         id: 62,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following is true regarding the command sendmail?',
+        answers: ['With any MTA, the sendmail command must be run periodically by the cron daemon.', 'When using systemd, sendmail is an alias to relayctl.', 'The sendmail command prints the MTA\'s queue history of which mails have been sent successfully.', 'It is only available when the sendmail MTA is installed.', 'All common MTAs, including Postfix and Exim, provide a sendmail command.'],
+        type: 'single',
+        solution: ['All common MTAs, including Postfix and Exim, provide a sendmail command.']
       },
       {
         id: 63,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which file inside the CUPS configuration directory contains the settings of the printers?',
+        answers: ['cups-devices.conf', 'snmp.conf', 'printers.conf', 'printcap.conf', 'cupsd.conf'],
+        type: 'single',
+        solution: ['printers.conf']
       },
       {
         id: 64,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which file is processed by newaliases? (Specify the full name of the file, including path.)',
+        answers: ['/etc/aliases'],
+        type: 'typeIn',
+        solution: ['/etc/aliases']
       },
       {
         id: 65,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following are syslog facilities? (Choose two.)',
+        answers: ['local5', 'accounting', 'mail', 'postmaster', 'remote'],
+        type: 'multi',
+        solution: ['local5', 'mail']
       },
       {
         id: 66,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following parameters are used for journalctl to limit the time frame of the output? (Choose two.)',
+        answers: ['--since=', '--from=', '--until=', '--upto=', '--date='],
+        type: 'multi',
+        solution: ['--since=', '--until=']
       },
       {
         id: 67,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is true regarding the file ~/.forward?',
+        answers: ['When configured correctly ~/.forward can be used to forward each incoming mail to one or more other recipients.', 'After editing ~/.forward the user must run newaliases to make the mail server aware of the changes.', 'Using ~/.forward, root may configure any email address whereas all other users may configure only their own addresses.', 'As ~/.forward is owned by the MTA and not writable by the user, it must be edited using the editaliases command.', 'By default, only ~/.forward files of users in the group mailq are processed while all other user\'s ~/.forward files are ignored.'],
+        type: 'single',
+        solution: ['When configured correctly ~/.forward can be used to forward each incoming mail to one or more other recipients.']
       },
       {
         id: 68,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands display a list of jobs in the print queue? (Choose two.)',
+        answers: ['cups --list', 'lprm -l', 'lpstat', 'lpr -q', 'lpq'],
+        type: 'multi',
+        solution: ['lpstat', 'lpq']
       },
       {
         id: 69,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'On a system using systemd-journald, which of the following commands add the message Howdy to the system log? (Choose two.)',
+        answers: ['append Howdy', 'logger Howdy', 'systemd-cat echo Howdy', 'echo Howdy > /dev/journal', 'journalctl add Howdy'],
+        type: 'multi',
+        solution: ['logger Howdy', 'systemd-cat echo Howdy']
       },
       {
         id: 70,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following options in the chrony configuration file define remote time sources? (Choose two.)',
+        answers: ['source', 'clock', 'remote', 'pool', 'server'],
+        type: 'multi',
+        solution: ['pool', 'server']
       },
       {
         id: 71,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which command is used to sync the hardware clock to the system clock? (Specify only the command without any path or parameters.)',
+        answers: ['hwclock'],
+        type: 'typeIn',
+        solution: ['hwclock']
       },
       {
         id: 72,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following situations is observed and corrected by an NTP client?',
+        answers: ['The skew in time between the system clock and the computer\'s hardware clock.', 'The physical location and the time zone configuration.', 'Changes in the time zone of the current computer\'s location.', 'Adjustment needed to support Daylight Saving Time.', 'The skew in time between the system clock and the reference clock.'],
+        type: 'single',
+        solution: ['The skew in time between the system clock and the reference clock.']
       },
       {
         id: 73,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'If an alias ls exists, which of the following commands updates the alias to point to the command ls -l instead of the alias\'s current target?',
+        answers: ['set ls=\'ls -l\'', 'alias ls=\'ls -l\'', 'alias --force ls=\'ls -l\'', 'alias --update ls ls=\'ls -l\'', 'realias ls=\'ls -l\''],
+        type: 'single',
+        solution: ['alias ls=\'ls -l\'']
       },
       {
         id: 74,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands puts the output of the command date into the shell variable mydate?',
+        answers: ['mydate="date"', 'mydate="exec date"', 'mydate="$((date))"', 'mydate="$(date)"', 'mydate="${date}"'],
+        type: 'single',
+        solution: ['mydate="$(date)"']
       },
       {
         id: 75,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What information is shown by the echo $? command?',
+        answers: ['The process ID of the echo command.', 'The exit value of the command executed immediately before echo.', 'The process ID which will be used for the next command.', 'The exit value of the echo command.', 'The process ID of the current shell.'],
+        type: 'single',
+        solution: ['The exit value of the command executed immediately before echo.']
       },
       {
         id: 76,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following files is not read directly by a Bash login shell?',
+        answers: ['~/.bashrc', '~/.bash_profile', '~/.bash_login', '~/.profile', '/etc/profile'],
+        type: 'single',
+        solution: ['~/.bashrc']
       },
       {
         id: 77,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is true about the file .profile in a user\'s home directory?',
+        answers: ['It must be executable.', 'It must call the binary of the login shell.', 'It must use a valid shell script syntax.', 'It must start with a shebang.', 'It must be readable for its owner only.'],
+        type: 'single',
+        solution: ['It must use a valid shell script syntax.']
       },
       {
         id: 78,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is true regarding the statement beginning with: #!, that is found in the first line of script? (Choose two.)',
+        answers: ['It prevents the scripts from being executed until the ! is removed.', 'It triggers the installation of the script\'s interpreter.', 'It specifies the path and the arguments of the interpreter used to run the script.', 'It defines the character encoding of the script.', 'It is a comment that is ignored by the script interpreter.'],
+        type: 'multi',
+        solution: ['It specifies the path and the arguments of the interpreter used to run the script.', 'It is a comment that is ignored by the script interpreter.']
       },
       {
         id: 79,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What output does the command seq 1 5 20 produce?',
+        answers: ['1 5 10 15', '1 6 11 16', '1 2 3 4', '2 3 4 5', '5 10 15 20'],
+        type: 'single',
+        solution: ['1 6 11 16']
       },
       {
         id: 80,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands lists all defines variables and functions within Bash?',
+        answers: ['env', 'export', 'env -a', 'set', 'echo $ENV'],
+        type: 'single',
+        solution: ['set']
       },
       {
         id: 81,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What information related to a user account is modified using the chage command?',
+        answers: ['Default ownership for new files', 'Group membership', 'Set of commands available to the user', 'Password expiry information', 'Default permissions for new files'],
+        type: 'single',
+        solution: ['Password expiry information']
       },
       {
         id: 82,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which command is used to set restrictions on the size of a core file that is created for a user when a program crashes?',
+        answers: ['core', 'edquota', 'quota', 'ulimit', 'ktrace'],
+        type: 'single',
+        solution: ['ulimit']
       },
       {
         id: 83,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'How do shadow passwords improve the password security in comparison to standard no-shadow password?',
+        answers: ['Regular users do not have access to the password hashes of shadow passwords.', 'Every shadow password is valid for 45 days and must be changed afterwards.', 'The system\'s host key is used to encrypt all shadow passwords.', 'Shadow passwords are always combined with a public key that has to match the user\'s private key.', 'Shadow passwords are stored in plain text and can be checked for weak passwords.'],
+        type: 'single',
+        solution: ['Regular users do not have access to the password hashes of shadow passwords.']
       },
       {
         id: 84,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'After editing the TCP wrapper configuration to grant specific hosts access to a service, when do these changes become effective?',
+        answers: ['The new configuration becomes effective after restarting the respective service.', 'The new configuration becomes effective at the next system reboot.', 'The new configuration becomes effective when the last established connection to the service is closed.', 'The new configuration becomes effective after restarting the tcpd service.', 'The new configuration becomes effective immediately for all new connections.'],
+        type: 'single',
+        solution: ['The new configuration becomes effective immediately for all new connections.']
       },
       {
         id: 85,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is true regarding public and private SSH keys? (Choose two.)',
+        answers: ['For each user account, there is exactly one key pair that can be used to log into that account.', 'The private key must never be revealed to anyone.', 'Several different public keys may be generated for the same private key.', 'To maintain the private key\'s confidentiality, the SSH key pair must be created by its owner.', 'To allow remote logins, the user\'s private key must be copied to the remote server.'],
+        type: 'multi',
+        solution: ['The private key must never be revealed to anyone.', 'To maintain the private key\'s confidentiality, the SSH key pair must be created by its owner.']
       },
       {
         id: 86,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands finds all files owned by root that have the SetUID bit set?',
+        answers: ['find / -user root -perm -4000', 'find / -user 0 -mode +s', 'find / -owner root -setuid', 'find / -owner 0 -permbits 0x100000000', 'find / --filter uid=1 --filter pers=u+s'],
+        type: 'single',
+        solution: ['find / -user root -perm -4000']
       },
       {
         id: 87,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What command is used to add OpenSSH private keys to a running ssh-agent instance? (Specify the command name only without any path.)',
+        answers: ['ssh-add'],
+        type: 'typeIn',
+        solution: ['ssh-add']
       },
       {
         id: 88,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which directory holds configuration files for xinetd services? (Specify the full path to the directory.)',
+        answers: ['/etc/xinetd.d/'],
+        type: 'typeIn',
+        solution: ['/etc/xinetd.d/']
       },
       {
         id: 89,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which mechanism does ssh use to interact with the SSH agent?',
+        answers: ['Connecting to port 2222 which is used by the system-wide SSH agent.', 'Using the fixed socket .ssh-agent/ipc.', 'Creating an alias replacing ssh with calls to ssh-agent.', 'Starting ssh-agent as a child process for each ssh invocation.', 'Evaluating environment variables such as SSH_AUTH_SOCK.'],
+        type: 'single',
+        solution: ['Evaluating environment variables such as SSH_AUTH_SOCK.']
       },
       {
         id: 90,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which parameter of the ssh command specifies the location of the private key used for login attempts? (Specify only the option name without any values or parameters.)',
+        answers: ['-i'],
+        type: 'typeIn',
+        solution: ['-i']
       },
       {
         id: 91,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following is true about IPv6?',
+        answers: ['IPv6 no longer supports broadcast addresses.', 'With IPv6, the TCP port numbers of most services have changed.', 'IPv4 addresses can be used without any change with IPv6.', 'IPv6 no longer supports multicast addresses.', 'For IPv6, UDP and TCP have been replaced by the Rapid Transmission Protocol RTP.'],
+        type: 'single',
+        solution: ['IPv6 no longer supports broadcast addresses.']
       },
       {
         id: 92,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is true about the following command? "nmcli device wifi connect WIFIoI"',
+        answers: ['NetworkManager opens a new public hotspot with the SSID WIFIoI.', 'NetworkManager creates an unconfigured new virtual network interface named WIFIoI.', 'NetworkManager creates a new wifi connection WIFIoI and activates it.', 'NetworkManager returns an error in case the connection WIFIoI does not exist.', 'NetworkManager returns an error because WIFIoI is an invalid wifi device.'],
+        type: 'single',
+        solution: ['NetworkManager creates a new wifi connection WIFIoI and activates it.']
       },
       {
         id: 93,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: `
+        Which of the commands below might have produced the following output?\n
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 14368
+        ;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+        
+        ;; OPT PSEUDOSECTION:
+        ; EDNS: version: 0, flags:; udp: 4096
+        ;; QuESTION SECTION:
+        ;www.example.org.               IN      NS
+        
+        ;; AUTHORITY SECTION:
+        example.org.            3600    IN      SOA     ns.icann.org. noc.dns.icann.org. 2019121418 7200 3600 1209600 3600
+        
+        ;; Query time: 96 msec
+        ;; SERVER: 172.21.0.9#53(172.21.0.9)
+        ;; WHEN: Di Jun 23 13:57:34 CEST 2020
+        ;; MSG SIZE  rcvd: 97
+        `,
+        answers: ['dig -t mx www.example.org', 'dig www.example.org', 'dig -t ns www.example.org', 'dig -t a www.example.org', 'dig -t soa www.example.org'],
+        type: 'single',
+        solution: ['dig -t ns www.example.org']
       },
       {
         id: 94,

@@ -17,7 +17,7 @@
     <div class="twelve wide column">
 
       <h4 class="ui header">Frage {{ questions[this.cs.runVar].id }}</h4>
-      <div> {{ questions[this.cs.runVar].question }} </div>
+      <div style="white-space: pre-line;"> {{ questions[this.cs.runVar].question }} </div>
 
       <div *ngIf="currentRoute === '/learn'">
         <div class="ui raised segment">

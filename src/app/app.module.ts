@@ -15,6 +15,7 @@ import { SingleChoiceComponent } from './single-choice/single-choice.component';
 import { ResultsComponent } from './results/results.component';
 import { FormsModule } from '@angular/forms';
 import { PopupComponent } from './popup/popup.component';
+import { HelpPageComponent } from './help-page/help-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PopupComponent } from './popup/popup.component';
     InfoBoxComponent,
     SingleChoiceComponent,
     ResultsComponent,
-    PopupComponent
+    PopupComponent,
+    HelpPageComponent
   ],
   imports: [
     BrowserModule,

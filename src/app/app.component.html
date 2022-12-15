@@ -17,7 +17,7 @@
 
   <div class="items right menu">
 
-    <div style="color: white;">
+    <!-- <div style="color: white;">
       <div>
         {{ this.cs.runVar }}: runVar
       </div>
@@ -27,10 +27,10 @@
       <div>
         {{ this.cs.lifes }}: lifes
       </div>
-    </div>
+    </div> -->
 
-    <a (click)="togglePopper()" class="target-block border border-primary">
-      <div class="ui icon top pointing button black">
+    <a (click)="togglePopper()">
+      <div class="ui small icon button black">
         <i class="grey large link angle down icon"></i>
       </div>
     </a>
@@ -43,11 +43,11 @@
       </div>
     </div>
 
-    <div class="item">
-      <div class="middle aligned content">
-        <i class="grey help link icon"></i>
+    <a [routerLink]="['/help']">
+      <div class="ui icon button black">
+        <i  class="grey help link icon"></i>
       </div>
-    </div>
+    </a>
 
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExamComponent } from './exam/exam.component';
+import { HelpPageComponent } from './help-page/help-page.component';
 import { HomeComponent } from './home/home.component';
 import { InputComponent } from './input/input.component';
 import { LearnModeComponent } from './learn-mode/learn-mode.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'results', component: ResultsComponent },
   { path: 'multi', component: MultipleChoiceComponent },
   { path: 'single', component: SingleChoiceComponent },
-  { path: 'typeIn', component: InputComponent }
+  { path: 'typeIn', component: InputComponent },
+  { path: 'help', component: HelpPageComponent }
 ];
 
 @NgModule({
