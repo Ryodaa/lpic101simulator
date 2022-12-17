@@ -17,7 +17,7 @@
 
   <div class="items right menu">
 
-    <!-- <div style="color: white;">
+    <div style="color: white;">
       <div>
         {{ this.cs.runVar }}: runVar
       </div>
@@ -27,7 +27,10 @@
       <div>
         {{ this.cs.lifes }}: lifes
       </div>
-    </div> -->
+      <div>
+        hardFlag : {{ this.cs.hardFlag }}
+      </div>
+    </div>
 
     <a (click)="togglePopper()">
       <div class="ui small icon button black">
@@ -57,6 +60,7 @@
 
 <div *ngIf="this.cs.lifes === 0 && this.route.url === '/testmode' 
   || cs.liveWrongCount >= qs.questions.length * 0.2 && this.route.url === '/exam'
+  || cs.hardFlag === true && cs.hardLifes === 0
   || cs.popBool === true && this.route.url === '/testmode' && cs.lifes !== 0">
   <div id="background">
     <div id="popup">

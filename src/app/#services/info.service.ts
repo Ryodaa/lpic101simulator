@@ -13,603 +13,630 @@ export class InfoService {
     this.infoDetail = [
       {
         id: 1, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
+        info: `The Linux hostname command is used to view or change a system’s domain and hostname. 
+        It can also check a computer’s IP address.`, 
         link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
       },
       {
         id: 2, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `Omit leading zeros:
+        Specify IPv6 addresses by omitting leading zeros. 
+        For example, IPv6 address 1050:0000:0000:0000:0005:0600:300c:326b can be written as 1050:0:0:0:5:600:300c:326b.
+        Double colon:
+        Specify IPv6 addresses by using double colons (::) in place of a series of zeros. For example, IPv6 address ff06:0:0:0:0:0:0:c3 can be written as ff06::c3. 
+        Double colons can be used only once in an IP address.`, 
+        link: new URL('https://www.man7.org/linux/man-pages/man7/ipv6.7.html')
       },
       {
         id: 3, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `Netstat prints information about the Linux networking subsystem.`, 
+        link: new URL('https://man7.org/linux/man-pages/man8/netstat.8.html')
       },
       {
         id: 4, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `Nmtui is a terminal application which lets you manage your Wi-Fi connections on Linux distributions that use NetworkManager. 
+        It exposes most of the functionality of the Nmcli CLI in a basic graphical interface. 
+        Nmtui is short for Network Manager Text User Interface.`, 
+        link: new URL('https://man7.org/linux/man-pages/man1/nm.1.html')
       },
       {
         id: 5, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `dig (domain information groper) is a flexible tool for interrogating DNS name servers. 
+        It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried. 
+        Most DNS administrators use dig to troubleshoot DNS problems because of its flexibility, ease of use and clarity of output. 
+        Other lookup tools tend to have less functionality than dig.`, 
+        link: new URL('https://linux.die.net/man/1/dig')
       },
       {
         id: 6, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `The Name Service Switch (NSS) configuration file,
+        /etc/nsswitch.conf, is used by the GNU C Library and certain
+        other applications to determine the sources from which to obtain
+        name-service information in a range of categories, and in what
+        order.
+        Each category of information is identified by a database name.`, 
+        link: new URL('https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html')
       },
       {
         id: 7, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `nmcli is a command-line tool for controlling NetworkManager and getting its status. 
+        It is not meant as a replacement of nm-applet or other similar clients. 
+        Rather it's a complementary utility to these programs. 
+        The main nmcli's usage is on servers, headless machines or just for power users who prefer the command line.`, 
+        link: new URL('https://linux.die.net/man/1/nmcli')
       },
       {
         id: 8, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `DNS resolution may not be working as route by default tries to resolve names of routers and destinations and may run into a timeout.`, 
+        link: new URL('https://man7.org/linux/man-pages/man8/route.8.html')
       },
       {
         id: 9, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `Hop Limit – Indicates the maximum number of links over which the IPv6 packet can travel before being discarded. 
+        The size of this field is 8 bits. 
+        The Hop Limit is similar to the IPv4 TTL field except that there is no historical relation to the amount of time (in seconds) that the packet is queued at the router.`, 
+        link: new URL('https://man7.org/linux/man-pages/man7/ipv6.7.html')
       },
       {
         id: 10, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `nmcli is a command-line tool for controlling NetworkManager and getting its status. 
+        It is not meant as a replacement of nm-applet or other similar clients. 
+        Rather it's a complementary utility to these programs. 
+        The main nmcli's usage is on servers, headless machines or just for power users who prefer the command line`, 
+        link: new URL('https://linux.die.net/man/1/nmcli')
       },
       {
         id: 11, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `ip - show / manipulate routing, network devices, interfaces and
+        tunnels`, 
+        link: new URL('https://man7.org/linux/man-pages/man8/ip.8.html')
       },
       {
         id: 12, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `Subnetting is the process of taking a network and splitting it into smaller networks, known as subnets. 
+        It's used to free up more public IPv4 addresses and segment networks for security and easier management.`, 
+        link: new URL('https://man7.org/linux/man-pages/man7/ip.7.html')
       },
       {
         id: 13, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various Internet Protocol (IP) addresses for special purposes.`, 
+        link: new URL('https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml')
       },
       {
         id: 14, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `Ifup activates a network interface, making it available to transmit and receive data.
+        The ifdown command disables a network interface, placing it in a state where it cannot transmit or receive data.`, 
+        link: new URL('https://man7.org/linux/man-pages/man8/ifconfig.8.html')
       },
       {
         id: 15, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: `UID is a number associated with a user account and GID is a number associated with a group`, 
+        link: new URL('https://man7.org/linux/man-pages/man1/id.1.html')
       },
       {
         id: 16, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 17, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 18, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 19, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 20, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 21, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 22, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 23, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 24, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 25, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 26, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 27, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 28, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 29, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 30, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 31, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 32, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 33, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 34, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 35, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 36, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 37, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 38, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 39, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 40, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 41, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 42, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 43, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 44, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 45, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 46, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 47, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 48, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 49, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 50, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 51, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 52, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 53, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 54, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 55, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 56, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 57, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 58, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 59, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 60, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 61, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 62, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 63, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 64, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 65, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 66, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 67, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 68, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 69, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 70, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 71, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 72, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 73, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 74, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 75, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 76, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 77, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 78, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 79,
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 80, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 81, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 82, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 83, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 84, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 85, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 86, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 87, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 88, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 89, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 90, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 91, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 92, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 93, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 94, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 95, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 96, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 97, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 98, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 99, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 100, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 101, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 102, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 103, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 104, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 105, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 106, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 107, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 108, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 109, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 110, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 111, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 112, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 113, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 114, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 115, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 116, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 117, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 118, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 119, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       },
       {
         id: 120, 
-        info: `The Linux hostname command is used to view or change a system’s domain and hostname. It can also check a computer’s IP address.`, 
-        link: new URL('https://man7.org/linux/man-pages/man1/hostname.1.html')
+        info: ``, 
+        link: new URL('https://google.de')
       }
     ];
 

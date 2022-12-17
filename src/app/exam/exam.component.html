@@ -8,10 +8,10 @@
       </h2>
         <br>
         <div>
-          <button #settingsBtn class="ui small labeled icon button">
-            <i class="tasks icon black"></i>
-            Settings
-          </button>
+          <div #hardSlider (change)="hardMode()" class="ui toggle checkbox">
+            <input type="checkbox" name="newsletter">
+            <label>Hard</label>
+          </div>
           <button #startBtn (click)="startExam()" style="margin: 0 80px;" class="ui large labeled icon button">
             <i class="play icon black"></i>
             Start
@@ -24,6 +24,9 @@
         <div class="ui segment">
           <h3 *ngIf="examStart === false">Bitte Start drücken zum beginnen!</h3>
           <ltps-question *ngIf="examStart === true"></ltps-question>
+        </div>
+        <div id="centerBar">
+          <mat-progress-bar mode="determinate" [value]="this.cs.runVar" color="accent"></mat-progress-bar>
         </div>
     </div>
 </div>

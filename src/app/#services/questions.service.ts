@@ -686,192 +686,216 @@ export class QuestionsService {
       },
       {
         id: 94,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: `
+        Which parameter is missing in the command
+        ip link set ____ dev eth0
+        to activate the previously inactive network interface eth0? (Specify the parameter only without any
+        command, path or additional options.)`,
+        answers: ['up'],
+        type: 'typeIn',
+        solution: ['up']
       },
       {
         id: 95,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following states can NetworkManager show regarding the system\'s network connectivity? (Choose two.)',
+        answers: ['up', 'portal', 'full', 'login-required', 'firewalled'],
+        type: 'multi',
+        solution: ['portal', 'full']
       },
       {
         id: 96,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following are valid host addresses for the subnet 203.0.113.64/28? (Choose two.)',
+        answers: ['203.0.113.64', '203.0.113.78', '203.0.113.65', '203.0.113.80', '203.0.113.81'],
+        type: 'multi',
+        solution: ['203.0.113.78', '203.0.113.65']
       },
       {
         id: 97,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following keywords can be used in the file /etc/resolv.conf? (Choose two.)',
+        answers: ['substitute', 'lookup', 'search', 'nameserver', 'method'],
+        type: 'multi',
+        solution: ['search', 'nameserver']
       },
       {
         id: 98,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'How does the ping command work by default?',
+        answers: ['It sends an ICMP Echo Request to a remote host and waits to receive an ICMP Echo Response in return.', 'It sends an ARP request to a remote host and waits to receive an ARP response in return.', 'It sends a TCP SYN packet to a remote host and waits to receive an TCP ACK response in return.', 'It sends a broadcast packet to all hosts on the net and waits to receive, among others, a response from the target system.', 'It sends a UDP packet to port 0 of the remote host and waits to receive a UDP error response in return.'],
+        type: 'single',
+        solution: ['It sends an ICMP Echo Request to a remote host and waits to receive an ICMP Echo Response in return.']
       },
       {
         id: 99,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands displays the number of bytes transmitted and received via the eth0 network interface? (Choose two.)',
+        answers: ['route -v via eth0', 'ip stats show dev eth0', 'netstat -s -i eth0', 'ifconfig eth0', 'ip -s link show eth0'],
+        type: 'multi',
+        solution: ['ifconfig eth0', 'ip -s link show eth0']
       },
       {
         id: 100,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: `
+        Given the following routing table:
+        Kernel IP routing table
+        Destination   Gateway       Genmask       Flags Metric Ref Use Iface
+        0.0.0.0       192.168.178.1 0.0.0.0       UG    0      0   0   wlan0
+        192.168.1.0   0.0.0.0       255.255.255.0 U     0      0   0   eth0
+        192.168.2.0   192.168.1.1   255.255.255.0 U     0      0   0   eth0
+        192.168.178.0 0.0.0.0       255.255.255.0 U     9      0   0   wlan0
+
+        How would an outgoing packet to the destination 192.168.2.150 be handled?
+        `,
+        answers: ['It would be passed to the default router 192.168.178.1 on wlan0.', 'It would be directly transmitted on the device eth0.', 'It would be passed to the default router 255.255.255.0 on eth0.', 'It would be passed to the router 192.168.1.1 on eth0.', 'It would be directly transmitted on the device wlan0.'],
+        type: 'single',
+        solution: ['It would be passed to the router 192.168.1.1 on eth0.']
       },
       {
         id: 101,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands will delete the default gateway from the system\'s IP routing table? (Choose two.)',
+        answers: ['ifconfig unset default', 'route del default', 'ip route del default', 'netstat -r default', 'sysctl ipv4.default_gw=0'],
+        type: 'multi',
+        solution: ['route del default', 'ip route del default']
       },
       {
         id: 102,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: `
+        What command enables a network interface according to distribution-specific configuration, such as
+          /etc/network/interfaces
+        or 
+          /etc/sysconfig/network-scripts/ifcfg-eth0? 
+        (Specify only the command without any path or parameters.)
+        `,
+        answers: ['ifup'],
+        type: 'typeIn',
+        solution: ['ifup']
       },
       {
         id: 103,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is true about NetworkManager on a Linux system that uses its distribution\'s mechanisms to configure network interfaces? (Choose two.)',
+        answers: ['NetworkManager reconfigures all network interfaces to use DHCP unless they are specifically managed by NetworkManager.', 'NetworkManager must be explicitly enabled for each interface it should manage.', 'NetworkManager by default does not change interfaces which are already configured.', 'NetworkManager disables all interfaces which were not configured by NetworkManager.', 'NetworkManager can be configured to use the distribution\'s network interface configuration.'],
+        type: 'multi',
+        solution: ['NetworkManager by default does not change interfaces which are already configured.', 'NetworkManager can be configured to use the distribution\'s network interface configuration.']
       },
       {
         id: 104,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which standardized TCP port is used by HTTPS services?',
+        answers: ['25', '80', '8080', '443', '636'],
+        type: 'single',
+        solution: ['443']
       },
       {
         id: 105,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following environment variables can be defined in locale.conf? (Choose two.)',
+        answers: ['LC_ALL', 'LC_USERNAME', 'LC_UTF8', 'LC_GEOGRAPHY', 'LC_TIME'],
+        type: 'multi',
+        solution: ['LC_ALL', 'LC_TIME']
       },
       {
         id: 106,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following commands sets the system\'s time zone to the Canadian Eastern Time?',
+        answers: ['localegen -t -f /usr/share/zoneinfo/Canada/Eastern > /etc/locate.tz', 'tzconf /etc/localtime', 'sysctl -w clock.tz=\'Canada/Eastern\'', 'modprobe tz_ca_est', 'ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime'],
+        type: 'single',
+        solution: ['ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime']
       },
       {
         id: 107,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What option to useradd creates a new user\'s home directory and provisions it with a set of standard files? (Specify only the option name without any values or parameters.)',
+        answers: ['-m'],
+        type: 'typeIn',
+        solution: ['-m']
       },
       {
         id: 108,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'How can a specific user be prevented from scheduling tasks with at?',
+        answers: ['By adding the specific user to the /etc/at.allow file.', 'By adding the specific user to the [deny] section in the /etc/atd.conf file.', 'By adding the specific user to the nojobs group.', 'By adding the specific user to the /etc/at.deny file.', 'By executing the atd --deny [user] command.'],
+        type: 'single',
+        solution: ['By adding the specific user to the /etc/at.deny file.']
       },
       {
         id: 109,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which file contains the data of the last change of a user\'s password?',
+        answers: ['/etc/gshadow', '/etc/passwd', '/etc/pwdlog', '/var/log/shadow', '/etc/shadow'],
+        type: 'single',
+        solution: ['/etc/shadow']
       },
       {
         id: 110,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following fields can be found in the /etc/group file? (Choose two.)',
+        answers: ['The home directory of the group.', 'The list of users that belong to the group.', 'The name of the group.', 'The default group ACL.', 'The description of the group.'],
+        type: 'multi',
+        solution: ['The list of users that belong to the group.', 'The name of the group.']
       },
       {
         id: 111,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following sections exists in a systemd timer unit?',
+        answers: ['[Events]', '[Timer]', '[cron]', '[Schedule]', '[Trigger]'],
+        type: 'single',
+        solution: ['[Timer]']
       },
       {
         id: 112,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following getent invocations lists all existing users?',
+        answers: ['getent homes', 'getent uids', 'getent passwd', 'getent users', 'getent logins'],
+        type: 'single',
+        solution: ['getent passwd']
       },
       {
         id: 113,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: `
+        Given the following user's crontab entry:
+          15 14 * * 1-5 /usr/local/bin/example.sh
+        When will the script /usr/local/bin/example.sh be executed?
+        `,
+        answers: ['At 14:15 local time, January till May.', 'At 15:14 local time, 1st to 5th day of month.', 'At 14:15 local time, February till June.', 'At 14:15 local time, 1st to 5th day of month.', 'At 14:15 local time, Monday to Friday'],
+        type: 'single',
+        solution: ['At 14:15 local time, Monday to Friday']
       },
       {
         id: 114,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'If neither cron.allow nor cron.deny exist in /etc/, which of the following is true?',
+        answers: ['Without additional configuration, all users may create user specific crontabs.', 'Without additional configuration, only root may create user specific crontabs.', 'The cron daemon will refuse to start and report missing files in the system\'s logfile.', 'When a user creates a user specific crontab the system administrator must approve it explicitly.', 'The default settings of /etc/crond.conf define whether or not user specific crontabs are generally allowed or not.'],
+        type: 'single',
+        solution: ['Without additional configuration, only root may create user specific crontabs.']
       },
       {
         id: 115,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What is the purpose of the iconv command?',
+        answers: ['It converts bitmap images from one format to another such as PNG to JPEG.', 'It verifies that the root directory tree compiles to all conventions from the Filesystem Hierarchy Standard (FHS).', 'It converts files from one character set to an other.', 'It changes the mode of an inode in the ext4 filesystem.', 'It displays additional meta information from icon files ending in .ico.'],
+        type: 'single',
+        solution: ['It converts files from one character set to an other.']
       },
       {
         id: 116,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which character in the password field of /etc/passwd is used to indicate that the encrypted password is stored in /etc/shadow?',
+        answers: ['*', '!', 's', '#', 'x'],
+        type: 'single',
+        solution: ['x']
       },
       {
         id: 117,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'What does the term Braille Display refer to?',
+        answers: ['A standardized high contract graphical theme for desktop applications?', 'A Linux desktop environment similar to KDE and GNOME.', 'A legacy display technology superseded by LCD.', 'A physical representation of characters using small dots.', 'A standard file format for data exchange, similar to XML.'],
+        type: 'single',
+        solution: ['A physical representation of characters using small dots.']
       },
       {
         id: 118,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which environment variable is used by an X11 client to determine the X Server to connect to? (Specify only the variable name without any preceding commands or values.)',
+        answers: ['DISPLAY'],
+        type: 'typeIn',
+        solution: ['DISPLAY']
       },
       {
         id: 119,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following tasks are handled by a display manager like XDM or KDM? (Choose two.)',
+        answers: ['Configure additional devices like new monitors or projectors when they are attached.', 'Start and prepare the desktop environment for the user.', 'Create an X11 configuration file for the current graphic devices and monitors.', 'Lock the screen when the user was inactive for a configurable amount of time.', 'Handle the login of a user.'],
+        type: 'multi',
+        solution: ['Start and prepare the desktop environment for the user.', 'Handle the login of a user.']
       },
       {
         id: 120,
-        question: '',
-        answers: ['', '', '', '', ''],
-        type: '',
-        solution: ['', '']
+        question: 'Which of the following protocols is designed to access the video card output of a virtual machine?',
+        answers: ['KDE', 'X11', 'Xfce', 'SPICE', 'XDMCP'],
+        type: 'single',
+        solution: ['SPICE']
       }
     ];
 

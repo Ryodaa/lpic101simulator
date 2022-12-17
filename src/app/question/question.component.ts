@@ -16,7 +16,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
   // Variablen Deklarationen
 
   finishFlag: Boolean = false; 
-  finishBtn: Boolean = false;                                                 // Bestimmt ob der Result-screen sichtbar ist oder nicht.
+  finishBtn: Boolean = false;                                                   // Bestimmt ob der Result-screen sichtbar ist oder nicht.
   questions!: Question[];                                                       // Alle fragen aus dem Questions.service.
   currentRoute: string = this.route.url;                                        // aktuelle Route als string. 
   clickedInfoBtn!: number;                                                      // Ist gleich der aktuellen question.id.
@@ -80,15 +80,15 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 
   // Funktionen zum disablen der Pfeil-Buttons
   dsblNxtBtn(): void {
-    if(this.cs.runVar > 0 && this.cs.runVar < 119) {                                     // Wenn runVar größer als 0 ist wird der Button enabled.
+    if(this.cs.runVar > 0 && this.cs.runVar < 119) {              // Wenn runVar größer als 0 ist wird der Button enabled.
       this.previousArw.nativeElement.className = this.enabled;
     }
-    if (this.finishBtn === true) {                // Wenn runVar größer oder gleich der anzahl aller Fragen ist, so wird der Button disabled. 
+    if (this.finishBtn === true) {                                // Wenn runVar größer oder gleich der anzahl aller Fragen ist, so wird der Button disabled. 
       this.nextArw.nativeElement.className = this.disabled;
     }
   }
   dsblPreBtn(): void {
-    if(this.cs.runVar === 0) {                                   // Wenn runVar === 0 ist, so wird der Button disabled da es keine Frage vor index 0 gibt.
+    if(this.cs.runVar === 0) {                                    // Wenn runVar === 0 ist, so wird der Button disabled da es keine Frage vor index 0 gibt.
       this.previousArw.nativeElement.className = this.disabled;
     }
     if (this.cs.runVar < this.questions.length - 1) {             // Solange runVar kleiner ist als die anzahl aller Fragen, bleibt der Button enabled.
@@ -103,18 +103,18 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 
     let multiWrong = 0
 
-    if(this.questions[this.cs.runVar - 1].type !== 'multi') {
+    if(this.questions[this.cs.runVar - 1].type !== 'multi') {                   // Für Fragen mit einzelnen Antworten
       if(this.questions[this.cs.runVar - 1].solution[0] !== this.answersArr[this.cs.runVar - 1].answerArr[0]) {
         this.cs.liveWrongCount++;
         this.cs.wrongBool = true;
       }
-    } else {
+    } else {                                                                    // Für Fragen mit mehreren Antrworten
       this.answersArr[this.cs.runVar - 1].answerArr.forEach(answer => {
         if(!this.questions[this.cs.runVar - 1].solution.includes(answer)) {
           multiWrong++;
         }
       })
-      if(multiWrong > 0) {
+      if(multiWrong > 0) { 
         this.cs.liveWrongCount++;
         this.cs.wrongBool = true;
       }
@@ -130,6 +130,8 @@ export class QuestionComponent implements OnInit, AfterViewInit {
       this.cs.runVar++;
       if(this.answersArr[this.cs.runVar - 1].answerArr[0]) {
         this.currIncorr();
+      } else {
+        this.cs.hardLifes--;
       }
       if(this.cs.lifes > 0 && this.cs.wrongBool === true) {
         this.cs.lifes--;
@@ -140,12 +142,17 @@ export class QuestionComponent implements OnInit, AfterViewInit {
         this.cs.cancelBool = true;
       }
     }
+    this.cs.uncheckFlag = false;
     this.dsblNxtBtn();
   }
-
   previousQuestion(): void  {
     this.cs.runVar--;
-    this.dsblPreBtn();
+    if(this.cs.hardFlag === false) {
+      this.dsblPreBtn();
+    }
+    if(this.cs.uncheckFlag === false && this.as.answers[this.cs.runVar].answerArr.length > 0) {
+      this.cs.uncheckFlag = true;
+    }
   }
 
   // Übergibt die ID der aktuellen Frage an die Info box so das diese auch die passende Info anzeigt.
@@ -160,11 +167,14 @@ export class QuestionComponent implements OnInit, AfterViewInit {
     this.finishBtn = false;
   }
 
+// Hier kommt das gesammte verarbeitete Antwort-Array aus der Result Komponente an.
+// Keine schöne Lösung, Service wäre besser, aber keine Zeit es umzuschreiben.
   resultReciever(emit: any): void {
     this.checkedAnswers = emit;
   }
 
-  showFinBtn(): void {
+// Button der nur erscheint wenn die Letzte Frage beantwortet wurde.
+  showFinBtn(): void {                  
     this.finishBtn = true;
     this.dsblNxtBtn();
   }

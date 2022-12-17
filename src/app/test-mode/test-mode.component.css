@@ -1,3 +1,16 @@
 #cont {
-    background-color: rgb(243, 243, 243); height: 90vh; 
+    background-color: rgb(243, 243, 243); height: 90vh;
+}
+
+#centerBar {
+    text-align: left;
+    position: relative;
+    top: -10px;
+    width: 98%;
+    display: inline-block;
+}
+
+#btnsTest {
+    position: relative;
+    left: 50px;
 }

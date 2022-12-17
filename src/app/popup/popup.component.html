@@ -33,7 +33,40 @@
   </div>
 </div>
 
-<div *ngIf="this.route.url === '/exam'">
+<div *ngIf="this.route.url === '/testmode' && cs.popBool === true && cs.lifes > 0">
+  <div class="ui raised segment">
+
+    <div class="ui orange top attached label">
+      Warnung
+      <a>
+        <i (click)="closePopup()" class="ui icon delete icon" style="float: right;"></i>
+      </a>
+    </div>
+
+    <div class="insideWrapper">
+
+      <div>
+        Fehler! <br>
+        Antworte nur wenn du dir <i style="color: green;">200%</i> sicher bist. <br>
+      </div>
+
+      <div class="ui divider"></div>
+
+      <button (click)="closePopup()" class="ui labeled icon button">
+        <i class="play icon black"></i>
+        Weiter
+      </button>
+
+      <button (click)="cs.resetAll()" [routerLink]="['/learn']" class="ui labeled icon button">
+        <i class="book icon black"></i>
+        Lernmodus
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="this.route.url === '/exam' && this.cs.hardFlag === false">
   <div class="ui raised segment">
 
 
@@ -74,33 +107,40 @@
 </div>
 
 
-<div *ngIf="this.route.url === '/testmode' && cs.popBool === true && cs.lifes > 0">
+<div *ngIf="this.route.url === '/exam' && this.cs.hardFlag === true">
   <div class="ui raised segment">
 
-    <div class="ui orange top attached label">
-      Warnung
-      <a>
-        <i (click)="closePopup()" class="ui icon delete icon" style="float: right;"></i>
+
+    <div class="ui red top attached label">Warnung
+      <a (click)="cs.resetAll()" [routerLink]="['/exam']">
+        <i class="ui icon delete icon" style="float: right;"></i>
       </a>
     </div>
 
     <div class="insideWrapper">
 
       <div>
-        Fehler! <br>
-        Antworte nur wenn du dir <i style="color: green;">200%</i> sicher bist. <br>
+        Fehler!!!
+        Bitte übe noch ein wenig.
       </div>
 
       <div class="ui divider"></div>
 
-      <button (click)="closePopup()" class="ui labeled icon button">
-        <i class="play icon black"></i>
-        Weiter
+      <button (click)="cs.resetAll()" [routerLink]="['/testmode']" class="ui labeled icon button">
+        <i class="thumbtack icon black"></i>
+        Übungsmodus
       </button>
 
       <button (click)="cs.resetAll()" [routerLink]="['/learn']" class="ui labeled icon button">
         <i class="book icon black"></i>
         Lernmodus
+      </button>
+
+      <div style="padding-bottom: 8px;"></div> <!-- spacer -->
+
+      <button (click)="cs.resetAll()" class="ui labeled icon button">
+        <i class="redo icon black"></i>
+        Erneut versuchen
       </button>
 
     </div>

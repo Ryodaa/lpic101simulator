@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountingService } from '../#services/counting.service';
 
 @Component({
@@ -6,10 +6,14 @@ import { CountingService } from '../#services/counting.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
   constructor(
     public cs: CountingService
     ) {}
+
+    ngOnInit(): void {
+      this.cs.hardFlag = false;
+    }
 
 }

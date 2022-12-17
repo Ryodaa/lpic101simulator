@@ -7,11 +7,7 @@
         </div>
       </h2>
         <br>
-        <div>
-          <button #settingsBtn class="ui small labeled icon button">
-            <i class="tasks icon black"></i>
-            Settings
-          </button>
+        <div id="btnsTest">
           <button #startBtn (click)="startTest()" style="margin: 0 80px;" class="ui large labeled icon button">
             <i class="play icon black"></i>
             Start
@@ -25,11 +21,8 @@
           <h3 *ngIf="testStart === false">Bitte Start drücken zum beginnen!</h3>
           <ltps-question *ngIf="testStart === true"></ltps-question>
         </div>
-        <div class="ui progress success">
-            <div class="bar">
-              <div class="progress"></div>
-            </div>
-            <div class="label">Fehlerquote</div>
+        <div id="centerBar">
+          <mat-progress-bar style="text-align: left;" mode="determinate" [value]="this.cs.runVar" color="accent"></mat-progress-bar>
         </div>
 
     </div>

@@ -11,10 +11,12 @@ export class CountingService {
   wrong: number = 0;
   runVar: number = 0;
   lifes: number = 7;
+  hardLifes: number = 1;
   uncheckFlag: Boolean = false;
   popBool: Boolean = false;
   cancelBool: Boolean = false;
   wrongBool: Boolean = false;
+  hardFlag: Boolean = false;
 
   constructor(
     private as: AnswersService
@@ -28,6 +30,7 @@ export class CountingService {
     this.wrong = 0;
     this.runVar = 0;
     this.lifes = 7;
+    this.hardLifes = 1;
     this.uncheckFlag = false;
     this.popBool = false;
     this.cancelBool = false;
@@ -36,6 +39,6 @@ export class CountingService {
       element.answerArr = [];
     });
   }
-
+  
 }
 

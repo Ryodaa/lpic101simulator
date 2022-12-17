@@ -67,13 +67,13 @@ export class SingleChoiceComponent implements OnInit, OnChanges {
     this.cs.uncheckFlag = true;
   }
 
-  unCheck() {
-
-    this.answerChildren.forEach(element => {
-      
-      if(element.nativeElement.checked === true && this.cs.uncheckFlag === true) {
-        element.nativeElement.checked = false;
-      }
+  unCheck(): void {                                                                   // Clickt der User auf einen Radio Button 
+                                                                                      // So erscheint ein Button der es erlaubt den
+    this.answerChildren.forEach(element => {                                          // check wieder raus zu nehmen.
+      if(element.nativeElement.checked === true && this.cs.uncheckFlag === true) {    // Ist nicht dier schönste Lösung aber
+        element.nativeElement.checked = false;                                        // Zeitmangel erlaubt es mir nicht eine
+        this.as.answers[this.cs.runVar].answerArr = [];                               // schönere Lösung zu integrieren (obwohl möglich).
+      }                                                                               // Funktion leert außerdem das Antwort-Array.
       
     });
     this.cs.uncheckFlag = false;

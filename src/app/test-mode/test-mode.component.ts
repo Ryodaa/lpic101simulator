@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CountingService } from '../#services/counting.service';
 
@@ -7,13 +7,16 @@ import { CountingService } from '../#services/counting.service';
   templateUrl: './test-mode.component.html',
   styleUrls: ['./test-mode.component.css']
 })
-export class TestModeComponent {
+export class TestModeComponent implements OnInit {
 
   testStart: boolean = false;
   state: string = 'Zurück';
 
   @ViewChild('startBtn') startBtn!: ElementRef;
-  @ViewChild('settingsBtn') settingsBtn!: ElementRef;
+
+  ngOnInit(): void {
+    this.cs.hardFlag = false;
+  }
 
   constructor(
     private router: Router,
@@ -25,7 +28,6 @@ export class TestModeComponent {
       this.testStart = true;
       this.state = 'Abbrechen';
       this.startBtn.nativeElement.className = 'ui large labeled icon button disabled';
-      this.settingsBtn.nativeElement.className = 'ui small labeled icon button disabled';
     }
   }
 
@@ -34,12 +36,13 @@ export class TestModeComponent {
       this.testStart = false;
       this.state = 'Zurück';
       this.startBtn.nativeElement.className = 'ui large labeled icon button'
-      this.settingsBtn.nativeElement.className = 'ui small labeled icon button';
       this.cs.resetAll();
     } else {
       this.router.navigate(['/home']);
       this.cs.resetAll();
     }
   }
+
+  
 
 }
