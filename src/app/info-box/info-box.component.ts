@@ -12,12 +12,15 @@ import { QuestionsService } from '../#services/questions.service';
 })
 export class InfoBoxComponent {
   
-  infoDetail!: Info[] // Infos zu den Fragen aus dem info-service
-  questions!: Question[]; // Alle Fragen aus dem question-service
-  @Input() childIdBox!: number; // Die id aus der learn-mode Komponente runter gereicht
-  @Input() laufVarCpBox!: number; // Die laufVar aus der question Komponente
+  infoDetail!: Info[]               // Infos zu den Fragen aus dem info-service
+  questions!: Question[];           // Alle Fragen aus dem question-service
+  @Input() childIdBox!: number;     // Die id aus der learn-mode Komponente runter gereicht
+  @Input() laufVarCpBox!: number;   // Die laufVar aus der question Komponente
 
-  constructor(private is: InfoService, private qs: QuestionsService) { }
+  constructor(
+    private is: InfoService, 
+    private qs: QuestionsService
+    ) { }
 
   ngOnInit(): void {
     this.infoDetail = this.is.getAllInfo();

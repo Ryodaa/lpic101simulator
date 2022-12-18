@@ -108,7 +108,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
         this.cs.liveWrongCount++;
         this.cs.wrongBool = true;
       }
-    } else {                                                                    // Für Fragen mit mehreren Antrworten
+    } else {                                                                    // Für Fragen mit mehreren Antworten
       this.answersArr[this.cs.runVar - 1].answerArr.forEach(answer => {
         if(!this.questions[this.cs.runVar - 1].solution.includes(answer)) {
           multiWrong++;

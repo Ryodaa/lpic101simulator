@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CountingService } from '../#services/counting.service';
 
@@ -7,7 +7,7 @@ import { CountingService } from '../#services/counting.service';
   templateUrl: './exam.component.html',
   styleUrls: ['./exam.component.css']
 })
-export class ExamComponent implements OnDestroy {
+export class ExamComponent {
 
   examStart: Boolean = false;
   state: string = 'Zurück';
@@ -20,9 +20,6 @@ export class ExamComponent implements OnDestroy {
     public cs: CountingService
     ) {}
 
-  ngOnDestroy(): void {
-    // this.hardSlider.nativeElement.firstElementChild.checked = false;
-  }
 
   startExam(): void {
     if (this.examStart === false) {

@@ -22,8 +22,8 @@ export class QuestionListComponent implements OnInit {
   Dies ist notwendig da durch das neu laden der ngFor wieder von vorne beginnt und dadurch
   clickedInfoBtn wieder auf undefined gesetzt wird und somit der Button wieder auf neutral ist. */
   
-  clickedInfoBtn!: number; // Ist gleich der aktuellen question.id
-  questions!: Question[]; // Fragen Array aus dem Questions-service
+  clickedInfoBtn!: number;  // Ist gleich der aktuellen question.id
+  questions!: Question[];   // Fragen Array aus dem Questions-service
 
   constructor(private qs: QuestionsService) {}
   
