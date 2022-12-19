@@ -5,9 +5,8 @@
         <h4>Für die Linux LPIC-101 Prüfung</h4>
         <br>
         <p>Wilkommen im Lern Test Prüf Simulator! (LTPF)</p>
-        <p>Diese App dient der Vorbereitung zur LPIC-101 Prüfung vom Linux Professional Institute und hilft dir dabei das Gelernte wirklich zu verstehen und nicht nur auswendig zu lernen.</p>
-        <p>Bitte besuchen Sie unsere <a [routerLink]="['/help']">Hilfe</a> Sektion für weitere Fragen.</p>
-        <p>Viel Erfolg beim Lernen!</p>
+        <p>Diese App dient der Vorbereitung zur LPIC-101 Prüfung vom Linux Professional Institute und hilft dir dabei das Gelernte wirklich zu verstehen und nicht nur auswendig zu lernen.</p><br>
+        <b><p>Viel Erfolg beim Lernen!</p></b>
         <br>
         <div>
           <button (click)="this.cs.resetAll()" [routerLink]="['/exam']" class="ui labeled icon button">
@@ -16,7 +15,7 @@
           </button>
           <button (click)="this.cs.resetAll()" [routerLink]="['/testmode']" class="ui labeled icon button">
             <i class="thumbtack icon black"></i>
-            Testlauf
+            Übung
           </button>
           <button (click)="this.cs.resetAll()" [routerLink]="['/learn']" class="ui labeled icon button">
             <i class="book icon black"></i>

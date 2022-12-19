@@ -17,7 +17,8 @@
 
   <div class="items right menu">
 
-    <div style="color: white;">
+    <!-- Debug Variablen -->
+    <!-- <div style="color: white;">
       <div>
         {{ this.cs.runVar }}: runVar
       </div>
@@ -30,7 +31,7 @@
       <div>
         hardFlag : {{ this.cs.hardFlag }}
       </div>
-    </div>
+    </div> -->
 
     <a (click)="togglePopper()">
       <div class="ui small icon button black">
@@ -45,12 +46,6 @@
             href="https://github.com/Ryodaa/">github.com/Ryodaa</a></p>
       </div>
     </div>
-
-    <a [routerLink]="['/help']">
-      <div class="ui icon button black">
-        <i  class="grey help link icon"></i>
-      </div>
-    </a>
 
   </div>
 </div>
