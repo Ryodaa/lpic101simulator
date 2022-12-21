@@ -105,6 +105,9 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 
     if(this.questions[this.cs.runVar - 1].type !== 'multi') {                   // Für Fragen mit einzelnen Antworten
       if(this.questions[this.cs.runVar - 1].solution[0] !== this.answersArr[this.cs.runVar - 1].answerArr[0]) {
+        if(this.cs.hardFlag === true) {
+          this.cs.hardLifes--;
+        }
         this.cs.liveWrongCount++;
         this.cs.wrongBool = true;
       }
@@ -114,16 +117,22 @@ export class QuestionComponent implements OnInit, AfterViewInit {
           multiWrong++;
         }
       })
-      if(multiWrong > 0) { 
+      if(multiWrong > 0) {
+        if(this.cs.hardFlag === true) {
+          this.cs.hardLifes--;
+        }
         this.cs.liveWrongCount++;
         this.cs.wrongBool = true;
       }
       if(this.answersArr[this.cs.runVar - 1].answerArr.length < this.questions[this.cs.runVar - 1].solution.length && multiWrong === 0) {
+        if(this.cs.hardFlag === true) {
+          this.cs.hardLifes--;
+        }
         this.cs.liveWrongCount++;
         this.cs.wrongBool = true;
       }
+    }
     }  
-  }
 
   nextQuestion(): void  {
     if(this.cs.runVar < 120) {
