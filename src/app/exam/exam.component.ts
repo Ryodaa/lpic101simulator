@@ -20,7 +20,6 @@ export class ExamComponent {
     public cs: CountingService
     ) {}
 
-
   startExam(): void {
     if (this.examStart === false) {
       this.examStart = true;
@@ -44,7 +43,6 @@ export class ExamComponent {
       this.cs.resetAll();
     }
   }
-
 
   hardMode(): void {
     if(this.hardSlider.nativeElement.firstElementChild.checked) {
